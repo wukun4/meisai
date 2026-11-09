@@ -1,0 +1,33 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Background}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Problem Restatement}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Our Modeling Framework}{2}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Assumptions and Justifications}{3}{section.2}%
+\contentsline {section}{\numberline {3}Nomenclature}{5}{section.3}%
+\contentsline {section}{\numberline {4}Freezer: service efficiency}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}A shared physical structure}{6}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Bus shelter}{6}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Geometry and comparison inputs}{6}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}From device outlet to occupied air}{7}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}A common response and efficiency measure}{8}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Results: humidity and spatial delivery}{9}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Delivery failure and robustness}{10}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Extreme dry heat: testing the efficiency ranking}{10}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Rail station}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}From a fixed reservoir to coupled zones}{11}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Local delivery with exact return accounting}{12}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Counts, coverage and efficiency}{13}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Deployment results and verification}{13}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Venue applications and scale}{15}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Two service areas, a 140-fold difference in size}{15}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Transfer the physical kernel, then aggregate service}{15}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Climate changes the relative value of the devices}{17}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Controlled scaling and the finite-footprint limit}{18}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Cooling effectiveness}{19}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Performance, access, energy and annual cost}{19}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}An integer minimum-cost service policy}{19}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Threshold sensitivity changes the recommendation}{20}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Strengths, weaknesses and extensions}{21}{section.9}%
+\contentsline {section}{Memorandum to the COO}{22}{Item.12}%
+\contentsline {section}{Public blog}{23}{Item.12}%
+\contentsline {section}{References}{24}{section*.24}%

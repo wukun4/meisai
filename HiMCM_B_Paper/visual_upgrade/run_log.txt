@@ -1,0 +1,48 @@
+Spatial figure complete
+Climate figure complete
+Service/radar figure complete
+{
+  "source_files_unchanged_before": true,
+  "spatial": [
+    {
+      "plan": "Baseline",
+      "time_min": 117.83333333333333,
+      "grid": "300 x 100",
+      "min_t": 33.86526759894618,
+      "max_t": 35.224804184335504,
+      "min_set": 36.09388579186614,
+      "max_set": 37.143475375499285,
+      "devices": 0
+    },
+    {
+      "plan": "AB30",
+      "time_min": 117.83333333333333,
+      "grid": "300 x 100",
+      "min_t": 32.83561412590895,
+      "max_t": 34.74504049303626,
+      "min_set": 34.3370276300224,
+      "max_set": 36.747967076149735,
+      "devices": 30
+    },
+    {
+      "plan": "AB30-R",
+      "time_min": 117.83333333333333,
+      "grid": "300 x 100",
+      "min_t": 32.75134549425921,
+      "max_t": 35.13299151536268,
+      "min_set": 34.3233951301505,
+      "max_set": 36.983760479518615,
+      "devices": 30
+    }
+  ],
+  "climate": {
+    "samples": 77,
+    "period": "25-year Meteorological and Solar Monthly & Annual Climatologies (January 2001 - December 2025)",
+    "min_depression": 1.0631840169770435,
+    "max_depression": 15.504593559642132
+  },
+  "service_identity_max_abs": 0.0,
+  "radar_rows": 8,
+  "source_files_unchanged_after": true,
+  "frozen_file_count": 74
+}

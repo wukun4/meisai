@@ -1,0 +1,119 @@
+{
+  "checks": {
+    "benefit_plus_residual_equals_baseline": true,
+    "empty_shelter_zero_service_positive_energy": true,
+    "doubling_population_doubles_efficiency_preserves_rank": true,
+    "zero_delivered_effect_zero_service": true,
+    "all_local_states_unsaturated": true,
+    "negative_benefit_retained": true,
+    "no_credit_for_cooling_already_comfortable": true,
+    "unified_map_recovers_original_bus_results": true
+  },
+  "versions": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pythermalcomfort": "4.8.1",
+    "psychrolib": "2.5.0",
+    "matplotlib": "3.11.2"
+  },
+  "nominal_uniform": [
+    {
+      "climate_rh": 0.3,
+      "occupancy": "Uniform",
+      "device": "A",
+      "people": 12.0,
+      "service_person_c_h": 21.144026075227558,
+      "energy_kwh": 0.25,
+      "efficiency": 84.57610430091023,
+      "residual_person_c_h": 52.85471908858345,
+      "mean_residual_c": 4.404559924048621,
+      "mean_benefit_c": 1.7620021729356299,
+      "baseline_set_c": 32.16656209698425
+    },
+    {
+      "climate_rh": 0.3,
+      "occupancy": "Uniform",
+      "device": "B",
+      "people": 12.0,
+      "service_person_c_h": 29.41254687322852,
+      "energy_kwh": 1.2,
+      "efficiency": 24.510455727690434,
+      "residual_person_c_h": 44.58619829058249,
+      "mean_residual_c": 3.7155165242152073,
+      "mean_benefit_c": 2.4510455727690434,
+      "baseline_set_c": 32.16656209698425
+    },
+    {
+      "climate_rh": 0.3,
+      "occupancy": "Uniform",
+      "device": "C",
+      "people": 12.0,
+      "service_person_c_h": 52.84078139603062,
+      "energy_kwh": 2.5,
+      "efficiency": 21.13631255841225,
+      "residual_person_c_h": 21.157963767780387,
+      "mean_residual_c": 1.7631636473150323,
+      "mean_benefit_c": 4.4033984496692185,
+      "baseline_set_c": 32.16656209698425
+    },
+    {
+      "climate_rh": 0.7,
+      "occupancy": "Uniform",
+      "device": "A",
+      "people": 12.0,
+      "service_person_c_h": 22.64216699536658,
+      "energy_kwh": 0.25,
+      "efficiency": 90.56866798146632,
+      "residual_person_c_h": 111.92523463819958,
+      "mean_residual_c": 9.327102886516633,
+      "mean_benefit_c": 1.8868472496138817,
+      "baseline_set_c": 37.213950136130514
+    },
+    {
+      "climate_rh": 0.7,
+      "occupancy": "Uniform",
+      "device": "B",
+      "people": 12.0,
+      "service_person_c_h": 25.339552617236876,
+      "energy_kwh": 1.2,
+      "efficiency": 21.1162938476974,
+      "residual_person_c_h": 109.22784901632929,
+      "mean_residual_c": 9.102320751360773,
+      "mean_benefit_c": 2.11162938476974,
+      "baseline_set_c": 37.213950136130514
+    },
+    {
+      "climate_rh": 0.7,
+      "occupancy": "Uniform",
+      "device": "C",
+      "people": 12.0,
+      "service_person_c_h": 37.92537364399584,
+      "energy_kwh": 2.5,
+      "efficiency": 15.170149457598336,
+      "residual_person_c_h": 96.64202798957032,
+      "mean_residual_c": 8.053502332464193,
+      "mean_benefit_c": 3.16044780366632,
+      "baseline_set_c": 37.213950136130514
+    }
+  ],
+  "decision_grid_winner_counts": {
+    "A": 2591,
+    "B": 520,
+    "C": 0
+  },
+  "decision_grid_note": "Counts describe an artificial uniform grid, not probabilities.",
+  "fan_thresholds": [
+    {
+      "rh": 0.30000000000000004,
+      "minimum_grid_q_for_A": 0.18
+    },
+    {
+      "rh": 0.7000000000000002,
+      "minimum_grid_q_for_A": 0.16
+    }
+  ],
+  "maximum_sensitivity_ratios": {
+    "B": 0.43168634709898646,
+    "C": 0.37225980866505803
+  }
+}

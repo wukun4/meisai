@@ -1,0 +1,110 @@
+[
+  {
+    "path": "README_使用说明.txt",
+    "before": "aa865c8d36e89710d58c68ec99d837397eff2a328fc98da392137d583fa9a8c2",
+    "sha256": "52e9fece67cc13032c17372a089b8f194c7227aa481b3edd12d79b6c9ac3b7e2",
+    "conflict": false
+  },
+  {
+    "path": "HiMCM-MidMCM_Summary.tex",
+    "before": "17a611658b71e66292a4a1cdd61aee619cd54366587708cddfab0a16e60e2bd3",
+    "sha256": "4403e8176da3103a764d9c348144d867bb61f462351af7be428177508457aebd",
+    "conflict": false
+  },
+  {
+    "path": "HiMCM-MidMCM_Summary.pdf",
+    "before": "35d04a14e281d687bb443ff11c81bb7fb28d617fa67bd244061aa60c24bd5db7",
+    "sha256": "9e4dca379da71610da5327d9f7a8920b7a4c3fa5e7c98f013223e0627f16f153",
+    "conflict": false
+  },
+  {
+    "path": "sections/rail_model.tex",
+    "before": "c40841e7b9081fee1f2149903ebf2c84b507bda78c05f60412470951306a001e",
+    "sha256": "7d1fbd47c7d30442d70fde25b934899b54fd9e6188571e31cd5b7d9802594ce3",
+    "conflict": false
+  },
+  {
+    "path": "figure_sources/make_canberra_station.py",
+    "before": null,
+    "sha256": "47f227efe0541a81ef76ed2ce47fbab6022d14e7ce1a325c73307f8c35154127",
+    "conflict": false
+  },
+  {
+    "path": "figure_sources/canberra_station_original.png",
+    "before": null,
+    "sha256": "c5e9fd14cbeb9db2432c0f3f0f4c7e5cd31375e41df5048545ce8fb15ef8e097",
+    "conflict": false
+  },
+  {
+    "path": "figures/16_deployment_coverage.pdf",
+    "before": null,
+    "sha256": "05277086d6ec5d2c65bd6d7c458f6e54728bb33ad2f6473bbb3c42959a41c37e",
+    "conflict": false
+  },
+  {
+    "path": "figures/13_canberra_station.pdf",
+    "before": null,
+    "sha256": "a61a0f135947a3106a265f5d08821be04b0e6b38b02cb91434c1f817d8102c74",
+    "conflict": false
+  },
+  {
+    "path": "figures/14_deployment_tradeoff.pdf",
+    "before": null,
+    "sha256": "e893436041362b5cab540fe8f7c8b11c4db326ac01b6b8be05407cea06f1a681",
+    "conflict": false
+  },
+  {
+    "path": "figures/15_deployment_mix.pdf",
+    "before": null,
+    "sha256": "6f3d2d591b0c16f5b054f5281f5e416ca7139d3a91f21734fc41f328cbc826c3",
+    "conflict": false
+  },
+  {
+    "path": "deployment_model/simulate_deployment.py",
+    "before": null,
+    "sha256": "af89403ad8e3633b2250c2dc1b05177a9391a25e705cc528bb4bc2f9e4655d45",
+    "conflict": false
+  },
+  {
+    "path": "deployment_model/timestep_convergence.csv",
+    "before": null,
+    "sha256": "95ef89dd58ef20cb67528889fdcd5e47480a9f5ac1f065bd2438013dd43aec74",
+    "conflict": false
+  },
+  {
+    "path": "deployment_model/time_series.csv",
+    "before": null,
+    "sha256": "dc79cad2561bdf397d12491a72437853b5851b93405c96d41b2e4078974e7fc9",
+    "conflict": false
+  },
+  {
+    "path": "deployment_model/scenario.json",
+    "before": null,
+    "sha256": "1ce809d31aa03cc49d298fff413b3c6fe15d18ddb5eb79c734e34303e2c444ac",
+    "conflict": false
+  },
+  {
+    "path": "deployment_model/README.txt",
+    "before": null,
+    "sha256": "25276ad08f4d35a52c3a88855b9b216d617b5001706231f4b3041fc822c79377",
+    "conflict": false
+  },
+  {
+    "path": "deployment_model/results_summary.json",
+    "before": null,
+    "sha256": "8360837bd379a565f063ec74ea367df6e7109b838b1a9b1f16974006f870d28a",
+    "conflict": false
+  },
+  {
+    "path": "deployment_model/coverage_sensitivity.csv",
+    "before": null,
+    "sha256": "e94dfd4f347feaffcdf7cf10ca73c4311be0fa81fdbfa9d16ba4311c70bf486a",
+    "conflict": false
+  },
+  {
+    "path": "deployment_model/candidate_results.csv",
+    "before": null,
+    "sha256": "364893db86cee2e4752ade243251eb959db1ace6c13b2019744f4a6db2de2c4e",
+    "conflict": false
+  }
+]

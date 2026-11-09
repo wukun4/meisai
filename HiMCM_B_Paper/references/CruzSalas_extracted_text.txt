@@ -1,0 +1,955 @@
+                                                                         Energy & Buildings 366 (2026) 117700
+
+
+                                                                       Contents lists available at ScienceDirect
+
+
+                                                                           Energy & Buildings
+                                                             journal homepage: www.elsevier.com/locate/enbuild
+
+
+
+
+Mist evaporative cooling system with natural ventilation in a semi-outdoor
+environment: Theoretical models, experiments, and thermal simulations
+M.V. Cruz-Salas                  a , E. Puerto           b , J. Rojas a , G. Barrios               a , G. Huelsz            a,∗, G. Ramírez c
+
+a
+    Instituto de Energías Renovables, Universidad Nacional Autónoma de México Priv. Xochicalco s/n, Col. Centro, Temixco, Mor, 62580, Mexico
+b Dipac Heat Recovery S.A.S, Cl 129f # 91-16, Bogotá, 111131, Colombia
+c
+    Universidad Tecnológica Emiliano Zapata, Av. Universidad Tecnológica 1, Palo Escrito, Emiliano Zapata, Mor, 62765, Mexico
+
+
+
+
+a r t i c l e             i n f o                            a b s t r a c t
+
+Keywords:                                                    Semi-outdoor environments in climates with a hot and dry season can achieve comfortable air temperature using
+Evaporative cooling                                          mist evaporative cooling systems (MECS). However, assessing their eﬀect using building thermal simulation
+Mist                                                         programs requires a physical model of the MECS operating in combination with natural ventilation in semi-
+Natural ventilation
+                                                             outdoor environments (MECS&NV) that can be implemented in such programs. This research presents, step by
+Semi-outdoor
+Thermodynamic modeling
+                                                             step, the development of a thermodynamic model for the MECS&NV process based on psychrometric theory,
+Energyplus                                                   which can be implemented in EnergyPlus using its Python plug-in system. The developed model was validated
+                                                             against experimental results obtained in a semi-outdoor cafeteria. For the cafeteria air temperature, the mean
+                                                             absolute error is 0.4 ◦ C and the mean bias error is 0.1 ◦ C. The cooling eﬀect of the MECS on the cafeteria air
+                                                             temperature compared with the value it would have without the MECS has a maximum reduction of 2.9 ◦ C and
+                                                             an average of 1.9 ◦ C. The developed model can be used to perform future simulations and support decision-
+                                                             making regarding sizing and implementation of this type of evaporative cooling system in semi-outdoor spaces
+                                                             for low-energy buildings.
+
+
+
+1. Introduction                                                                                    age equipment, ducts, and air terminals, with the inherent large energy
+                                                                                                   consumption.
+    Evaporative cooling (EC) to increase people thermal comfort in in-                                 Due to the concern of climate change, there is a growing interest
+door, semi-outdoor, and outdoor environments has been used for many                                in the scientiﬁc community to develop EC systems for thermal comfort.
+centuries. Examples of its early applications can be found in the Alham-                           Cuce and Riﬀat [2] presented a review of the subject, covering direct,
+bra, in Granada (Spain), built between the 12th and 14th centuries [1].                            indirect, and combined systems. Recently, advances have been made in
+EC is more eﬀective in climates having a hot season and low or interme-                            EC systems with controlled airﬂow for indoor spaces without natural
+diate air relative humidity. Direct evaporative cooling (DEC) is achieved                          ventilation [3–5].
+when water is evaporated in the air, producing a decrease in air tempera-                              In the present research, the interest is on DEC used in conjunction
+ture and an increase in humidity. The air temperature is reduced because                           with natural ventilation. The ﬁrst studies found in the literature that uses
+water phase change requires energy to happen, and this is taken from                               DEC to cool the air that enters the building by natural ventilation em-
+the air. Indirect evaporative cooling (IEC) is used when the increase in                           ployed wind towers (WT) or similar structures where water evaporation
+air humidity is not convenient. In this process, the air that is cooled by                         occurs. This type of cooling is named by some authors as passive down-
+water evaporation passes through a heat exchanger with the air to be                               draught evaporative cooling (PDEC). WT is a tall structure attached to a
+introduced into the space to be cooled. Due to the additional process,                             building in order to bring air into it. In Iran, some traditional WT incor-
+the IEC is less eﬃcient than the DEC.                                                              porated DEC by allowing groundwater to seep through the inside of the
+    EC is considered a low-energy system as it consumes less energy than                           basement walls [6]. The idea to incorporate DEC using water sprays on
+conventional cooling air conditioning systems. Commercial DEC and                                  the top of a WT was proposed by Bahadori [7] in 1985. Since then, some
+IEC units have been used to cool spaces with large volumes like the-                               authors have made theoretical models to simulate the process [7–10].
+aters and auditoriums, which, when cooled with conventional cooling                                The ﬁrst study of PDEC using computational ﬂuid dynamics (CFD)
+air conditioning systems, would require the use of large rooftop pack-                             for droplet evaporation was presented by Bowman et al. [11]. They
+
+
+
+    ∗ Corresponding author.
+
+       E-mail address: ghl@ier.unam.mx (G. Huelsz).
+
+https://doi.org/10.1016/j.enbuild.2026.117700
+Received 3 March 2026; Received in revised form 28 April 2026; Accepted 25 May 2026
+Available online 28 May 2026
+0378-7788/© 2026 The Author(s). Published by Elsevier B.V. This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-
+nc-nd/4.0/).
+M.V. Cruz-Salas et al.                                                                                                       Energy & Buildings 366 (2026) 117700
+
+
+developed their one code. Subsequently, CFD studies mainly using com-              et al. [24] performed experiments in a wind tunnel, varying the air dry
+mercial programs such as Fluent [6,12–14] and OpenFoam [15] have                   bulb temperature (35 to 47 ◦ C) and the relative humidity (10 to 60%).
+been reported, since these programs had already incorporated models                Two conﬁgurations were tested (parallel and counter ﬂow), each with
+for water evaporation. Kalantar [6] found that DEC by water sprays in              four nozzle sizes (hole diameter of 3, 4, 5, and 5.5 mm); three water
+a WT of 10 m height is able to reduce the air temperature up to 15 ◦ C.            pressures (1, 2, and 3 bar(g)) and three air velocities (1, 2 and 3 m/s).
+Saﬀari and Hosseinnia [15] studied the DEC produced by wet curtains                They found that for a speciﬁc water ﬂow rate, a smaller nozzle at higher
+hung inside a WT. Wet curtains of 10 m in height decreased 10 ◦ C the              pressure produced more cooling than a larger nozzle at lower pressure.
+air temperature. Foroozesh et al. [13] analyzed the eﬀect inside a room            In a subsequent study, Sureshkumar et al. [25] proposed a simulation
+produced by a one-side WT with a water spray and a baﬄe in its interior.           model for the two-way coupling of heat and mass transfer between the
+They found that a baﬄe inclined 60◦ provided more uniform velocity                 droplets and air. They performed two-dimensional CFD simulations to
+and temperature ﬁelds. Moghtader Gilvaei et al. [14] analyzed the eﬀect            reproduce the experimental conditions. They found the best agreement
+of a WT that introduces air to a house via an earth-to-air heat exchanger          between experiments and simulations for the parallel ﬂow conﬁgura-
+and wet panels.                                                                    tion. Montazeri et al. [26] used the experiments of [24] to validate their
+    There are also experimental studies of PDEC reported in the litera-            CFD simulations. Using CFD simulations considering the wind-tunnel
+ture [8,16,17]. Pearlmutter et al. [16] analyzed the performance of two            test section, they carried out a parametric analysis of the DEC provided
+cooling tower prototypes with DEC systems in Negev Highlands (Israel)              by a water spray system with a hollow-cone nozzle conﬁguration. They
+with an arid climate. The prototype one, 3.5 m high, was installed in              used as evaluation parameters the sensible cooling and the UTCI, with
+a small semi-enclosed courtyard. Diﬀerent air circulation mechanisms               respect to the inlet conditions, as functions of the nozzle distance. They
+and types of water supply were tested. Based on the results, they con-             found that the cooling performance is enhanced as the drop mean diame-
+structed the second prototype with a 10 m high WT with DEC assisted                ter decreases and drop-size distribution increases. The authors explained
+by a propeller fan installed in a 500 m2 glazed courtyard. This system             that they used the UTCI because the water spray systems are generally
+achieved an air temperature reduction of the air in the cooling tower up           applied in outdoor or semi-outdoor environments. Younes et al. [27]
+to 15 ◦ C with a water consumption rate of 2 m3 /day. Belarbi et al. [8]           performed wind tunnel experiments and CFD simulations using ANSYS
+constructed a building in Catania (Italy), with water sprays at the top of         Fluent to analyze the eﬀect of incorporating ﬂuctuations into the ﬂow
+a 10 m height WT. They made measurements during the summer to test                 produced by a fan used in combination with mist cooling. They found
+their theoretical model. Rabani et al. [17] studied a test room with a vol-        that lower frequencies and higher amplitudes led to higher evaporation
+ume of less than 17 m3 and a Trombe wall in combination with a solar               rates.
+chimney and a water spraying system, built in Yazd (Iran), with a desert               EnergyPlus is a program for whole-building thermal and en-
+climate. The indoor air temperature decreased up to 8 ◦ C compared to              ergy simulations. It has the capability to simulate mechanical ven-
+the outdoor air, provided an average air change per hour (ACH) of 8,               tilation DEC systems (Zone HVAC:Evaporative Cooler Unit) and
+with a water mass ﬂow rate of 10 l/h and a droplet diameter of 30 µm.              natural ventilation PDEC systems (deﬁned as an Airﬂow object
+    The ﬁrst study of DEC in an outdoor environment was reported by                ZoneCoolTower:shower) [28]. Studies simulating a DEC unit in Ener-
+Nishimura et al. [18] in 1998. They made measurements of wind veloc-               gyPlus have been reported in [29,30] and using Design Builder as an
+ity, air temperature, and humidity around an artiﬁcial water facility in           interface of EnergyPlus in [31,32]. A study simulating a PDEC in Ener-
+Osaka (Japan) and conﬁrmed the temperature reduction on the leeward                gyPlus using their own model was presented in [33].
+side. Wong and Chong [19] performed measurements in a semi-outdoor                     The DEC of interest is a water spray evaporative cooling system, with
+space in Singapore with a hot and humid climate to evaluate the eﬀect              small water droplets that generate a mist. This system is named the mist
+of the use of a commercial misting fan. They found that the misting fan            evaporative cooling system (MECS) [34,35]. The EnergyPlus DEC sys-
+signiﬁcantly reduced the temperature and thermal sensation votes. Nev-             tems models can not simulate a MECS combined with natural ventilation
+ertheless, they pointed out the concern about the increase of bacterial            (MECS&NV) in a semi-outdoor environment and to the best of the au-
+and fungal pollutants under the misting fan system. Wei and He [20]                thors’ knowledge, there are no models reported in the literature of a
+presented a numerical model to predict the evaporative cooling eﬀect               DEC system used directly inside a naturally ventilated environment to
+of wet urban surfaces. They validated their model with experimental                be used in EnergyPlus simulations.
+results, and by integrating the model into a 3D-CAD-based thermal sim-                 Therefore, the aim of the research presented in this paper is the de-
+ulation tool, they analyzed the DEC eﬀect in two study cases. Ulpiani              velopment of a model to obtain from EnergyPlus simulations the ther-
+et al. [21] conducted measurements and surveys of the outdoor thermal              mal conditions of a semi-outdoor environment that has a MECS&NV.
+comfort improvement with an overhead mist cooling system. They found               The model is validated by comparing simulation results to experimental
+that the temperature and the Universal Thermal Climate Index (UTCI)                measurements.
+were reduced by 8.2 ◦ C and 7.9 ◦ C respectively, with an increase of 7%               The paper is structured as follows. Section 2 describes the studied
+in relative humidity in the air just down the mist. The system proved to           system. The methodology of this research is presented in Section 3,
+work best with a dominant and steady light breeze (1-2 m/s), in highly             which includes theoretical models, experiments, and thermal simula-
+irradiated sites and suspended at 1.2-1.5 m above the average height of            tions. The results are displayed in Section 4. Discussion and limitations
+users. Heidari et al. [22] performed CFD simulations using ANSYS Flu-              are presented in Section 5 and the conclusions are remarked in Section 6.
+ent to analyze the eﬀect on a residential building’s thermal conditions
+of a horizontal windcatcher and an evaporative cooling system formed               2. The studied system
+by a channel with a water falling ﬁlm. Kachmar et al. [23] reported a
+numerical study using the ENVI-met urban microclimate model to eval-                   The studied system is a mist evaporative cooling system (MECS) com-
+uate the eﬀectiveness of an outdoor windcacher and mist cooling system             bined with natural ventilation (MECS&NV). The MECS uses a misting
+on an urban canyon in Doha, Qatar. The results indicate that the system            line with an array of nozzles. The nozzles have small holes in order to
+reduces the air temperature in the sidewalk close to the system by more            generate droplets of water with a diameter in the order of microns, that
+than 2 ◦ C and the air temperature in the sidewalk far from the system by          is, to generate a mist. This enhances the evaporation process with re-
+less than 1 ◦ C; and increases the air velocity in the sidewalk close to the       spect to a system with larger droplets. The only mechanical equipment
+system by more than 0.5 m/s and in the sidewalk far from the system                needed is the water compressor to supply the water to the nozzles. This
+by less than 0.03 m/s.                                                             type of system is easy to install; the connection used between the water
+    There are studies that addressed the heat and mass processes                   compressor and the nozzles is a small hose. The compressor and water
+between a water spray and the ambient air [24–27]. Sureshkumar                     tank could be located on the roof or basement of the building without
+
+                                                                               2
+M.V. Cruz-Salas et al.                                                                                                    Energy & Buildings 366 (2026) 117700
+
+
+
+
+Fig. 1. Flow chart of the methodology. Acronyms: EnergyPlus (EP), EP weather (EPW) ﬁle, experimental (Ex), mist evaporative cooling system (MECS), natural
+ventilation (NV), simulation using s ﬁle (Ss), and simulation using m ﬁle (Sm).
+
+
+aﬀecting the performance of the system and the water ﬂow to the noz-            3.1. Theoretical models of MECS&NV process
+zles.
+                                                                                    This section presents two theoretical models of the MECS&NV pro-
+                                                                                cess. Model 1 represents the actual thermodynamic process; however,
+                                                                                it cannot be implemented in EnergyPlus. Model 2 employs a ﬁctitious
+3. Methodology                                                                  system that replicates the results of Model 1 and can be implemented
+                                                                                into EnergyPlus.
+    The methodology considered in this study includes the development
+of two theoretical models of MECS&NV; experiments performed in a
+semi-outdoor environment, where a MECS with two misting lines was
+implemented; and thermal simulations of this semi-outdoor environ-              3.1.1. Model 1–Actual thermodynamic process
+ment. The semi-outdoor environment is the cafeteria of the Renewable                In Model 1, air enters a zone where water droplets from the nozzles
+Energy Institute of the National Autonomous University of Mexico (IER-          evaporate; this zone is called the evaporative zone, the air reduces its
+UNAM). The ﬂow chart of the methodology is presented in Fig. 1.                 temperature due to the evaporation processes and increases its relative
+    Theoretical Model 1 represents the actual thermodynamic process,            humidity. Model 1 is illustrated in Fig. 2; this diagram corresponds to
+which unfortunately could not be implemented in EnergyPlus (EP) for             the actual conﬁguration of each mist line of the MECS.
+the reasons explained below. Model 2 mimics Model 1 results, with the               The variables at the inlet of the evaporative zone known from the
+advantage that it can be implemented in EP. Experiments with MECS               experiments are the wind speed (v𝑎,𝑖 ), air dry-bulb temperature (𝑇𝑑𝑏,𝑖 ),
+in operation (MECS&NV) and with the MECS out of operation and only              air relative humidity (𝜙𝑖 ), atmospheric pressure (𝑃𝑎𝑡𝑚 ), and the inlet
+with natural ventilation (NV) were carried out in a semi-outdoor en-            opening area (𝐴𝑖 ). Also from experiments, the water volumetric ﬂow
+vironment, the cafeteria. The experimental results were used for the            rate delivered by the nozzles (𝑉̇ 𝑤,𝑖 ) is know.
+calibration and validation of the thermal simulation models for the NV              The evaporative process is isenthalpic; consequently, the air en-
+condition and for the MECS&NV condition.                                        thalpy (ℎ) remains constant and the wet-bulb temperature (𝑇𝑤𝑏 ) is
+
+                                                                            3
+M.V. Cruz-Salas et al.                                                                                                                      Energy & Buildings 366 (2026) 117700
+
+
+                                                                                             the cooling capacity of the system. Therefore, from the conservation of
+                                                                                             water, Eq. (3), and assuming that all droplets remaining in the evapo-
+                                                                                             rative zone evaporate, the maximum water vapor mass ﬂow rate at the
+                                                                                             outlet air (𝑚̇ ∗𝑣,𝑜 ) can be expressed as
+                                                                                             𝑚̇ ∗𝑣,𝑜 = 𝑚̇ 𝑣,𝑖 + 𝜖𝑚 𝑚̇ 𝑤,𝑖 ,                                                 (8)
+                                                                                             where 𝜖𝑚 is the misting line eﬀectiveness. Note that the superscript *
+                                                                                             is introduced to indicate that all droplets remaining in the evaporative
+                                                                                             zone does evaporate, i.e. the air is not saturated.
+                                                                                                 The maximum outlet air humidity ratio (𝜔∗𝑜 ) is calculated as
+                                                                                                     𝑚̇ ∗𝑣,𝑜
+                                                                                             𝜔∗𝑜 =             .                                                            (9)
+                                                                                                     𝑚̇ 𝑑𝑎
+                                                                                                 The dry bulb temperature of the outlet air is calculated using the
+                                                                                             following psychrometric equation [36],
+                                                                                                           ℎ − 2501 𝜔∗𝑜
+                                                                                             𝑇𝑑𝑏,𝑜 =                          .                                            (10)
+Fig. 2. Model 1 diagram. The area between the dashed lines represents the                               1.006 + 1.86 𝜔∗𝑜
+evaporative zone. Water droplets from the nozzles enter with a volumetric ﬂow                       When 𝑇𝑑𝑏,𝑜 ≥ 𝑇𝑤𝑏,𝑖 , the air is not saturated, therefore 𝜔𝑜 = 𝜔∗𝑜 , 𝑚̇ 𝑣,𝑜 =
+rate (𝑉̇ 𝑤,𝑖 ). The inlet air to the evaporative zone has wind speed (v𝑎,𝑖 ), dry-bulb
+                                                                                             𝑚̇ ∗𝑣,𝑜 , and 𝑇𝑑𝑏,𝑜 is given by Eq. (10).
+temperature (𝑇𝑑𝑏,𝑖 ) and humidity ratio (𝜔𝑖 ). The outlet air exiting the evapo-
+                                                                                                    In contrast, when 𝑇𝑑𝑏,𝑜 < 𝑇𝑤𝑏 , the air is saturated, hence, 𝑇𝑑𝑏,𝑜 = 𝑇𝑤𝑏 ,
+rative zone and entering to the cafeteria has dry-bulb temperature (𝑇𝑑𝑏,𝑜 ) and
+humidity ratio (𝜔𝑜 ). The dry air mass ﬂow rate (𝑚̇ 𝑑𝑎 ) entering and exiting the
+                                                                                             and 𝜔𝑜 and 𝑚̇ 𝑣,𝑜 are calculated as
+evaporative zone is the same. The cafeteria air has dry-bulb temperature (𝑇𝑑𝑏,𝑐𝑒 )                    ℎ − 1.006 𝑇𝑤𝑏
+and humidity ratio (𝜔𝑐𝑒 ).
+                                                                                             𝜔𝑜 =                                                                          (11)
+                                                                                                     2501 + 1.86 𝑇𝑤𝑏
+                                                                                             and
+almost constant,                                                                             𝑚̇ 𝑣,𝑜 = 𝜔𝑜 𝑚̇ 𝑑𝑎 .                                                           (12)
+ℎ = ℎ𝑖 = ℎ𝑜            and    𝑇𝑤𝑏 ≃ 𝑇𝑤𝑏,𝑖 ≃ 𝑇𝑤𝑏,𝑜 ,                               (1)           Fig. 3 shows the Model 1 process in the psychrometric chart.
+                                                                                                The evaporative cooling eﬀectiveness of the MECS process in the
+where ℎ𝑖 and 𝑇𝑤𝑏,𝑖 are the speciﬁc enthalpy and wet-bulb temperature
+                                                                                             cafeteria (𝜖𝑐𝑒 ) is the ratio between the change in the cafeteria air dry
+of the inlet air, and ℎ𝑜 and 𝑇𝑤𝑏,𝑜 are the speciﬁc enthalpy and wet-bulb
+                                                                                             bulb temperature obtained in the evaporative process and the maximum
+temperature of the outlet air. The inlet variables ℎ𝑖 and 𝑇𝑤𝑏,𝑖 can be
+                                                                                             possible temperature change,
+calculated from the experimentally measured variables using psychro-
+metric equations [36].                                                                               𝑇𝑑𝑏,𝑐 − 𝑇𝑑𝑏,𝑐𝑒
+                                                                                             𝜖𝑐𝑒 =                      .                                                  (13)
+    According to mass conservation, the dry air mass ﬂow rate remains                                  𝑇𝑑𝑏,𝑖 − 𝑇𝑤𝑏
+constant,
+                                                                                             3.1.2. Model 2–Useful for implementation in EnergyPlus
+𝑚̇ 𝑑𝑎 = 𝑚̇ 𝑑𝑎,𝑖 = 𝑚̇ 𝑑𝑎,𝑜 ,                                                       (2)              Model 1 can not be implemented into EnergyPlus because Energy-
+                                                                                             Plus only allows air mass ﬂow to enter to a thermal zone. Therefore,
+and the sum of the water vapor mass ﬂow rate at the inlet air (𝑚̇ 𝑣,𝑖 ) and
+                                                                                             Model 2 is designed to replicate the air conditions at the exit of the
+the inlet water mass ﬂow rate from the nozzles (𝑚̇ 𝑤,𝑖 ) is equal to the
+                                                                                             evaporative zone given by Model 1, this model requires a ﬁctitious sys-
+water vapor mass ﬂow rate at the outlet air (𝑚̇ 𝑣,𝑜 ) plus the mass of the
+                                                                                             tem, an ideal evaporative cooling system (IECS) is used for this purpose.
+non-evaporated water ﬂow rate from the nozzles (𝑚̇ 𝑤,𝑜 ),
+                                                                                             In Model 2, the input to the evaporative zone is not the water mass ﬂow
+𝑚̇ 𝑣,𝑖 + 𝑚̇ 𝑤,𝑖 = 𝑚̇ 𝑣,𝑜 + 𝑚̇ 𝑤,𝑜 .                                               (3)        rate of the nozzles, but an air mass ﬂow rate supplied by this IECS, as
+                                                                                             shown in Fig. 4.
+    The dry air mass ﬂow rate can be calculated as
+                                                                                                   The input to the IECS is outdoor air with dry-bulb temperature (𝑇𝑑𝑏,𝑖 ),
+          𝑉̇ 𝑎,𝑖                                                                             humidity ratio (𝜔𝑖 ), dry air mass ﬂow rate (𝑚̇ 𝑑𝑎,𝑒 ), and water volumetric
+𝑚̇ 𝑑𝑎 =            ,                                                              (4)
+          𝜐𝑑𝑎,𝑖                                                                              ﬂow rate (𝑉̇ 𝑤,𝑖 ). While the output from the IECS, that enters the evapo-
+                                                                                             rative zone is an air with a dry-bulb temperature (𝑇𝑑𝑏,𝑒 ), humidity ratio
+where 𝑉̇ 𝑎,𝑖 is the inlet air volumetric ﬂow rate and 𝜐𝑑𝑎,𝑖 is the inlet air spe-
+                                                                                             (𝜔𝑒 ), and with the same dry air mass ﬂow rate (𝑚̇ 𝑑𝑎,𝑒 ) which remains
+ciﬁc volume, which is calculated using psychrometric equations [36];
+                                                                                             constant during the evaporative process. Air also enters directly from
+𝑉̇ 𝑎,𝑖 can be obtained in terms of experimentally measured variables as
+                                                                                             the outdoor to the evaporative zone with wind speed (v𝑎,𝑖 ), dry-bulb
+𝑉̇ 𝑎,𝑖 = 𝐶𝑑 𝐴𝑖 v𝑎,𝑖 ,                                                             (5)        temperature (𝑇𝑑𝑏,𝑖 ), and humidity ratio (𝜔𝑖 ). In the evaporative zone,
+                                                                                             the mixture of air from the IECS and air from the outdoor produces that
+where 𝐶𝑑 is the discharge coeﬃcient of the inlet opening.
+                                                                                             the air exiting the evaporative zone has dry-bulb temperature (𝑇𝑑𝑏,𝑜 ),
+  The inlet air water vapor mass ﬂow rate is calculated as
+                                                                                             humidity ratio (𝜔𝑜 ) and dry air mass ﬂow rate (𝑚̇ 𝑑𝑎,𝑜 ). Due to the air ex-
+𝑚̇ 𝑣,𝑖 = 𝑚̇ 𝑑𝑎 𝜔𝑖 ,                                                               (6)        iting the evaporative zone that enters the cafeteria, the air in the cafete-
+                                                                                             ria achieves a dry-bulb temperature (𝑇𝑑𝑏,𝑐𝑒 ) which is lower than it would
+where 𝜔𝑖 is the inlet air humidity ratio. It can be calculated from the
+                                                                                             have been if the evaporative process had not occurred.
+measured psychrometric variables and psychrometric equations [36].
+                                                                                                   In Model 2, the IECS airﬂow outlet follows the same isoenthalpic line
+  The inlet water mass ﬂow rate through the nozzles is given by
+                                                                                             as in Model 1 (see Figs. 3 and 5); therefore, the mixture of this airﬂow
+𝑚̇ 𝑤,𝑖 = 𝜌𝑤 𝑉̇ 𝑤,𝑖 ,                                                              (7)        with the actual inlet airﬂow into the evaporative zone is also aligned
+                                                                                             with this isoenthalpic line, and the relationship between the evaporative
+where 𝜌𝑤 is the density of water.
+                                                                                             dry air mass ﬂow rate (𝑚̇ 𝑑𝑎,𝑒 ) and the inlet dry air mass ﬂow rate (𝑚̇ 𝑑𝑎 )
+    When inlet velocity is too high, part of the water droplets from the
+                                                                                             is
+nozzles can leave the evaporative zone before evaporating, and when in-
+                                                                                              𝑚̇ 𝑑𝑎,𝑒   𝑇𝑑𝑏,𝑖 − 𝑇𝑑𝑏,𝑜   𝜔 − 𝜔𝑜
+let velocity is too low, the droplets can evaporate completely within the                             =               = 𝑖       ,                                    (14)
+zone, but part of the cooled air can exit through the same inlet, reducing                   𝑚̇ 𝑑𝑎,𝑜    𝑇𝑑𝑏,𝑜 − 𝑇𝑑𝑏,𝑒   𝜔𝑜 − 𝜔𝑒
+
+                                                                                         4
+M.V. Cruz-Salas et al.                                                                                                                               Energy & Buildings 366 (2026) 117700
+
+
+
+
+Fig. 3. Model 1 process in the psychrometric chart. The inlet air to the evaporative zone (yellow point) has dry-bulb temperature (𝑇𝑑𝑏,𝑖 ) and humidity ratio (𝜔𝑖 ).
+The evaporative process is isoenthalpic with speciﬁc enthalpy (ℎ) (blue line). The outlet air of the evaporative zone (blue point) has has dry-bulb temperature (𝑇𝑑𝑏,𝑜 )
+and humidity ratio (𝜔𝑜 ). The air exiting the evaporative zone enters the cafeteria, producing air with 𝑇𝑑𝑏,𝑐𝑒 and 𝜔𝑐𝑒 (magenta point). If the air exiting the evaporative
+zone did not undergo the evaporative process, the air in the cafeteria would have 𝑇𝑑𝑏,𝑐 and 𝜔𝑐 (dark red point). (For interpretation of the references to colour in this
+ﬁgure legend, the reader is referred to the web version of this article.)
+
+                               Table 1
+                               Equipment and uncertainty associated with each variable measured in the cafeteria and the square.
+                                 Variable                              Equipment                                                   Uncertainty
+
+                                 Temperature (Tc)                      Type T thermocouple                                         ±0.2 ◦ C (10–50 ◦ C)
+                                 Humidity (Tc)                         Fluke 975 AirMeter                                          ±2% (10–90%)
+                                 Wind speed (Ac & As)                  Gill Instruments WindMaster          3D        Ultrasonic   ±1.5% RMS (at 12 m/s)
+                                                                       Anemometer
+                                 Wind direction (Ac & As)              Gill Instruments WindMaster          3D        Ultrasonic   ±2◦ (at 12 m/s)
+                                                                       Anemometer
+
+
+
+where 𝑚̇ 𝑑𝑎,𝑒 is calculated by                                                                obtained in Model 1. 𝑇𝑑𝑏,𝑜 can be considered the same as that in Model
+                                                                                              1 if internal heat gains in the evaporative zone are negligible.
+            𝑉̇ 𝑎,𝑖,𝑒
+𝑚̇ 𝑑𝑎,𝑒 =              .                                                           (15)           The maximum humidity ratio at the outlet of IECS (𝜔∗𝑒 ), that is sup-
+            𝜐𝑑𝑎,𝑖                                                                             plied to the evaporative zone, is
+   The inlet air volumetric ﬂow rate in the IECS (𝑉̇ 𝑎,𝑖,𝑒 ) is calculated
+                                                                                                      𝑚̇ ∗𝑣,𝑜,𝑒
+assuming that it can be expressed as                                                          𝜔∗𝑒 =               .                                                                (19)
+                                                                                                      𝑚̇ 𝑑𝑎,𝑒
+𝑉̇ 𝑎,𝑖,𝑒 = 𝐶𝑎𝑐 𝑉 ,                                                                 (16)
+where 𝐶𝑎𝑐 is the air changes per unit of time and 𝑉 the volume of the                            The dry-bulb temperature at the outlet of IECS (𝑇𝑑𝑏,𝑒 ) is obtained as
+evaporative zone. 𝐶𝑎𝑐 is obtained in a calibration process.
+                                                                                                            ℎ − 2501 𝜔∗𝑒
+    To ensure the same inputs to the evaporative zone as in Model 1, the                      𝑇𝑑𝑏,𝑒 =                                                                              (20)
+                                                                                                         1.006 + 1.86 𝜔∗𝑒
+water volumetric ﬂow rate supplied to the IECS must be equal to the
+actual volumetric ﬂow rate delivered by the nozzles (𝑉̇ 𝑤,𝑖 ).
+                                                                                                 If 𝑇𝑑𝑏,𝑒 < 𝑇𝑤𝑏 , it means that the air is saturated, then, 𝑇𝑑𝑏,𝑒 = 𝑇𝑤𝑏 and
+    Since the IECS output replicates that of Model 1, the resulting equa-
+                                                                                              the humidity ratio is calculated as
+tions are similar to Eqs. (6) and (8), (9), (10) (11). Therefore, the inlet
+vapor mass ﬂow rate entering the IECS (𝑚̇ 𝑣,𝑖,𝑒 ) is expressed as                                      ℎ − 1.006 𝑇𝑤𝑏
+                                                                                              𝜔𝑒 =                    .                                                            (21)
+𝑚̇ 𝑣,𝑖,𝑒 = 𝑚̇ 𝑑𝑎,𝑒 𝜔𝑖 .                                                            (17)               2501 + 1.86 𝑇𝑤𝑏
+
+   The maximum outlet water vapor mass ﬂow rate in IECS (𝑚̇ ∗𝑣,𝑜,𝑒 ) is                            The misting line eﬀectiveness (𝜖𝑚 ) of each evaporative zone (𝜖𝑒𝑧 ) is
+calculated as                                                                                 calculated with Eq. (8) and the evaporative cooling eﬀectiveness of the
+                                                                                              MECS in the cafeteria (𝜖𝑐𝑒 ) is calculated using Eq. (13).
+𝑚̇ ∗𝑣,𝑜,𝑒 = 𝑚̇ 𝑣,𝑖,𝑒 + 𝜖𝐼 𝑚̇ 𝑤,𝑖 ,                                                 (18)
+                                                                                                   Note that Model 2 implies that 𝑚̇ 𝑑𝑎,𝑒 is added to the evaporative zone.
+where 𝑚̇ 𝑤,𝑖 is calculated using Eq. (7), and the eﬀectiveness of the IECS                    However, in EnergyPlus the air ﬂow balance of the Airﬂow Network
+(𝜖𝐼 ) is obtained through a calibration process. It is a value to adjust the                  does not include the HVAC Zone equipment, therefore, from this balance
+evaporative outlet air conditions of Model 2 to be the same of those                          𝑚̇ 𝑑𝑎,𝑖 = 𝑚̇ 𝑑𝑎,𝑜 = 𝑚̇ 𝑑𝑎 .
+
+                                                                                          5
+M.V. Cruz-Salas et al.                                                                                                                     Energy & Buildings 366 (2026) 117700
+
+
+                                                                                                misting lines. The nozzles produce droplets approximately 5 µm in
+                                                                                                diameter.
+
+                                                                                                3.2.3. Instrumentation
+                                                                                                    The air temperature in the cafeteria was measured employing a
+                                                                                                2.90 m high tower with six thermocouples. It was placed near the cafe-
+                                                                                                teria center (point Tc) in Fig. 6. The ﬁrst thermocouple was at the top,
+                                                                                                and the rest were 0.30 m apart on a vertical line. Temperature data were
+                                                                                                recorded through a data acquisition system with open hardware and
+                                                                                                software. Relative humidity was measured at the center of the cafeteria
+                                                                                                (point Tc) with a Fluke meter with its acquisition system. In addition,
+                                                                                                a three-component ultrasound anemometer was used, with its center at
+                                                                                                a height of 1.45 m, the middle eﬀective height of the cafeteria (point
+                                                                                                Ac) in Fig. 6. To measure outdoor air velocity, a similar anemometer
+                                                                                                was placed in the square (point As), also shown in Fig. 6, aligned with
+                                                                                                the ﬁrst and 8.85 m from the cafeteria entrance. These anemometers
+                                                                                                were connected to computers for data acquisition. The velocity of the
+                                                                                                outdoor air on the side of the lattice wall was impossible to measure due
+                                                                                                to the sloping terrain. Table 1 summarizes the equipment used and the
+                                                                                                associated measurement uncertainties for each experimental variable.
+                                                                                                Photographs of the instrumentation and the misting lines in operation
+                                                                                                are shown in Fig. 7.
+
+                                                                                                3.2.4. Cafeteria and square data acquisition
+                                                                                                    Measurements were carried out over three days in February 2025
+Fig. 4. Model 2 diagram. The area between the dashed lines represents the evap-
+                                                                                                (15, 16, and 17) during the dry-hot season, with neither occupancy
+orative zone. An ideal evaporative cooling system (IECS) is added. The input of
+the IECS is air from the outdoor with dry-bulb temperature (𝑇𝑑𝑏,𝑖 ), humidity ra-
+                                                                                                nor other internal heat gains. Two conditions were considered, with the
+tio (𝜔𝑖 ), dry air mass ﬂow rate (𝑚̇ 𝑑𝑎,𝑒 ) and water volumetric ﬂow rate (𝑉̇ 𝑤,𝑖 ). The        MECS out of operation, that is, with only natural ventilation (NV), and
+output of the IECS that enters the evaporative zone is an airﬂow with dry-bulb                  with the MECS in operation (MECS&NV). An experimental data ﬁle was
+temperature (𝑇𝑑𝑏,𝑒 ), humidity ratio (𝜔𝑒 ), and a dry air mass ﬂow rate (𝑚̇ 𝑑𝑎,𝑒 ). Inlet       constructed for each one of these two conditions. Air velocity data mea-
+air to the evaporative zone has wind speed (v𝑎,𝑖 ), dry-bulb temperature (𝑇𝑑𝑏,𝑖 ),              sured in the square were used to build one of the two weather ﬁles (Sec-
+humidity ratio (𝜔𝑖 ), and dry air mass ﬂow rate (𝑚̇ 𝑑𝑎,𝑖 ). The outlet air exiting              tion 3.3.1). For each condition, the experimental data from the cafeteria
+the evaporative zone has dry-bulb temperature (𝑇𝑑𝑏,𝑜 ), humidity ratio (𝜔𝑜 ) and                were divided into two periods, one used for the calibration of the model
+dry air ﬂow mass rate (𝑚̇ 𝑑𝑎,𝑜 ). The air in the cafeteria has dry-bulb temperature             and the other for its validation.
+(𝑇𝑑𝑏,𝑐𝑒 ) and the humidity ratio (𝜔𝑐𝑒 ).
+                                                                                                3.2.5. Weather data collection
+3.2. Experiments                                                                                   The weather data for the entire February 2025 were taken from a
+                                                                                                meteorological station located in the upper part of a building next to the
+    The experiments were conducted in the cafeteria of the IER-UNAM                             cafeteria building. Fig. 8 shows an aerial photograph of the IER-UNAM,
+at Temixco, Morelos, Mexico.                                                                    where the cafeteria building and the meteorological station building are
+                                                                                                indicated. Data measured in the meteorological station were used to
+3.2.1. Cafeteria–Semi-outdoor environment                                                       build the two weather ﬁles (Section 3.3.1).
+    The cafeteria is a semi-outdoor environment because it has no wall
+at the entrance facing a square, and on the opposite side, it has a high                        3.3. Thermal simulations
+porosity lattice wall. It is part of a four-story building in sloping terrain.
+The cafeteria is located on the ﬁrst ﬂoor. There are two stories above                             The thermal simulations of the cafeteria were performed using En-
+the cafeteria and one semi-buried story below.                                                  ergyPlus 22.2 (EP). The conduction transfer function method was used
+    The cafeteria has a ﬂoor area of 126 m2 and a height from ﬂoor to                           to compute heat ﬂux through the building surface constructions. The
+the ceiling of 3.36 m. It has a reticular steel beam system that gives an                       TARP and DOE-2 algorithms were used for the convection in the indoor
+eﬀective height for the air ﬂow of 2.90 m. The main facade, the entrance,                       and outdoor surfaces, respectively. The timestep between calculations
+faces east with an angle of 6.8◦ to the south and is completely open. The                       was one minute.
+rear facade has a clay brick lattice wall with a porosity of 0.38, open to
+airﬂow. On the north side is the kitchen, separated from the cafeteria by                       3.3.1. Weather ﬁles construction
+a half-height wall and a steel curtain; on the south side, the facade is a                          Two EnergyPlus weather (EPW) ﬁles were constructed for the ther-
+wall made of a hollow clay brick wall. Fig. 6 shows the ﬂoor plan and a                         mal simulations in EP. The ﬁrst EPW ﬁle is constructed employing all
+cross-section of the cafeteria. In the experiments reported here, neither                       data from the meteorological station located in the upper part of a build-
+the cafeteria nor the kitchen was occupied, there were no internal heat                         ing next to the cafeteria building. This EPW ﬁle is named the 𝑚 ﬁle.
+gains, and the steel curtain remained closed.                                                       Although the meteorological station is very close, due to all the build-
+                                                                                                ings and trees around (see Fig. 8), the wind speed and wind direction
+3.2.2. MECS Installation                                                                        measured at this meteorological station are expected to be diﬀerent from
+   The MECS installed in the cafeteria of the IER-UNAM has two mist-                            those reaching the cafeteria entrance or the lattice wall. Therefore, an
+ing lines placed 0.33 m from the ceiling, each line with 14 nozzles                             other EPW ﬁle has been constructed, in which the data of the outdoor
+0.50 m apart from each other. One line was placed at 0.70 m from                                air velocity measured in the square, were used to substitute the wind
+the entrance to the cafeteria and the other at the rear, at 0.35 m                              speed and direction, this EPW ﬁle is named the 𝑠 ﬁle. The sensitivity of
+from the lattice wall (see Fig. 6). A Fogco misting system pressur-                             the simulation results to the use of these two EPW ﬁles is reported in
+ized the water at 1000 PSI; 144 L/h of water was supplied to the                                Section 4.9.
+
+                                                                                            6
+M.V. Cruz-Salas et al.                                                                                                                Energy & Buildings 366 (2026) 117700
+
+
+
+
+Fig. 5. Model 2 process in the psychrometric chart. The inlet air to the evaporative zone (yellow point) has dry-bulb temperature 𝑇𝑑𝑏,𝑒 and humidity ratio 𝜔𝑒 . The
+evaporative process is isoenthalpic with enthalpy ℎ (blue line). The outlet air from the IECS that enters the evaporative zone has 𝑇𝑑𝑏,𝑜 and 𝜔𝑜 (point green). The outlet
+air of the evaporative zone (blue point) has 𝑇𝑑𝑏,𝑜 and 𝜔𝑜 . The air exiting the evaporative zone enters the cafeteria and produces the air in the cafeteria has 𝑇𝑑𝑏,𝑐𝑒 and
+𝜔𝑐𝑒 (magenta point). If the air exiting the evaporative zone did not undergo the evaporative process, the air in the cafeteria would have a higher dry temperature
+𝑇𝑑𝑏,𝑐 and a lower humidity ratio 𝜔𝑐 (dark red point). (For interpretation of the references to colour in this ﬁgure legend, the reader is referred to the web version of
+this article.)
+
+
+3.3.2. Building model                                                                   mal zone representing the evaporative zone associated with each MECS
+    The model of the cafeteria building was created using the OpenStu-                  misting line. In the case of the cafeteria, one thermal zone corresponds
+dio SketchUp plug-in, it is shown in Fig. 9.                                            to the entrance misting line and the other to the lattice wall misting
+    In the building model, the ground is considered at the level of the                 line. Therefore, the total cafeteria volume is divided into three thermal
+semi-buried story ﬂoor, and the square is considered as the roof of a                   zones: the Lattice evaporative zone, the Cafeteria zone, and the Entrance
+thermal zone with exterior boundary conditions. The lattice wall, on the                evaporative zone. The openings between the Evaporative zones and the
+west, was simulated with an equivalent shading system. In the square,                   Cafeteria zone are fully open windows, and for radiation calculation a
+there is a tree that has been simulated with two perpendicular shading                  glazing system with solar heat gain coeﬃcient of 0.999 and a brick frame
+surfaces, as suggested in [37].                                                         of 0.05 m, which adds a negligible thermal mass, where considered.
+    The construction of the cafeteria walls is composed of a 14 cm layer                    As mentioned in Section 3.1.2, an Ideal Evaporative Cooling System
+of brick (thermal conductivity 𝑘=0.7 W/m K, density 𝜌=1970 kg/m3 ,                      (IECS) is required to emulate the behavior of the misting system. There-
+and speciﬁc heat 𝐶𝑝 =800 J/kg K ) and the construction of the ﬂoor                      fore, the object ZoneHVAC:ForcedAir:UserDeﬁned is used to incorporate
+and the ceiling is made of a 16 cm concrete layer (𝑘=2.0 W/m K,                         the IECS, as it allows the implementation of a custom Energy Manage-
+𝜌=2400 kg/m3 , and 𝐶𝑝 =1000 J/kg K). The wall that separates the                        ment System (EMS) program, for each one of the evaporative thermal
+cafeteria from the kitchen has in the upper part a metal curtain that                   zones. This EMS program is used to deﬁne the conditions of the supply
+was closed in the experiments (𝑘=45.2 W/m K, 𝜌=7824 kg/m3 , and                         air node in the evaporative zone. The AFN model was used to simulate
+𝐶𝑝 =500 J/kg K).                                                                        natural ventilation. For the AFN model, ﬁve nodes are considered: two
+                                                                                        outdoor nodes, one at the entrance and another at the lattice wall, and
+3.3.3. NV Model                                                                         three interior nodes, one in each of the evaporative zones and another
+    To simulate natural ventilation in the proposed NV model, the En-                   in the cafeteria zone. The airﬂow balance in the evaporative zone is
+ergyPlus AirFlow Network (AFN) model was used, applying the cross-                      performed without considering the mass airﬂow from the ZoneHVAC
+ventilation model for air movement in the cafeteria. The pressure                       entering through the supply air node. The pressure coeﬃcients used for
+coeﬃcients required in the AFN model are taken from the ones calcu-                     the outdoor nodes are calculated by EnergyPlus.
+lated by EP [28].                                                                           The EMS program employs a plug-in programmed in Python, named
+    The cross-ventilation algorithm is capable to calculate the air veloc-              Mist Evaporative Cooling Plug-in. It assigns the conditions of the sup-
+ity of the jet when the air velocity in the thermal zone is large enough                ply air node of the evaporative zone based on outdoor conditions and
+to apply the model.                                                                     the water ﬂow rate of the misting line. Fig. 11 shows the ﬂowchart
+    The discharge coeﬃcient (𝐶𝑑 ) of the entrance and that of the lattice               of the Mist Evaporative Cooling Plug-In and its interaction with En-
+wall were set through a calibration process (Section 4.2).                              ergyPlus. EP activates the plug-in at each timestep after EP has com-
+                                                                                        pleted its initial calculations. Then, EP starts the function on_user_de-
+3.3.4. MECS&NV Model                                                                    ﬁned_component_model. A conditional clause asks: Are there handles?
+   The scheme of the MECS&NV model implemented in EnergyPlus is                         If it is false (the ﬁrst timestep), a set of handles is assigned to read
+presented in Fig. 10. One of its key features is the creation of a ther-                the following variables from EnergyPlus: 𝑆, 𝑇𝑑𝑏,𝑖 , 𝑇𝑤𝑏 , 𝜙𝑖 , and 𝑝𝑎𝑡𝑚 .
+
+                                                                                    7
+M.V. Cruz-Salas et al.                                                                                                            Energy & Buildings 366 (2026) 117700
+
+
+
+
+Fig. 6. Floor plan (up) and A-A’ section plan (down) of the IER-UNAM cafeteria. The two misting lines, the position of the tower with thermocouples (Tc), and the
+two anemometers (Ac and As) are indicated.
+
+
+
+
+   Fig. 7. Photographs of the experiments. a) Cafeteria instrumentation, b) anemometer at the square, c) entrance misting line, and d) lattice wall misting line.
+
+
+
+                                                                                 8
+M.V. Cruz-Salas et al.                                                                                                                Energy & Buildings 366 (2026) 117700
+
+
+                                                                                           of 𝜖𝐼 is the one that produces the closest agreement with the experimen-
+                                                                                           tal results.
+
+
+                                                                                           4. Results
+
+                                                                                               The ﬁrst three subsections present the results for the NV condition:
+                                                                                           the NV experimental results, the calibration of the NV model to deter-
+                                                                                           mine the discharge coeﬃcient values, and the validation of the cal-
+                                                                                           ibrated NV model. The following ﬁve subsections correspond to the
+                                                                                           results for the MECS&NV condition: the calibration of the MECS&NV
+                                                                                           model to evaluate the eﬀect of the evaporative zones as thermal zones,
+                                                                                           the experimental results, the calibration to determine the eﬀectiveness
+                                                                                           factor values, the validation of the MECS&NV model, and the cooling
+Fig. 8. Aereal photograph of the IER-UNAM, the cafeteria building (C) and                  eﬀect of the MECS in the air inside the cafeteria. For all these analyses,
+meteorological station building (M) are indicated. Photograph property of IER-             the EPW 𝑠 ﬁle is used (see Section 3.3.1 ). The ﬁnal subsection presents
+UNAM.                                                                                      a sensitivity analysis of the simulation results to the EPW ﬁle.
+
+
+𝑆 is a variable to indicate the misting line state (0 for oﬀ and 1 for                     4.1. NV Experimental results
+on) assigned in a schedule. Then it leads to obtain the values of these
+variables using the handles. Otherwise, if it is true (as it is in the                         The entrance-perpendicular-component of the air velocity mea-
+subsequent runs), it leads directly to obtaining these variable values                     sured in the cafeteria, 𝑉⟂𝑐−𝐸𝑥 , and at the square, 𝑉⟂𝑜−𝐸𝑥 , as func-
+using the handles. A conditional clause checks the 𝑆 value: if 𝑆 = 1                       tions of time during the NV experiments are shown in Fig. 13, pe-
+is false, then the supply air node conditions are 𝑇𝑑𝑏,𝑒 = 𝑇𝑑𝑏𝑖 , 𝜔𝑒 = 𝜔𝑖 ,                 riod 1 and period 2 are presented. Positive values indicate that the
+𝑚̇ 𝑑𝑎,𝑒 = 0. If it is true, the plug-in runs a subprogram, named Evap-                     airﬂow is from the square. In general, when 0 < 𝑉⟂𝑜−𝐸𝑥 , 𝑉⟂𝑜−𝐸𝑥 <
+orative Zone Supply Air, to calculate 𝑇𝑑𝑏,𝑒 , 𝜔𝑒 , and 𝑚̇ 𝑑𝑎,𝑒 . For both                  𝑉⟂𝑐−𝐸𝑥 , indicating that when the airﬂow enters the cafeteria through
+cases, the values are stored in EnergyPlus database ESO and then, the                      the entrance there is an increase of the air velocity in the cafete-
+plug-in assigns the values to the supply air node of the evaporative                       ria, which could be produced by the reduction of the entrance area
+zone.                                                                                      compared with the outdoor area. While, when 𝑉⟂𝑜−𝐸𝑥 < 0, that is,
+     The Evaporative Zone Supply Air subprogram called by the plug-                        when the airﬂow is from the lattice wall side, |𝑉⟂𝑐−𝐸𝑥 | < |𝑉⟂𝑜−𝐸𝑥 |
+in was developed in Python to calculate the 𝑇𝑑𝑏,𝑒 , 𝜔𝑒 , and 𝑚̇ 𝑑𝑎,𝑒 when                  showing, as expected, that the lattice wall is an obstacle for the
+the misting lines operate in any of the evaporative zones. These quan-                     airﬂow.
+tities are calculated using the psychrometric theory presented in Sec-                         The air temperature measured at the center of the cafeteria 𝑇𝑐−𝐸𝑥 is
+tion 3.1. Fig. 12 shows the ﬂowchart of this subprogram and its                            presented in Fig. 14, alongside the outdoor air temperature, recorded at
+interaction with EnergyPlus. The subprogram reads the outdoor air vari-                    the meteorological station 𝑇𝑜−𝐸𝑥 . Analysis of the data reveals that 𝑇𝑐−𝐸𝑥
+ables from EnergyPlus: 𝑇𝑑𝑏,𝑖 , 𝑇𝑤𝑏 , and 𝑝𝑎𝑡𝑚 . Then, using EnergyPlus psy-                is similar to 𝑇𝑜−𝐸𝑥 , indicating a well-ventilated space. The diﬀerence,
+chrometric library functions humidity_ratio_d and speciﬁc_volume, 𝜔𝑖                       taking 𝑇𝑜−𝐸𝑥 as reference, has MAE=0.5 ◦ C and MBE=0.4 ◦ C. In this ﬁg-
+and 𝑣𝑎,𝑖 are calculated, respectively. Next, the subprogram reads 𝑉̇ 𝑎,𝑖,𝑒 ,               ure, the relative humidity measured at the center of the cafeteria, 𝜙𝑐 , and
+an user-deﬁned variable calculated using Eq. (16). Then 𝑚̇ 𝑑𝑎,𝑒 is calcu-                  the outdoor relative humidity, 𝜙𝑜-Ex , are also shown. These curves reﬂect
+lated using Eq. (15) and 𝑚̇ 𝑣,𝑖,𝑒 using Eq. (17). Next, 𝑉̇ 𝑤,𝑖 and 𝜖𝐼 , user-              the corresponding variations caused by temperature changes when the
+deﬁned variables are read, the ﬁrst comes from the experiments and the                     humidity ratio remains constant, as it is when there is no precipitation.
+second from the calibration process. Then, the following variables are                     It can be observed that during solar hours, the air inside the cafeteria
+subsequently calculated: 𝑚̇ 𝑤,𝑖 (Eq. (7)), 𝑚̇ ∗𝑣,𝑜,𝑒 (Eq. (18)), 𝜔∗𝑒 (Eq. (19)),           exhibits slightly higher relative humidity than the outdoor air, with dif-
+ℎ (Eq. (1)), and 𝑇𝑑𝑏,𝑒 (Eq. (20)). Then, a conditional clause asks if                      ferences of up to 9%.
+𝑇𝑑𝑏,𝑒 > 𝑇𝑤𝑏 . If it is true, the mist does not saturate the air; therefore,
+the value of 𝑇𝑑𝑏,𝑒 is valid, 𝑚̇ 𝑣,𝑜,𝑒 = 𝑚̇ ∗𝑣,𝑜,𝑒 , and 𝜔𝑒 = 𝜔∗𝑒 . When it is false,
+the air is saturated; therefore, 𝑇𝑑𝑏,𝑜 = 𝑇𝑤𝑏 , and 𝜔𝑒 is calculated using                  4.2. NV Model calibration: setting discharge coeﬃcients
+Eq. (21).
+                                                                                               Simulations in EnergyPlus employing the cross ventilation algorithm
+                                                                                           provide the air velocity of the jet, 𝑉𝑗 , only when the air velocity in the
+3.3.5. MECS&NV Model calibration process                                                   thermal zone is large enough; in the study case, this does not always
+    The model calibration consists of two steps. The ﬁrst step is to eval-                 occur, and therefore, this variable cannot be used to calibrate the NV
+uate the eﬀect of dividing the cafeteria into three thermal zones on the                   model. Thus, calibration is performed by comparing only the simulation
+air volumetric ﬂow rate within the cafeteria. The second step considers                    and experimental results of the cafeteria air temperature. The simula-
+a value for the air changes per unit time in the evaporative zone (𝐶𝑎𝑐 )                   tions consider 𝑇𝑐−𝑆𝑠 , and the experiments consider 𝑇𝑐−𝐸𝑥 (measured at
+and adjusts the IECS eﬀectiveness (𝜖𝐼 ).                                                   point Tc). The EPW s ﬁle and Period 1 data are used for this calibration
+    As was pointed out, dividing the cafeteria into three thermal zones in                 process.
+the EP model implies considering two new openings. To ensure that the                          The discharge coeﬃcient (𝐶𝑑 ) of the air entering through the en-
+airﬂow conditions inside the cafeteria are not aﬀected by these open-                      trance, where obstructions are small, was varied in the range of 0.50 to
+ings, simulations using the MECS&NV model with the MECS turned oﬀ                          0.60, while 𝐶𝑑 of the air entering through the lattice wall ranged from
+and simulations using the NV model were compared.                                          0.30 to 0.45. The set of values that has the minimum mean absolute er-
+    In the second calibration step, a value of 𝐶𝑎𝑐 is assumed. Then, for                   ror (MAE) and mean bias error (MBE) is 𝐶𝑑 = 0.55 for the entrance and
+a period with the MECS turned on, simulations are performed by vary-                       𝐶𝑑 = 0.35 for the lattice wall (MAE=0.3 ◦ C and MBE=0.0 ◦ C). There-
+ing the value of 𝜖𝐼 . The simulated air temperature inside the cafeteria is                fore, these discharge coeﬃcient values are used in the subsequent sim-
+compared with the experimental measurements, and the selected value                        ulations.
+
+                                                                                       9
+M.V. Cruz-Salas et al.                                                                                                             Energy & Buildings 366 (2026) 117700
+
+
+
+
+Fig. 9. Building model in OpenStudio. Neighboring buildings are represented as shading surfaces. (left) View of the main facade; the cafeteria is located at the
+square level, where a tree is also represented as shading surfaces. (right) View of the rear facade; the cafeteria is on the second ﬂoor. The shading surface systems
+at the cafeteria and the two upper levels provide an equivalent shading eﬀect to that of the lattice walls. Shading surfaces are in purple. (For interpretation of the
+references to colour in this ﬁgure legend, the reader is referred to the web version of this article.)
+
+
+
+
+Fig. 10. Scheme of the MECS&NV model in EnergyPlus for the cafeteria. The total cafeteria volume is divided into three thermal zones: the Lattice evapora-
+tive zone, the Cafeteria zone, and the Entrance evaporative zone. For each evaporative zone, an Ideal Evaporative Cooling Systems (IECS) is used. The Zone-
+HVAC:ForcedAir:UserDeﬁned object incorporates the IECS. An Energy Managment System (EMS) program calculates the supply air node conditions. For natural
+ventilation simulation, the Airﬂow Network (AFN) model has ﬁve nodes and four openings.
+
+
+4.3. NV Model validation                                                              and for the relative humidity MAE=4% and MBE=-4%. The NV model
+                                                                                      is validated based on these results.
+    For the validation of the NV model, the cafeteria air temperature and
+relative humidity results obtained in the simulations using the EPW 𝑠 ﬁle             4.4. MECS&NV Model calibration: evaluating the eﬀect of three thermal
+during Period 2 are compared with the experimental values measured                    zones
+in the cafeteria center.
+    Temperature and relative humidity results of Period 2 are also                        To analyze whether there is any eﬀect of considering the evaporative
+shown in Fig. 14. It can be seen that there is good qualitative agree-                zone as a thermal zone on the air volumetric ﬂow rate, 𝑉̇ , simulations
+ment between the simulation and the experimental results. To facilitate               are performed for Periods 1 and 2, with the NV model and with the
+the comparison between simulation and experimental results, scatter                   MECS&NV model with the MECS oﬀ. As the separation of the evapora-
+plots of temperature and relative humidity are presented in Fig. 15.                  tive zone and the cafeteria zone is ﬁctitious, the discharge coeﬃcient
+These plots show that the simulated temperature does not exhibit a                    for the opening between the evaporative zone and the cafeteria zone is
+systematic deviation from the experimental values, whereas the sim-                   considered 1.0 for both evaporative zones. EP reports the air volumetric
+ulated relative humidity consistently underestimates the experimen-                   ﬂow rate entering and exiting the cafeteria through the entrance, 𝑉̇ 𝑒−𝑖
+tal measurements in about 4%. The diﬀerences between simulation                       and 𝑉̇ 𝑒−𝑜 respectively, and those entering and exiting through the lattice
+and experimental results for temperature and relative humidity, and                   wall, 𝑉̇ 𝑤−𝑖 and 𝑉̇ 𝑤−𝑜 . Taking as reference the results of the NV model
+the entrance-perpendicular component of the air velocity in the cafe-                 (without evaporative zones), the MAE and MBE normalized with the
+teria, as functions of time for Period 2, are presented in Fig. 16. It                mean value of the air volumetric ﬂow rate entering to the cafeteria is
+can be observed that the simulation provides better agreement (i.e.,                  smaller than 5%. This fact demonstrates that the eﬀect of dividing the
+smaller diﬀerences in both temperature and relative humidity) when                    cafeteria into three thermal zones can be considered negligible.
+the entrance-perpendicular component of the air velocity in the cafete-
+ria has relatively large values with small variations (Feb 17 from 2:00 to            4.5. MECS&NV Experimental results
+7:00 hours).
+    The quantitative comparison of simulation results with the experi-                   The entrance-perpendicular component of the air velocity measured
+mental ones for the temperature gives MAE=0.2 ◦ C and MBE=0.1 ◦ C                     in the cafeteria during the MECS&NV experiments, 𝑉⟂𝑐-𝐸𝑥 , and that
+
+                                                                                 10
+M.V. Cruz-Salas et al.                                                                                                              Energy & Buildings 366 (2026) 117700
+
+
+
+
+                         Fig. 11. Flowchart of the mist evaporative cooling plug-in and its interaction with EnergyPlus, denoted with the logo.
+
+
+measured in the square, 𝑉⟂𝑜−𝐸𝑥 , as functions of time, are shown in                     calibration process, the EPW 𝑠 ﬁle is used and data from Period 3. Since
+Fig. 17. As expected, the relationship between these variables is sim-                  the characteristics of both misting lines are similar, 𝜖𝐼 was considered
+ilar to that observed in the NV experiments.                                            equal for both evaporative zones and was varied in the range of 0.30 to
+    In the MECS&NV experiments, the air temperature 𝑇𝑐−𝐸𝑥 and relative                  0.60. The value that presents the minimum MAE and MBE is 𝜖𝐼 = 0.40
+humidity 𝜙𝑐−𝐸𝑥 within the cafeteria were also monitored over time, the                  (MAE=0.2 ◦ C and MBE=0.1 ◦ C). Therefore, this eﬀectiveness value is
+results are presented in Fig. 18, alongside the outdoor values 𝑇𝑜−𝐸𝑥 and                used in subsequent simulations.
+𝜙𝑜−𝐸𝑥 . There are two periods during which the MECS operated; these
+periods are denoted in light green. Before the MECS begin to operate,
+                                                                                        4.7. MECS&NV Model validation
+𝑇𝑐−𝐸𝑥 is close to 𝑇𝑜−𝐸𝑥 . While, 𝜙𝑐−𝐸𝑥 is slightly higher than 𝜙𝑜−𝐸𝑥 , the
+diﬀerence is up to 7%, a value similar to that obtained in the NV ex-
+                                                                                            For the validation of the MECS&NV model, the cafeteria air temper-
+periments (P1 and P2). When MECS begin to function, 𝑇𝑐−𝐸𝑥 decreases
+                                                                                        ature and relative humidity results obtained in the simulations using
+and 𝜙𝑐−𝐸𝑥 increases. However, the temperature decrease and the hu-
+                                                                                        the EPW 𝑠 ﬁle during Period 4 are compared with the experimental val-
+midity increase are not maintained equally when MECS are operating.
+                                                                                        ues measured in the cafeteria center, data shown in Fig. 18. It can be
+The cause of this inconstant eﬀect of the MECS is the air velocity, shown
+                                                                                        seen that there is good qualitative agreement between the simulation
+in Fig. 17. It can be seen that the eﬀect of MECS is more pronounced
+                                                                                        and the experimental results. As in Section 4.3, to help in the com-
+when |𝑉⟂𝑐−𝐸𝑥 | is low, and the direction is from the cafeteria entrance.
+                                                                                        parison between simulation and experimental results, scatter plots of
+                                                                                        temperature and relative humidity are presented in Fig. 20. The ranges
+4.6. MECS&NV Model calibration: setting the eﬀectiveness                                of the variables in these plots are the same as in Fig. 15, but the re-
+                                                                                        sults are within a shorter range, as these data correspond only to the
+    Before setting the IECS eﬀectiveness (𝜖𝐼 ), the value of the air changes            hottest period of the day, when the use of the MECS is adequate. As for
+per unit time in the evaporative zone (𝐶𝑎𝑐 ) has to be assigned. It is con-             the NV model validation, the simulated temperature does not exhibit a
+sidered that in a timestep (1 minute) the entire volume of the evap-                    systematic deviation from the experimental values, and the simulated
+orative zone is changed, i.e 𝐶𝑎𝑐 = 1 timestep−1 ). The selection of 𝜖𝐼                  relative humidity underestimates the experimental measurements. Nev-
+value is performed by comparing the simulation result of the cafete-                    ertheless, for the NV&MECS model, the underestimation is not constant,
+ria air temperature 𝑇𝑐−𝑆𝑠 with the experimental value 𝑇𝑐−𝐸𝑥 . For this                  it increases as the relative humidity increases. The diﬀerences between
+
+                                                                                   11
+M.V. Cruz-Salas et al.                                                                                                                  Energy & Buildings 366 (2026) 117700
+
+
+
+
+                         Fig. 12. Flowchart of the Evaporative Zone Supply Air subprogram, in Python, and its interaction with EnergyPlus.
+
+
+
+
+Fig. 13. NV periods. The entrance-perpendicular-component of the air velocity measured in the cafeteria, 𝑉⟂𝑐−𝐸𝑥 (magenta), and at the square, 𝑉⟂𝑜−𝐸𝑥 (green), as
+functions of time. Positive values indicate that the airﬂow is from the square. (For interpretation of the references to colour in this ﬁgure legend, the reader is referred
+to the web version of this article.)
+
+
+simulation and experimental results for temperature and relative humid-                       Table 2
+ity, and the entrance-perpendicular component of the air velocity in the                      Sensitivity to EPW ﬁle: 𝑠 and 𝑚 ﬁles. Metrics of comparison of tem-
+cafeteria, as functions of time for Period 4, are presented in Fig. 21. It                    perature (𝑇 ) and relative humidity (𝜙) simulation results with experi-
+can be observed that the largest diﬀerences in temperature and relative                       mental ones, for the four periods. Experimental results of the cafeteria
+humidity (1.5 ◦ C and -18%) are obtained at the beginning of the oper-                        air velocity are included: the prevailing direction of the ﬂow enter-
+                                                                                              ing to the cafeteria (𝜃𝑝 ): from the entrance E or from the lattice wall
+ation of the MECS and when the entrance-perpendicular component of
+                                                                                              W, the percentage of time (𝑡𝑝 ) and the average of the perpendicular
+the air velocity in the cafeteria has relatively small values. This relation-
+                                                                                              velocity (𝑣 = 𝑉⟂𝑐−𝐸𝑥 ) when being in that direction.
+ship between simulation and experimental diﬀerences and air velocity
+in the MECS&NV period is similar to that found in the NV period re-                                                 T             𝜙            𝜃𝑝      𝑡𝑝     𝑣
+ported in Section 4.3. The quantitative comparison of simulation results                        Period    Metric    [◦C]          [%]          [-]     [%]    [m/s]
+                                                                                                                    𝑠      𝑚      𝑠      𝑚
+with the experimental ones for the temperature gives MAE=0.4 ◦ C and
+MBE=0.1 ◦ C and for the relative humidity MAE=5% and MBE=-4%.                                   P1
+                                                                                                          MAE       0.5    0.3    4      4
+                                                                                                                                               W       55     -0.19
+                                                                                                          MBE       0.5    0.2    −4     −4
+It is also concluded that the MECS&NV model is validated.
+                                                                                                          MAE       0.4    0.3    5      4
+                                                                                                P2                                             E       73     0.51
+                                                                                                          MBE       0.4    0.2    −5     −4
+4.8. Cooling eﬀect of the MECS in the cafeteria air
+                                                                                                          MAE       0.2    0.5    4      5
+                                                                                                P3                                             E       70     0.74
+                                                                                                          MBE       0.1    0.5    −3     −4
+    From the experimental results, the cooling eﬀect of the MECS on
+                                                                                                          MAE       0.4    0.6    5      6
+the air inside the cafeteria can be evaluated by comparing the reduc-                           P4                                             E       70     0.80
+                                                                                                          MBE       0.1    0.6    −4     −6
+tion of the cafeteria air temperature 𝑇𝑐-𝐸𝑥 with respect to outdoor air
+
+                                                                                    12
+M.V. Cruz-Salas et al.                                                                                                           Energy & Buildings 366 (2026) 117700
+
+
+
+
+Fig. 14. NV periods. Air temperature 𝑇 (thick lines) and relative humidity 𝜙 (thin lines) results. From measurements in the cafeteria center 𝑇𝑐−𝐸𝑥 and 𝜙𝑐−𝐸𝑥 (red),
+in the outdoor, 𝑇𝑜−𝐸𝑥 and 𝜙𝑜−𝐸𝑥 (black); and from simulations using EPW 𝑠 ﬁle 𝑇𝑐−𝑆𝑠 and 𝜙𝑐−𝑆𝑠 (blue). (For interpretation of the references to colour in this ﬁgure
+legend, the reader is referred to the web version of this article.)
+
+
+
+
+Fig. 15. NV Period 2. Scatter plots showing the relationship between experimental and simulated results, for cafeteria air temperature (left) and relative humidity
+(right).
+
+
+temperature 𝑇𝑜-𝐸𝑥 . A maximum temperature reduction of 3.1 ◦ C is ob-                ity increase is 7%. These values are similar to those obtained when
+served, accompanied by a maximum increase of 𝜙𝑐-𝐸𝑥 with respect to                   referenced to outdoor conditions, indicating that the thermal mass of
+𝜙𝑜-𝐸𝑥 of 24%. During MECS operation, the average diﬀerence between                   the cafeteria has a minor contribution to the air temperature reduction
+the cafeteria temperature and the outdoor temperature is 1.9 ◦ C and the             within the space compared to the evaporative cooling eﬀect.
+average diﬀerence between 𝜙𝑐-𝐸𝑥 and 𝜙𝑜-𝐸𝑥 is 11%. After the MECS is                      The average misting line eﬀectiveness (𝜖𝑚 ) ( Eq. (8)) for the semi-
+turned oﬀ, the indoor temperature remains more than 1 ◦ C below the                  outdoor cafeteria, during periods P3 and P4 when the lines are active,
+outdoor temperature for 6 minutes in Period 3 and for 12 minutes in                  is 0.18 for the entrance misting line and 0.17 for the lattice misting
+Period 4.                                                                            line. This type of space is diﬃcult to analyze since a large proportion
+    From the simulations, the cooling eﬀect of the MECS, also relative to            of the misting water droplets do not evaporate inside the cafeteria. The
+the outdoor conditions, results in a maximum air temperature reduction               selected location of the misting lines, near the cafeteria entrance and
+of 3.0 ◦ C with a corresponding maximum increase in relative humidity                near the lattice wall, may be one of the causes of the reduced eﬀec-
+of 11%. The average air temperature reduction is 1.9 ◦ C, with an average            tiveness of the water used. It was also observed that the contribution
+relative humidity increase of 7%. These results are in agreement with                of the misting lines to the cafeteria’s cooling was aﬀected by the wind
+the experimental ones.                                                               direction and airﬂow turbulence. For the same periods P3 and P4, the
+    The cooling eﬀect attributable solely to the MECS, obtained through              average evaporative cooling eﬀectiveness of the MECS in the cafeteria
+simulations, can be evaluated by comparing the results obtained with                 (𝜖𝑐𝑒 ) (Eq. (13)) is 0.16. This value is largely a consequence of the low
+the MECS operating to those of the same periods with the MECS turned                 eﬀectiveness of the misting line 𝜖𝑚 . Therefore, the cooling eﬀect of the
+oﬀ. The maximum air temperature reduction is 2.9 ◦ C, with a corre-                  MECS in the cafeteria could be improved by relocating the misting lines
+sponding maximum increase in relative humidity of 11%. The average                   in an intermediate distance between the center and the entrance or the
+air temperature reduction is 1.9 ◦ C, and the average relative humid-                lattice wall.
+
+                                                                                13
+M.V. Cruz-Salas et al.                                                                                                             Energy & Buildings 366 (2026) 117700
+
+
+
+
+Fig. 16. NV Period 2. Diﬀerences between simulation and experimental results for temperature, 𝑇𝑆𝑠 − 𝑇𝐸𝑥 (black), and relative humidity, 𝜙𝑆𝑠 − 𝜙𝐸𝑥 (red), and the
+entrance-perpendicular component of the air velocity in the cafeteria 𝑉⟂𝑐−𝐸𝑥 (magenta), as functions of time. (For interpretation of the references to colour in this
+ﬁgure legend, the reader is referred to the web version of this article.)
+
+
+
+
+Fig. 17. MECS&NV periods. The entrance-perpendicular-component of the air velocity measured in the cafeteria, 𝑉⟂𝑐−𝐸𝑥 (magenta), and at the square, 𝑉⟂𝑜−𝐸𝑥 (green),
+as functions of time. Positive values indicate that the airﬂow is from the square. (For interpretation of the references to colour in this ﬁgure legend, the reader is
+referred to the web version of this article.)
+
+
+4.9. EPW File sensitivity analysis                                                    diﬀerence for the air temperature in MAE is 0.3 ◦ C and in MBE 0.5 ◦ C,
+                                                                                      and for the relative humidity in MAE it is 1% and in MBE 2%. This in-
+    As stated before, two EPW ﬁles were constructed (Section 3.3.1), but              dicates that the sensitivity to the EPW ﬁle choice is small, despite the
+in previous simulations, only the EPW 𝑠 ﬁle was used.                                 complicated geometry of the nearby buildings surrounding the cafete-
+    Since the outdoor air velocity is the only input data that diﬀers in              ria. As expected, for P1 the simulation results are more accurate for the
+both EPW ﬁles, the entrance-perpendicular-component of the incident                   𝑚 ﬁle, when the air in the cafeteria comes from the lattice wall; and for
+air velocity to the cafeteria as a function of time from both EPW ﬁles are            P3 and P4 the simulation results are more accurate for the 𝑠 ﬁle when
+compared. In the Ss simulations, 𝑉⟂𝑜−𝐸𝑥 was measured in the square and                the air comes from the square. Nevertheless, for P2 the 𝑚 ﬁle produces
+the corresponding velocity in the Sm simulation, 𝑉⟂𝑆𝑚ℎ , was obtained                 slightly more accurate results, even though the air also comes from the
+from the meteorological station with the correction to have it at the same            square; the diﬀerences remain small, up to 0.2 ◦ C for 𝑇 and 1% for 𝜙.
+height of 𝑉⟂𝑜−𝐸𝑥 , both are shown for the four experimental periods in
+Fig. 19. It can be seen that there are diﬀerences between these velocities,           5. Discussion and limitations
+as 𝑉⟂𝑆𝑚ℎ does not account for the inﬂuence of neighboring buildings that
+alter the direction of the ﬂow near the cafeteria building. When airﬂow                   The cooling eﬀect in the air of the cafeteria produced by the MECS,
+is from the square, i.e. 0 < 𝑉⟂𝑜−𝐸𝑥 , almost all the time 𝑉⟂𝑜−𝐸𝑥 < 𝑉⟂𝑆𝑚ℎ ;            of approximately 2 to 3 ◦ C, is a good result compared to the results of
+and that in some periods when 𝑉⟂𝑆𝑚ℎ has a small positive value, 𝑉⟂𝑜−𝐸𝑥                previous studies taking into account that the cafeteria is a semi-outdoor
+is small but negative.                                                                space with a volume of 545 m3 . The high cooling eﬀect reported by
+    The eﬀect of using the EPW 𝑚 ﬁle on the MECS&NV model simula-                     Pearlmutter et al. [16], of up to 15 ◦ C, corresponds to the cooling of the
+tions is analyzed by comparing simulation results with the experimental               air within the cooling tower, not to the air inside the people-occupied
+ones using MAE and MBE metrics for the air temperature and relative                   space. In the study by Rabani et al. [17], they report a cooling eﬀect in
+humidity in the cafeteria, which are presented in Table 2. All simula-                the air inside a test room of up to 8 ◦ C, produced by a water spray system
+tions overestimate 𝑇 and underestimate 𝜙. It can be seen that, results                inside a Trombe wall in combination with a solar chimney. Nevertheless,
+from the 𝑠 and 𝑚 ﬁles have similar MAE and MBE values. The maximum                    the test room has a small volume of less than 17 m3 . The cooling eﬀect of
+
+                                                                                 14
+M.V. Cruz-Salas et al.                                                                                                             Energy & Buildings 366 (2026) 117700
+
+
+
+
+Fig. 18. MECS&NV periods. Air temperature 𝑇 (thick lines) and relative humidity 𝜙 (thin lines) results. From measurements in the cafeteria center 𝑇𝑐−𝐸𝑥 and 𝜙𝑐−𝐸𝑥
+(red), in the outdoor, 𝑇𝑜−𝐸𝑥 and 𝜙𝑜−𝐸𝑥 (black); and from simulations using EPW 𝑠 ﬁle 𝑇𝑐−𝑆𝑠 and 𝜙𝑐−𝑆𝑠 (blue). (For interpretation of the references to colour in this
+ﬁgure legend, the reader is referred to the web version of this article.)
+
+
+
+
+Fig. 19. NV and MECS&NV periods. The entrance-perpendicular-component of the incident air velocity to the cafeteria as a function of time in the experiments,
+which was used in the simulations Ss, 𝑉⟂𝑜−𝐸𝑥 (green), and that in the simulation Sm, 𝑉⟂𝑆𝑚ℎ (purple). Positive values indicate that the airﬂow is from the square. (For
+interpretation of the references to colour in this ﬁgure legend, the reader is referred to the web version of this article.)
+
+
+8 ◦ C produced by an overhead mist cooling system in an outdoor space                 ventilation and no forced airﬂow. A particular characteristic that rep-
+reported in Ulpiani et al. [21] corresponds to the eﬀect in the air just              resents an additional challenge for the MECS is that the cafeteria is a
+down the mist. The cooling eﬀect of an outdoor windcacher with a mist                 space with large variations in air velocity due to the complex wind ﬂow
+cooling system on an urban canyon reported by Kachmar et al. [23] is                  around it.
+of 2 ◦ C in the air temperature on the sidewalk close to the system and                   The investigation reported in this paper has some limitations. One
+of 1 ◦ C in the sidewalk far from the system.                                         of these is that EnergyPlus simulations assume perfect mixing of the air
+     The MECS being analyzed exhibits characteristics intrinsic to a sys-             within each thermal zone, including the cafeteria, which has a large vol-
+tem installed in a semi-outdoor environment with signiﬁcant natural                   ume. Therefore, the indoor air temperature and relative humidity values
+
+
+                                                                                 15
+M.V. Cruz-Salas et al.                                                                                                            Energy & Buildings 366 (2026) 117700
+
+
+
+
+Fig. 20. MECS&NV Period 4. Scatter plots showing the relationship between experimental and simulated results in Period 4, for cafeteria air temperature (left) and
+relative humidity (right).
+
+
+
+
+Fig. 21. MECS&NV Period 4. Diﬀerences between simulation and experimental results for temperature, 𝑇𝑆𝑠 − 𝑇𝐸𝑥 (black), and relative humidity, 𝜙𝑆𝑠 − 𝜙𝐸𝑥 (red),
+and the entrance-perpendicular component of the air velocity in the cafeteria 𝑉⟂𝑐−𝐸𝑥 (magenta), as functions of time. (For interpretation of the references to colour
+in this ﬁgure legend, the reader is referred to the web version of this article.)
+
+
+obtained from the simulations correspond to the entire volume, whereas                6. Conclusions
+the measurements are point values in the center of the cafeteria, con-
+sidered the most representative of the space. Consequently, EnergyPlus                   The main contribution of this research is the development of a
+could not accurately capture some spatial and temporal variations in air              model for the thermodynamic process of direct evaporative cooling pro-
+temperature and relative humidity, which could limit the evaluation of                duced by misting lines in a semi-outdoor space, implemented in Ener-
+the thermal comfort provided by the MECS in the cafeteria.                            gyPlus simulations. The model is validated through experiments con-
+    In this research, only periods of 30 minutes with mist-on and 15                  ducted in a cafeteria. Experiments and simulations were performed un-
+minutes with mist-oﬀ were considered. Additional research is required                 der two conditions: natural ventilation only (NV), and operation of
+to determine the optimal duration of these periods. Continuous mist-                  the mist evaporative cooling system combined with natural ventilation
+on operation would increase water consumption; however, it is not ex-                 (MECS&NV).
+pected to saturate the air, as the cafeteria is a semi-outdoor space with                The main conclusions are as follows.
+signiﬁcant airﬂow.
+    The present research has not evaluated changes in occupants’ pre-                  • For the NV condition in the cafeteria, the air temperature from sim-
+dicted thermal comfort or their perceived comfort. This is an im-                        ulation with respect to that from experiments shows MAE = 0.2 ◦ C
+portant topic to be investigated in future work, as an increase in                       and MBE = 0.1 ◦ C.
+relative humidity can reduce the positive eﬀect of the temperature                     • In the simulations, dividing the cafeteria into three thermal zones
+decrease.                                                                                in the MECS&NV model results in changes of less than 5% in the
+
+                                                                                 16
+M.V. Cruz-Salas et al.                                                                                                               Energy & Buildings 366 (2026) 117700
+
+
+   normalized air volumetric ﬂow rate entering the cafeteria, relative            References
+   to the NV model.
+ • For the MECS&NV condition in the cafeteria, the air temperature                 [1] P. de la Alhambra, Discover the Alhambra and Generalife, 2025, (https://www.
+                                                                                       alhambra-patronato.es/en/discover). Accessed: 2025/12/09.
+   from simulations with respect to that from experiments shows MAE                [2] P.M. Cuce, S. Riﬀat, A state of the art review of evaporative cooling systems for
+   = 0.4 ◦ C and MBE = 0.1 ◦ C.                                                        building applications, Renew. Sustain. Energy Rev. 54 (2016) 1240–1249. https:
+ • The cooling eﬀect of the MECS on the cafeteria air temperature com-                 //doi.org/10.1016/j.rser.2015.10.066
+                                                                                   [3] R. Chandrashekar, A. Pai, T. Vivek, S.K. Sekar, M. Arıcı, K. Balaji, Thermal comfort
+   pared with the value it would have without the MECS has a maxi-                     and heat ﬂow characteristics of hybrid cooling systems for studio type classrooms: an
+   mum reduction of 2.9 ◦ C and an average of 1.9 ◦ C.                                 experimental study, Energy Build. 316 (2024). https://doi.org/10.1016/j.enbuild.
+ • A sensitivity analysis was conducted comparing an EPW 𝑚                             2024.114316
+                                                                                   [4] G. Aruta, R. Escandón, C.M. Calama-González, F. Ascione, R. Suárez, Is evapora-
+   ﬁle, containing data entirely from a meteorological station,                        tive cooling an eﬃcient solution for ensuring air quality and thermal comfort in
+   with an EPW 𝑠 ﬁle that incorporates air velocity measured                           overheated classrooms in a dry Mediterranean climate?, Energy Build. 350 (2026).
+   in the square near the cafeteria entrance. The resulting dif-                       https://doi.org/10.1016/j.enbuild.2025.116660
+                                                                                   [5] M. Soleimani, B. Keshavarzi, B. Sajadi, Simulation-based study on the eﬀect of de-
+   ferences in MAE and MBE with respect to experimental data
+                                                                                       sign parameters on the performance of two-stage indirect-direct evaporative cooling
+   are below 0.5 ◦ C for temperature and below 2% for relative                         systems in diﬀerent climates of Iran, J. Build. Eng. 118 (2026). https://doi.org/10.
+   humidity.                                                                           1016/j.jobe.2025.115025
+ • The cooling eﬀect of the MECS in the cafeteria could be                         [6] V. Kalantar, Numerical simulation of cooling performance of wind tower (Baud-
+                                                                                       Geer) in hot and arid region, Renew. Energy 34 (1) (2009) 246–254. https://doi.
+   improved by relocating the misting lines in an intermediate                         org/10.1016/j.renene.2008.03.007
+   distance between the center and the entrance or the lattice                     [7] M.N. Bahadori, An improved design of wind towers for natural ventilation and
+   wall.                                                                               passive cooling, Sol. Energy 35 (2) (1985) 119–129. https://doi.org/10.1016/
+                                                                                       0038-092X(85)90002-7
+ • The results of MECS simulations can be improved if a meteorologi-
+                                                                                   [8] R. Belarbi, C. Ghiaus, F. Allard, Modeling of water spray evaporation: application
+   cal ﬁle with local wind data is available; however, the use of me-                  to passive cooling of buildings, Sol. Energy 80 (12) (2006) 1540–1552. https://doi.
+   teorological data from a nearby weather station can be used for                     org/10.1016/j.solener.2006.01.004
+                                                                                   [9] G. Chiesa, M. Grosso, Direct evaporative passive cooling of building. a comparison
+   decision-making regarding the sizing and implementation of this                     amid simpliﬁed simulation models based on experimental data, Build. Environ. 94
+   type of evaporative cooling system without signiﬁcantly aﬀecting the                (P1) (2015) 263–272. https://doi.org/10.1016/j.buildenv.2015.08.014
+   results.                                                                       [10] A. Alaidroos, M. Krarti, Numerical modeling of ventilated wall cavities with spray
+                                                                                       evaporative cooling system, Energy Build. 130 (2016) 350–365. cited By 15. https:
+                                                                                       //doi.org/10.1016/j.enbuild.2016.08.046
+   It is worth noting that this model can be implemented in other whole-          [11] N. Bowman, K. Lomas, M. Cook, H. Eppel, B. Ford, M. Hewitt, M. Cucinella, E.
+building simulation programs, provided that they oﬀer the capability to                Francis, E. Rodriguez, R. Gonzalez, S. Alvarez, A. Galata, P. Lanarde, R. Belarbi,
+control an Energy Management System (EMS) or similar from an exter-                    Application of passive downdraught evaporative cooling (PDEC) to non-domestic
+                                                                                       buildings, Renew. Energy 10 (2–3 SPEC. ISS.) (1997) 191–196. https://doi.org/10.
+nal program.                                                                           1016/0960-1481(96)00062-6
+                                                                                  [12] D. Kang, R.K. Strand, Modeling of simultaneous heat and mass
+                                                                                       transfer     within     passive    down-draft      evaporative     cooling    (PDEC)
+CRediT authorship contribution statement                                               towers     with     spray    in    FLUENT,Energy        Build.  62    (2013)    196-
+                                                                                       -209. https://doi.org/10.1016/j.enbuild.2013.02.039
+                                                                                  [13] J. Foroozesh, S.H. Hosseini, A.J. Ahmadian Hosseini, F. Parvaz, K. Elsayed, N.
+    M.V. Cruz-Salas: Writing – review & editing, Visualization, Soft-                  Uygur Babaoğlu, K. Hooman, G. Ahmadi, CFD Modeling of the building integrated
+ware, Formal analysis, Data curation; E. Puerto: Writing – review &                    with a novel design of a one-sided wind-catcher with water spray: focus on thermal
+editing, Writing – original draft, Software, Methodology, Conceptual-                  comfort, Sustain. Energy Technol. Assess. 53 (2022), 102736. https://doi.org/10.
+                                                                                       1016/j.seta.2022.102736
+ization; J. Rojas: Writing – review & editing, Project administration,            [14] Z. Moghtader Gilvaei, A. Haghighi Poshtiri, A. Mirzazade Akbarpoor, A novel passive
+Methodology, Investigation, Funding acquisition, Conceptualization; G.                 system for providing natural ventilation and passive cooling: evaluating thermal
+Barrios: Writing – review & editing, Methodology, Investigation, Data                  comfort and building energy, Renew. Energy 198 (2022) 463–483. https://doi.org/
+                                                                                       10.1016/j.renene.2022.07.151
+curation; G. Huelsz: Writing – review & editing, Writing – original draft,        [15] H. Saﬀari, S.M. Hosseinnia, Two-phase Euler-Lagrange CFD simulation of evap-
+Methodology, Conceptualization; G. Ramírez: Writing – review & edit-                   orative cooling in a wind tower, Energy Build. 41 (9) (2009) 991–1000. https:
+ing, Investigation.                                                                    //doi.org/10.1016/j.enbuild.2009.05.006
+                                                                                  [16] D. Pearlmutter, E. Erell, Y. Etzion, I.A. Meir, H. Di, Reﬁning the use of evaporation
+                                                                                       in an experimental down-draft cool tower, Energy Build. 23 (3) (1996) 191–197.
+                                                                                       https://doi.org/10.1016/0378-7788(95)00944-2
+Data availability                                                                 [17] M. Rabani, V. Kalantar, A.A. Dehghan, A.K. Faghih, Empirical investigation of
+                                                                                       the cooling performance of a new designed Trombe wall in combination with so-
+    We have shared the link to code and ﬁles at the Attach File step.                  lar chimney and water spraying system, Energy Build. 102 (2015) 45–57. https:
+                                                                                       //doi.org/10.1016/j.enbuild.2015.05.010
+                                                                                  [18] N. Nishimura, T. Nomura, H. Iyota, S. Kimoto, Novel water facilities for creation of
+                                                                                       comfortable urban micrometeorology, Sol. Energy 64 (4–6) (1998) 197–207. https:
+Declaration of competing interest                                                      //doi.org/10.1016/S0038-092X(98)00116-9
+                                                                                  [19] N.H. Wong, A.Z.M. Chong, Performance evaluation of misting fans in hot and hu-
+    None.                                                                              mid climate, Build. Environ. 45 (12) (2010) 2666–2678. https://doi.org/10.1016/
+                                                                                       j.buildenv.2010.05.026
+                                                                                  [20] J. Wei, J. He, Numerical simulation for analyzing the thermal improving eﬀect of
+                                                                                       evaporative cooling urban surfaces on the urban built environment, Appl. Therm.
+Acknowledgments                                                                        Eng. 51 (1–2) (2013) 144–154. https://doi.org/10.1016/j.applthermaleng.2012.08.
+                                                                                       064
+                                                                                  [21] G. Ulpiani, E. Di Giuseppe, C. Di Perna, M. D’Orazio, M. Zinzi, Thermal comfort im-
+    Authors thank the technical support given by Guillermo Hernán-
+                                                                                       provement in urban spaces with water spray systems: ﬁeld measurements and sur-
+dez and Kevin Alquicira, and Jesús Quiñonez for the meteorolog-                        vey, Build. Environ. 156 (2019) 46–61. https://doi.org/10.1016/j.buildenv.2019.
+ical data. This research was partially supported by PAPIIT-UNAM                        04.007
+IT102622 project. M.V. Cruz-Salas acknowledges the postdoctoral fel-              [22] S. Heidari, A.H. Poshtiri, Z.M. Gilvaei, Enhancing thermal comfort and natural ven-
+                                                                                       tilation in residential buildings: a design and assessment of an integrated system
+lowship granted by the SECIHTI.                                                        with horizontal windcatcher and evaporative cooling channels, Energy 289 (2024).
+                                                                                       https://doi.org/10.1016/j.energy.2023.130040
+                                                                                  [23] H. Kachmar, J. Younes, N. Ghaddar, Eﬀectiveness of outdoor windcatcher and mist
+Supplementary material                                                                 cooling in mitigating urban heat and improving pedestrian thermal comfort, Sustain.
+                                                                                       Cities Soc. 132 (2025). https://doi.org/10.1016/j.scs.2025.106838
+                                                                                  [24] R. Sureshkumar, S.R. Kale, P.L. Dhar, Heat and mass transfer processes between a
+   Supplementary material associated with this article can be found in                 water spray and ambient air - I. Experimental data, Appl. Therm. Eng. 28 (5–6)
+the online version at 10.1016/j.enbuild.2026.117700.                                   (2008) 349–360. https://doi.org/10.1016/j.applthermaleng.2007.09.010
+
+                                                                             17
+M.V. Cruz-Salas et al.                                                                                                                             Energy & Buildings 366 (2026) 117700
+
+
+[25] R. Sureshkumar, S.R. Kale, P.L. Dhar, Heat and mass transfer processes between a            [32] H. Ashraf, M. Sultan, M. Farooq, S.M. Ibrahim, U. Sajjad, M.W. Shahzad, M.U. Khan,
+     water spray and ambient air - II. Simulations, Appl. Therm. Eng. 28 (5–6) (2008)                 M.A. Jamil, Potential investigation of membrane energy recovery ventilators for
+     361–371. https://doi.org/10.1016/j.applthermaleng.2007.09.015                                    the management of building air-conditioning loads, Energies 15 (6) (2022), 2139.
+[26] H. Montazeri, B. Blocken, J.L.M. Hensen, CFD Analysis of the impact of physical                  https://doi.org/10.3390/en15062139
+     parameters on evaporative cooling by a mist spray system, Appl. Therm. Eng. 75              [33] D. Kang, R.K. Strand, Performance control of a spray passive down-draft evapora-
+     (2015) 608–622. https://doi.org/10.1016/j.applthermaleng.2014.09.078                             tive cooling system, Appl. Energy 222 (2018) 915–931. https://doi.org/10.1016/j.
+[27] J. Younes, A.K. Melikov, N. Ghaddar, Controlled airﬂow ﬂuctuations for improved                  apenergy.2018.03.039
+     performance of mist cooling systems: enhanced evaporation and thermal comfort,              [34] E. Sfakiotakis, G. Chlioumis, D. Gerasopoulos, Preharvest chilling reduces low tem-
+     Build. Environ. 267 (2025). https://doi.org/10.1016/j.buildenv.2024.112234                       perature breakdown incidence of kiwifruit, Postharvest Biol. Technol. 38 (2) (2005)
+[28] U.S. Department of Energy (DOE), EnergyPlus Version 22.1.0 Documentation: Input                  169–174. https://doi.org/10.1016/j.postharvbio.2005.06.010
+     Output Reference, 2022. Accessed: 2022-11-04, https://energyplus.net/assets/nrel_           [35] Y.I. Nam, I.H. Yu, T.Y. Kim, M.Y. Roh, M.W. Cho, Eﬀect of newly developed fan and
+     custom/pdfs/pdfs_v22.1.0/InputOutputReference.pdf.                                               mist evaporative cooling system on greenhouse cooling and growth of cucumber,
+[29] G. Chiesa, N. Huberman, D. Pearlmutter, Geo-climatic potential of direct evaporative             Acta Hortic. 761 (2007) 49–53. https://doi.org/10.17660/ActaHortic.2007.761.4
+     cooling in the Mediterranean Region: a comparison of key performance indicators,            [36] ASHRAE, Fundamentals, American Society of Heating, Refrigerating and Air Condi-
+     Build. Environ. 151 (2019) 318–337. https://doi.org/10.1016/j.buildenv.2019.01.                  tioning, 2009.
+     059                                                                                         [37] E. Simá, M.A. Chagolla-Aranda, G. Huelsz, R. Tovar, G. Alvarez, Tree and neigh-
+[30] P. Tewari, S. Mathur, J. Mathur, Thermal performance prediction of oﬃce buildings                boring buildings shading eﬀects on the thermal performance of a house in a warm
+     using direct evaporative cooling systems in the composite climate of India, Build.               sub-humid climate, Build. Simul. 8 (6) (2015) 711 – 723. https://doi.org/10.1007/
+     Environ. 157 (2019) 64–78. https://doi.org/10.1016/j.buildenv.2019.04.044                        s12273-015-0247-2
+[31] S. Noor, H. Ashraf, M. Sultan, Z.M. Khan, Evaporative cooling options for build-
+     ing air-conditioning: a comprehensive study for climatic conditions of multan (Pak-
+     istan), Energies 13 (12) (2020), 3061. https://doi.org/10.3390/en13123061
+
+
+
+
+                                                                                            18
+

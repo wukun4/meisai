@@ -1,0 +1,130 @@
+{
+  "status": "Hypothetical whole occupied-area planning scenario: 220 m station length x assumed 6 m aggregate waiting width x assumed usable fraction 0.8. Not a surveyed whole-station volume.",
+  "geometry": {
+    "length_m": 220.0,
+    "width_m": 4.8,
+    "height_m": 4.0,
+    "zones": [
+      "Access",
+      "Core",
+      "Edge"
+    ]
+  },
+  "outdoor_temperature_c": 33.0,
+  "outdoor_radiant_temperature_c": 33.0,
+  "outdoor_radiant_note": "Shaded longwave approximation, separately specified; not a physical identity between radiant and air temperature",
+  "pressure_pa": 101325.0,
+  "dt_s": 20.0,
+  "duration_s": 7200.0,
+  "warmup_s": 7200.0,
+  "train_period_s": 900.0,
+  "arrival_pulse_duration_s": 120.0,
+  "base_ach_h_inverse": [
+    8.0,
+    4.0,
+    10.0
+  ],
+  "pulse_ach_increment_h_inverse": [
+    8.0,
+    4.0,
+    12.0
+  ],
+  "air_exchange_note": "Balanced outdoor exchange surrogate; the last two minutes of each cycle are an assumed arrival/opening disturbance, not a piston-flow law",
+  "adjacent_exchange_kg_da_s": 0.8800000000000001,
+  "occupancy_min": [
+    26.400000000000002,
+    44.0,
+    17.6
+  ],
+  "occupancy_peak": [
+    88.0,
+    198.00000000000003,
+    66.0
+  ],
+  "occupancy_note": "Mean simultaneous people rise linearly throughout each headway and reset at departure; fractional counts represent a deterministic average",
+  "surface_capacity_j_k": 17600000.0,
+  "surface_to_outdoor_w_k": 1760.0000000000002,
+  "surface_to_air_w_k": 880.0000000000001,
+  "effective_solar_load_w_per_zone": 3520.0000000000005,
+  "surface_view_fractions": [
+    0.55,
+    0.85,
+    0.55
+  ],
+  "person_convective_w": 45.0,
+  "person_radiant_w": 30.0,
+  "person_vapor_kg_s": 1.836734693877551e-05,
+  "person_load_note": "Vapor rate estimated as 45 W / (2.45 MJ/kg); enthalpy source is g*(2501000+1860*T), not a second added 45-W latent term",
+  "baseline_air_speed_m_s": 0.2,
+  "met": 1.2,
+  "clo": 0.5,
+  "set_threshold_c": 26.0,
+  "motor_heat_fraction": 1.0,
+  "devices": {
+    "A": {
+      "unit_power_kw": 0.25,
+      "air_speed_m_s": [
+        0.6,
+        1.0,
+        0.5
+      ],
+      "recirculation_kg_da_s_per_unit": 0.6,
+      "epsilon": 0.0,
+      "outlet_drop_cap_c": 0.0
+    },
+    "B": {
+      "unit_power_kw": 1.2,
+      "air_speed_m_s": [
+        0.5,
+        0.8,
+        0.45
+      ],
+      "recirculation_kg_da_s_per_unit": 0.6,
+      "epsilon": 0.7,
+      "outlet_drop_cap_c": 5.0
+    },
+    "C": {
+      "unit_power_kw": 2.5,
+      "air_speed_m_s": [
+        0.75,
+        1.0,
+        0.6
+      ],
+      "recirculation_kg_da_s_per_unit": 1.2,
+      "epsilon": 0.7,
+      "outlet_drop_cap_c": 8.0
+    }
+  },
+  "device_note": "Integer count matrix x[z,k]; pure and mixed allowed. All power counted once in bulk and electricity. Current zone inlet drives evaporation. Local velocity profiles, delivery beta, supply flow and footprints are unmeasured assumptions.",
+  "ventilation_multipliers": [
+    0.5,
+    0.75,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+  ],
+  "venue_context": {
+    "name": "Canberra MRT station, Singapore",
+    "site_area_m2": 9128,
+    "station_length_approx_m": 220,
+    "roof_truss_span_greater_than_m": 28,
+    "column_height_approx_m": 17,
+    "note": "Building context only. Occupied area is assumed 220m x6m aggregate waiting width x0.8 usable fraction. Effective height4m is not 17m column height. The reference local24x10x4m case supplies assumed per-area scaling parameters only."
+  },
+  "occupied_area_m2": 1056.0,
+  "zone_area_m2": 352.0,
+  "effective_waiting_width_m": 6.0,
+  "usable_fraction": 0.8,
+  "coverage_m2_per_unit": [
+    20.0,
+    30.0,
+    40.0
+  ],
+  "relative_humidity": 0.7,
+  "coverage_note": "Unmeasured disjoint device airflow footprints for service weighting, not air-storage or cold-air mass cells. Covered subgroups use their local supply/entrainment T,RH and prescribed speed, with common zone MRT; uncovered use bulk T,RH and baseline speed. Footprints do not rescale supply mass flow.",
+  "area_scaling_note": "Air volume, envelope storage and conductances, effective solar load, interzone exchange and occupancy scale by 4.4 from the local 240m2 scenario. ACH is unchanged. This is assumed similarity, not measured scaling.",
+  "local_delivery_beta": 0.5,
+  "local_heat_fraction_alpha": 1.0,
+  "local_delivery_note": "Zero-storage supply/entrainment diagnostic: h,w mix with beta=1/(1+r); nominal beta=.5 is assumed for all types, not measured. A/B/C dry-air supply flows .6/.6/1.2 kg/s are recirculating, not outdoor ventilation. alpha=1 is a conservative upper-bound allocation: all electrical input dissipates into supply before passengers. Bulk ODE retains pure evaporative source plus full P exactly once; local mapping never feeds another source back to bulk. beta=0 restores old bulk scalar evaluation but retains prescribed local speed; scalar and momentum delivery are simplified separately. Local hold-up is a jet-core quantity, not footprint times mixing height."
+}

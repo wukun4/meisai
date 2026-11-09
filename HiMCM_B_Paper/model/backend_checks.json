@@ -1,0 +1,18 @@
+{
+  "checks": "passed",
+  "psychrolib_version": "2.5.0",
+  "pythermalcomfort_version": "4.8.1",
+  "pressure_pa": 101325.0,
+  "saturation_pressure_35c_pa": 5627.81944654024,
+  "wet_bulb_35c_rh40_c": 23.934202171156727,
+  "evap_eps_0_8_35c_rh40": {
+    "t_c": 26.147361736925387,
+    "rh": 0.8271821651048638,
+    "w": 0.017715871906581672,
+    "h_j_kg_da": 71473.23690458885,
+    "p_pa": 101325.0
+  },
+  "set_official_example_c": 24.314907736364308,
+  "outside_set_domain_rejected": true,
+  "psychrolib_unit_guard": "Read PSYCHROLIB_UNITS directly: avoid 2.5.0 zero-argument Numba accessor crash; physical routines unchanged"
+}

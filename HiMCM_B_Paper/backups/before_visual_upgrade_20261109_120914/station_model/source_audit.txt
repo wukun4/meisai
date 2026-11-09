@@ -1,0 +1,41 @@
+Rail waiting area model: source and inference audit, 2026-11-07
+
+Given by problem: Requirement 2(b) asks to revise the bus model for a semi-open
+rail waiting area and explain what changed, why, and the usefulness/accuracy.
+The 0.25/1.2/2.5 entries are interpreted as unit powers in kW consistently with
+the earlier bus section. The 5/8 degree effects are outlet caps by convention.
+
+Mechanistic primary references (read, not executed as simulation software):
+EnergyPlus Engineering Reference, Basis for the Zone and Air System Integration:
+https://energyplus.readthedocs.io/en/latest/guides/engineering-reference/2.1-basis-for-the-zone-and-air-system-integration.html
+Supports transient zone energy storage, internal/surface gains, infiltration,
+interzone exchange and system input. Our h-state, three zones, envelope node
+and RK4 solver are reduced-model choices, not EnergyPlus outputs.
+EnergyPlus Engineering Reference, Moisture Predictor-Corrector:
+https://energyplus.readthedocs.io/en/latest/guides/engineering-reference/2.4-moisture-predictor-corrector.html
+Supports evolving humidity ratio from internal moisture, outdoor exchange,
+multizone flow and system terms. We neglect moisture sorption/condensation and
+reject invalid gas states instead of clipping them.
+ASHRAE 2025 Fundamentals Ch16, Ventilation and Infiltration, section10:
+https://handbook.ashrae.org/Handbooks/F25/SI/F25_Ch16/F25_Ch16_si.aspx
+Supports opening exchange driven by wind/buoyancy and geometric resistance;
+does NOT supply the assumed rail-zone ACH, train pulse or adjacent mass flows.
+Existing paper thermalcomfort reference supports use of radiant conditions;
+the effective surface node, view fractions and external radiant temperature
+are scenario approximations, not measured or source-prescribed station values.
+
+All station geometry, heat capacities/conductances, solar input, moisture and
+human heat sources, passenger schedules, train-exchange pulses, recirculation
+flow, local speeds and unit counts are explicitly illustrative assumptions.
+There is no universal underground-train piston law assumed for this semi-open
+station. Vapor enters enthalpy as g*h_v and moisture as g; no latent term is
+added again. Device power is counted as electricity and, by an explicit unit
+heat-fraction assumption, as a sensible environmental source.
+
+Both climates compare identical initial no-cooling warm-up states, weather,
+crowd, geometry and exchange schedules. Each outdoor-exchange variant gets
+its own matched baseline and warm-up. Baseline energy ratio is undefined.
+Two-hour evaluation does not credit later relief from end-of-run thermal
+storage. Dynamic environments do not imply transient human physiology: SET
+is still quasi-steady. Numerical conservation/convergence establish internal
+consistency, not field validation or human safety.

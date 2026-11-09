@@ -1,0 +1,22 @@
+{
+  "source": "/Users/sunyijie/Documents/code/himcm-2026-b/scope_revision/project",
+  "installed_hashes": {
+    "README_\u4f7f\u7528\u8bf4\u660e.txt": "6c3fb3f4be32867929c27272297f2c1702b6e7016fc1402ea8aa75297b6c602f",
+    "revision_verification.json": "d079816762dfd44ea6b166bf476ff20e0b3177cce67f374f365140e2f981dabd",
+    "HiMCM-MidMCM_Summary.tex": "89efcba8e5bfe4344a359b2313d00f9ca42650463127ff4424c50f6814397432",
+    "HiMCM-MidMCM_Summary.pdf": "58a7b87601badd694575450d18ba1cc68e729d6c0a40a4480015cf9d7f861ceb",
+    "sections/unified_results.tex": "e4101f2f41343ad7100c8981a7549ff6c869cc7f5478aa1a914f740466183654",
+    "sections/effectiveness.tex": "fd2a9099912bde7b81da8c6d22d8e97ef0eb4bf3b9fbe503f7f313f25a135b8d",
+    "sections/rail_model.tex": "ff625463b8cb2502d627b044e0691d6bd9dff27d62cc49c22afec376281a3beb",
+    "figure_sources/make_efficiency_scope.py": "5ecdfbdfddbc9b47b1bcf120a1bea831d1c1c2f457077741beec047128422f95",
+    "figure_sources/efficiency_scope_run_log.txt": "f7694f50208f7ce944b729c7e2c25508306e62843e1495e6e22a19eaef6b2f64",
+    "figure_sources/efficiency_scope_validation.json": "36294613e215beea8d1a881d2dda02a7fcb75fa2a380350db6affe0dcae2c3d5",
+    "figures/22_station_efficiency.pdf": "e1f424e85a55e6b0d96b3fff2bc5e3d21fb79f5ede18738fe308346214b55c70",
+    "figures/23_delivery_efficiency.pdf": "ad6428c9d7ed550e166082f005e0b17e19bc399cf609f11e6d2a701570b44a35",
+    "figures/25_coverage_efficiency.pdf": "445713927b0eb83ecfdd5623a7db7bd8df7458b3a8538a6475cde1750ca1a16e",
+    "figures/24_bus_efficiency.pdf": "c6b41891386fce3a0f4a0c598cb6fddc214e9bde263753de44caff30d4243a79",
+    "deployment_model/README.txt": "34fab4f6745ca3b03e9f573d13954162e01fdc8208c33cb4747923516ad1e0f1",
+    "build/scope_compile.log": "e85a5b8b20cc3acc2453a0bd4d4e96b84a0d59e555cebdcbe078702111328d4e",
+    "build/HiMCM-MidMCM_Summary.pdf": "58a7b87601badd694575450d18ba1cc68e729d6c0a40a4480015cf9d7f861ceb"
+  }
+}

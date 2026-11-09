@@ -1,0 +1,51 @@
+{
+  "checks": {
+    "Phoenix_eta_from_unfiltered_positive_domain": true,
+    "Phoenix_eta_ties_reported": true,
+    "Phoenix_smallest_tied_maximizer": true,
+    "Phoenix_grouping_preserves_full_policy_minimum": true,
+    "Phoenix_counts_fix_other_three_objectives": true,
+    "Phoenix_group_count_matches": true,
+    "Phoenix_all_layouts_obey_nonoverlap": true,
+    "Phoenix_equal_coverage_A": true,
+    "Phoenix_equal_coverage_B": true,
+    "Phoenix_equal_coverage_C": true,
+    "Phoenix_annual_and_session_energy_consistent": true,
+    "Phoenix_all_price_winners_are_policy_feasible": true,
+    "Singapore_eta_from_unfiltered_positive_domain": true,
+    "Singapore_eta_ties_reported": true,
+    "Singapore_smallest_tied_maximizer": true,
+    "Singapore_grouping_preserves_full_policy_minimum": true,
+    "Singapore_counts_fix_other_three_objectives": true,
+    "Singapore_group_count_matches": true,
+    "Singapore_all_layouts_obey_nonoverlap": true,
+    "Singapore_equal_coverage_A": true,
+    "Singapore_equal_coverage_B": true,
+    "Singapore_equal_coverage_C": true,
+    "Singapore_annual_and_session_energy_consistent": true,
+    "Singapore_all_price_winners_are_policy_feasible": true
+  },
+  "details": {
+    "Phoenix": {
+      "full_layouts": 12167,
+      "positive_energy_layouts": 12166,
+      "efficiency_max": 81.09738186120576,
+      "tied_layouts": 5,
+      "coverage_eligible_layouts": 3915,
+      "coverage_eligible_count_groups": 199,
+      "full_policy_feasible_layouts": 121,
+      "brute_force_annual_cost_minimum": 3360.18132551298
+    },
+    "Singapore": {
+      "full_layouts": 3375,
+      "positive_energy_layouts": 3374,
+      "efficiency_max": 134.8920027428215,
+      "tied_layouts": 4,
+      "coverage_eligible_layouts": 1062,
+      "coverage_eligible_count_groups": 106,
+      "full_policy_feasible_layouts": 17,
+      "brute_force_annual_cost_minimum": 1292.9243943848037
+    }
+  },
+  "interpretation": "Numerical accounting/scope verification; the Pareto domain is conditioned on q>=.80, while Task3 eta is unfiltered."
+}

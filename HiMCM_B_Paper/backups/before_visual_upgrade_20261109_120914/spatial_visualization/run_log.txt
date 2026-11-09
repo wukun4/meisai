@@ -1,0 +1,26 @@
+{
+  "status": "Postprocessed existing trajectories; no new thermal simulation or spatial interpolation",
+  "plans": [
+    "A36",
+    "B24",
+    "C18",
+    "AB30",
+    "AC27",
+    "ABC24",
+    "AB30-R"
+  ],
+  "checks": {
+    "common_time_and_occupancy": true,
+    "valid_set_inputs": true,
+    "local_group_states_reproduce_exported_set": true,
+    "reproduces_zone_discomfort": true,
+    "zone_service_sums_to_original_total": true,
+    "person_hours_sum_to_original_total": true
+  },
+  "source_hashes": {
+    "scenario.json": "f7cf8f9216a7b9ccb8211813a0842c699e30422988b9bb411ea4f70f0f47329d",
+    "time_series.csv": "e96ee33a945a64145d399698c815ce3600eec0c460d74529559868a2b58024b8",
+    "candidate_results.csv": "508609d5134994b9539693826a6d843e67b2c5ddaccaa238030c7a3f4eff178c"
+  },
+  "max_set_vs_discomfort_difference": 1.3322676295501878e-15
+}

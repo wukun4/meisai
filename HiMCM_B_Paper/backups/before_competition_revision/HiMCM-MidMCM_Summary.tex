@@ -1,0 +1,572 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HiMCM/MidMCM LaTeX Template -- 2026 %%
+%% Problem B: Requirements 1/2 and partial Requirement 4 working draft
+%% Efficiency/effectiveness scope separation, November 8, 2026.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+\newcommand{\Problem}{B}
+\newcommand{\Team}{1111111} % Replace with the actual Team Control Number.
+\usepackage{newtxtext}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{newtxmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage{needspace}
+\usepackage{booktabs,tabularx,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\headheight}{15pt}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{1.2em}
+\widowpenalty=10000
+\clubpenalty=10000
+\lhead{Team \Team}
+\rhead{}
+\cfoot{}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+\graphicspath{{.}}
+\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+\thispagestyle{empty}
+\vspace*{-16ex}
+\centerline{\begin{tabular}{*3{c}}
+\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Problem Chosen}\\ \Large \Problem\end{center}}&
+\parbox[t]{0.3\linewidth}{\begin{center}\textbf{2026\\ HiMCM/MidMCM\\ Summary Sheet}\end{center}}&
+\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Team Control Number}\\ \Large \textcolor{red}{\Team}\end{center}}\\
+\hline
+\end{tabular}}
+
+\begin{center}
+\vspace{1.5em}
+{\Large\bfseries Measuring Useful Cooling in Open Systems}\\[0.8em]
+{\bfseries Working summary: efficiency and its effectiveness extension}
+\end{center}
+An open freezer case must maintain appropriate product temperatures despite heat exchange with its surroundings. Electricity use alone does not show how well it performs this task.
+
+We distinguish thermal demand, electrical input, and delivered storage service. Infiltration, cabinet heat transfer, internal equipment, restocking, and defrost contribute to demand. Equipment condition modifies performance, while temperature differences across product locations determine whether the intended service is delivered.
+
+We identify four quantities that define cooling service efficiency: energy input, service quantity, local service quality, and service duration. Compliant product mass-hours per kilowatt-hour provide one possible freezer measure. Product-specific temperature requirements remain a separate adequacy check. Comparisons require prescribed loading, matched ambient conditions, and complete operating cycles.
+
+We extend this principle to a regular-size New York City bus shelter, using documented dimensions and a three-zone model. Fan-driven air movement and evaporative temperature/humidity changes feed into a common SET-based hot-discomfort proxy. Signed relief accumulated over passenger-hours is divided by electrical energy. SET defines the useful-cooling numerator; it is not an additional optimization objective in the efficiency comparison.
+
+The bus model is the fixed-background limit of a shared heat/moisture and local-delivery framework. In the illustrative dry and humid cases, A has the highest service efficiency. A delivery-loss stress test identifies conditions where B becomes more efficient. The power ratios give transparent break-even requirements: B and C must deliver respectively 4.8 and 10 times A's accumulated relief to exceed its efficiency. These are conditional comparisons, not measured equipment rankings.
+
+For Canberra MRT station, the same device, delivery and SET modules are retained while background air and surfaces evolve with ventilation and passenger loads. Coverage weights the people who receive each local condition. Among all 24 sampled installations, A3 has the highest efficiency, $37.58$; among six benchmarks with equal $68.2\%$ direct coverage, A36 is highest at $35.49$. These are distinct comparison sets. Local-delivery and heat-allocation sensitivities test the efficiency ranking.
+
+Requirement 4 separately addresses overall effectiveness. A3's $5.68\%$ direct coverage illustrates why the efficiency leader need not provide adequate service. We relocate residual-discomfort and energy tradeoffs to that extension and formulate visitor-experience and cost inputs there. The cost and non-thermal experience inputs are not yet calibrated, so no overall-effectiveness winner is claimed.
+
+\medskip
+\noindent\textit{Draft status.} Requirements 1 and 2 are developed; Requirement 4 has a partial decision framework. Requirement 3 cross-venue applications, the cost/experience calibration for Requirement 4, Requirement 5 and the final summary remain unfinished. Numerical results are simulations under explicit assumptions.
+
+\clearpage
+\pagestyle{fancy}
+\rhead{Page \thepage}
+\tableofcontents
+\clearpage
+
+\section{Understanding Cooling Efficiency}
+\label{sec:understand}
+
+An open freezer case succeeds by preserving its products. Low electricity use may reflect a smaller workload, shorter operation, or inadequate temperatures; high heat removal may reflect unwanted environmental heat gains. Cooling efficiency must therefore relate energy input to the storage service actually delivered.
+
+
+Figure~\ref{fig:open-case} makes the open-front geometry concrete: the front opening permits air exchange, the cabinet surfaces transmit heat, and the shelves separate product locations whose temperatures should be checked. The pictured model is a medium-temperature refrigerated display case \cite{hillphoenix}; its geometry illustrates these mechanisms, while freezer operating temperatures and product requirements must be specified separately.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.76\linewidth]{figures/09_open_display_case.pdf}
+\caption{Open-front refrigerated display case: user-supplied schematic with external dimensions matching the Hillphoenix CF-R 4-ft configuration \cite{hillphoenix}. Millimetre labels are rounded; the internal shelf arrangement is schematic.}
+\label{fig:open-case}
+\end{figure}
+
+\subsection{Selecting the quantities to evaluate}
+
+Table~\ref{tab:service} identifies four quantities that enter the useful-service numerator or energy denominator in both settings.
+
+\begin{table}[!ht]
+\centering
+\caption{Evaluation quantities and their transfer to a bus stop.}
+\label{tab:service}
+\small
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.19\linewidth}
+>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X@{}}
+\toprule
+Quantity & Open freezer case & Bus-stop shelter\\
+\midrule
+Energy input & Electricity used by the case and its attributable refrigeration plant (kWh). & Electricity used by fans, pumps, and other cooling equipment (kWh).\\
+Service quantity & Actual mass of products stored under a specified loading protocol (kg). & Number of people present in each occupied zone.\\
+Local service quality & Product temperatures relative to product-specific storage requirements. & Thermal discomfort relative to the same setting without active cooling.\\
+Service duration & Duration of product storage during the evaluation period (h). & Duration of passenger exposure while waiting (h).\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent\textbf{Energy input} includes auxiliaries and attributable plant electricity without overlapping meter readings. \textbf{Service quantity} accounts for workload, subject to prescribed loading limits.
+
+\textbf{Local service quality} requires product temperatures at representative locations, rather than discharge-air temperature alone \cite{ashrae}. Averages can hide a warm shelf, and uniformity does not guarantee acceptable storage; product-temperature requirements remain essential \cite{etl}.
+
+\textbf{Service duration} distinguishes sustained performance from a favorable snapshot. Include restocking, compressor cycling, and defrost recovery, with comparable initial and final thermal states so that stored cold cannot inflate the result.
+
+
+\subsection{Factors that explain performance}
+
+The explanation follows the path from environmental loads to local conditions and then to delivered service. Its process-oriented organization draws on a supplied AI analysis, with the physical dependencies revised here \cite{gemini}.
+
+\noindent\textbf{From surroundings to local conditions.} Infiltration carries sensible heat and moisture through the opening; walls transmit heat, and exposed surfaces exchange radiation. Geometry, insulation, ambient temperature, humidity, and airflow therefore alter the conditions around the products and the refrigeration demand \cite{ashrae}.
+
+\noindent\textbf{From operation to local conditions.} Lights and fans release heat, warmer incoming stock adds a temporary load, and defrost interrupts normal cooling \cite{ashrae}. Equipment condition changes insulation, airflow, and power demand. These mechanisms affect both local conditions and measured electricity; age itself is not an additional score.
+
+\noindent\textbf{From local conditions to service.} Product placement and thermal response determine whether the food remains within its required range. Accumulating compliant product mass over time gives useful storage service. The same sequence applies to passengers, but their response depends on the thermal environment and their exposure, rather than food-temperature limits.
+
+\subsection{Implications for the bus-stop model}
+
+The preceding analysis motivates a common evaluation principle:
+\begin{equation}
+\boxed{\text{Cooling efficiency}
+=\frac{\text{useful service accumulated over objects and time}}
+{\text{energy input over the same period}}.}
+\label{eq:principle}
+\end{equation}
+
+For a prescribed product load, one concrete freezer measure is
+\begin{equation}
+ \eta_f=\frac{\int\sum_i m_i(t)\mathbf{1}\{T_{p,i}(t)\in\mathcal T_i\}\,dt}
+ {\int p_f(t)\,dt},
+\label{eq:freezer-service}
+\end{equation}
+where $\mathcal T_i$ is the product-specific admissible temperature range, $t$ is in hours and $p_f$ is in kW. Power includes attributable plant and auxiliary loads; comparable loading and complete operating cycles prevent a smaller workload or stored cold from inflating the score. Temperature excursions remain a separate adequacy check. Human service instead measures discomfort relief over passenger-hours. The two numerators describe different recipients and cannot be numerically ranked against one another.
+
+For passengers, a fan changes air movement while evaporative equipment changes temperature and humidity \cite{energystar,evap}. Weight the response by where people stand and how long they wait; empty space earns no service credit. In Requirements 2 and 3, compare $\eta=U/E$ under matched weather, loading and evaluation periods. Partial relief enters $U$; interpreting whether that relief is adequate, and balancing it with visitor experience and cost, belongs to the separate effectiveness extension in Section~\ref{sec:effectiveness}.
+
+\subsection{A common physical structure and a controlled extension}
+
+All three settings exchange heat and moisture with their surroundings. For a fixed dry-air mass $M_z$ and balanced incoming/outgoing air streams, a common control-volume structure is
+\begin{align}
+ M_z\dot h_z&=\sum_j\dot m_{jz}(h_j-h_z)+S_{h,z},\\
+ M_z\dot w_z&=\sum_j\dot m_{jz}(w_j-w_z)+S_{w,z}.
+\label{eq:common-balance}
+\end{align}
+Here $h$ is J/kg dry air and $w$ is kg vapor/kg dry air; $S_h$ and $S_w$ collect the consistently defined heat and water sources. Refrigeration, product heat transfer and possible condensation enter a freezer's sources. Fans, evaporation, people and surfaces enter the public-space sources. The recipient-response module changes from food-temperature compliance to human SET; conservation and service accounting remain the organizing principles. Requirement 1 establishes these boundaries rather than claiming a calibrated freezer simulation.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\linewidth]{figures/19_model_inheritance.pdf}
+\caption{Model inheritance: common conservation and service accounting, object-specific responses, and a controlled extension from fixed to dynamic background air.}
+\label{fig:inheritance}
+\end{figure}
+
+The bus model treats the outdoor air as a fixed reservoir and resolves steady local delivery. The rail model retains that local calculation but solves the background balances and surface storage over time. This follows the heat/moisture balance structure used in building simulation \cite{epzone}. It also takes a process-level lesson from Cruz-Salas et al.\ \cite{cruz2026}: distinguish evaporative treatment, air transport and the conditions in the occupied space. Their study concerns misting in a dry-season, unoccupied Mexican cafeteria; its water-loss factors and measured cooling are not parameters for our wet-pad devices or Singapore case.
+
+\Needspace{9\baselineskip}
+\section{Cooling a Bus Stop: From Local Conditions to Passenger Service}
+\label{sec:bus}
+
+We apply the service principle in Section~\ref{sec:understand} to Requirement 2(a). A device first changes the environment at each passenger's position; those changes alter thermal discomfort; the resulting relief is accumulated over people and time. This separates three questions: how much relief is delivered, where it is delivered, and how much electricity it requires.
+
+
+We adopt the regular-size New York City shelter in Figure~\ref{fig:shelter-geometry} as the common geometry for all three devices. Its documented dimensions provide a reproducible physical scale for the occupied zones.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.82\linewidth]{figures/07_bus_shelter_geometry.pdf}
+\caption{Adopted baseline geometry: regular-size New York City bus shelter. User-supplied schematic; dimensions verified against NYC DOT's \emph{Street Design Manual} \cite{nycshelter}. Millimetre labels are rounded.}
+\label{fig:shelter-geometry}
+\end{figure}
+
+The official dimensions are $14$ ft by $5$ ft by $8$ ft $11$ in \cite{nycshelter}. Converting the imperial values before rounding gives $L=4.2672$, $W=1.5240$, and $H=2.7178$ m. We use the gross plan area $A=LW=6.5032\,\mathrm{m^2}$ and divide the length into three equal strips, each with $A_z=A/3=2.1677\,\mathrm{m^2}$. The bench and structure occupy part of this footprint; $A$ is a geometric reference, not a net standing area or a capacity estimate.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.82\linewidth]{figures/08_shelter_zoning.pdf}
+\caption{Calculation zones derived from the adopted dimensions. Equal strips and the delivery reference at $x=0$ are modeling choices; dots mark representative zone coordinates, not passenger locations. No bench or obstruction dimensions are inferred.}
+\label{fig:shelter-zones}
+\end{figure}
+
+Representative coordinates are $(x_z,W/2)$, with $x_z=(z-\tfrac12)L/3$. Delivery is assumed to originate at $x=0$. Geometry defines the accounting regions; it does not determine the assumed speeds and mixing fractions.
+
+\subsection{Data, interpretation, and a reproducible scenario}
+
+The problem gives apparent cooling up to $3\,^{\circ}\mathrm C$ for A and air-temperature reductions up to $5/8\,^{\circ}\mathrm C$ for B/C \cite{problem}. We do not equate these quantities or treat A's unspecified ``feels like'' effect as measured SET. We interpret the table's kW/hr entries as mean powers $p_A=0.25$, $p_B=1.2$, $p_C=2.5$ kW; a one-hour comparison uses $0.25/1.2/2.5$ kWh. This is a unit interpretation, not verified equipment specifications.
+
+Airflow, coverage, rating weather and evaporative effectiveness are unspecified. Tables~\ref{tab:bus-assumptions}--\ref{tab:bus-fields} define a reproducible scenario rather than identify actual device performance.
+
+\begin{table}[!ht]
+\centering\small
+\caption{Common inputs: documented geometry and explicit scenario assumptions.}
+\label{tab:bus-assumptions}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{@{}p{0.31\linewidth}X@{}}
+\toprule
+Quantity & Value, basis, and interpretation\\
+\midrule
+Shelter & NYC regular-size geometry: $4.2672\times1.5240\times2.7178$ m \cite{nycshelter}; three equal $2.1677\,\mathrm{m^2}$ gross zones. Full shade is assumed.\\
+Weather & $T_a=34\,^{\circ}\mathrm C$; dry/humid cases RH $=30/70\%$; sweep $20$--$80\%$.\\
+Radiation and background air & Mean radiant temperature $T_r=36\,^{\circ}\mathrm C$; baseline local speed $v_0=0.20$ m/s; pressure $101325$ Pa.\\
+Reference passenger & Standing, $1.2$ met, $0.5$ clo; default body area $1.8258\,\mathrm{m^2}$ and zero external work in the SET implementation.\\
+Occupancy and period & Assumed mean simultaneous occupancy $(4,4,4)$ over one hour: $12$ person-hours; an illustrative load, not a measured count or rated capacity.\\
+Alternative distributions & Concentration stress cases $(8,3,1)$ and $(1,3,8)$; both retain the same total of 12 people.\\
+Service reference & SET threshold $\Theta_c=26\,^{\circ}\mathrm C$, an assumed hot-discomfort reference; tested at $24$ and $28\,^{\circ}\mathrm C$.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[!ht]
+\centering\small
+\caption{Assumed local delivery profiles. Entries follow near/middle/edge order.}
+\label{tab:bus-fields}
+\begin{tabularx}{\linewidth}{@{}lXXc@{}}
+\toprule
+Device & Local air speed (m/s) & Treated-stream fraction $\beta_{s,z}$ & $\varepsilon_s$\\
+\midrule
+A & $1.00 / 0.55 / 0.25$ & immaterial at $\chi=0$ & ---\\
+B & $0.80 / 0.50 / 0.30$ & $0.80 / 0.45 / 0.10$ & $0.70$\\
+C & $1.00 / 0.80 / 0.50$ & $0.90 / 0.70 / 0.40$ & $0.70$\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The entries represent zone averages over the strips in Figure~\ref{fig:shelter-zones}; they are not measured NYC delivery data. Here $\beta_{s,z}$ is a local dry-air mixing fraction, not the share of total device flow assigned to a zone; its entries need not sum to one. The larger coverage assumed for C is tested, not presented as a fact supplied by the problem.
+
+\subsection{Predicting the local environment}
+
+\noindent\textbf{Fan A: air movement.} We set $T_{A,z}=T_a$ and retain ambient moisture, while prescribing local speeds from Table~\ref{tab:bus-fields}. The resulting convection and evaporation enter the passenger-response model. This follows the physical distinction between moving air and lowering dry-bulb temperature \cite{fanguide}. The introductory bus calculation separately neglects local motor/pump heating. A fixed outdoor background alone does not justify that approximation; we relax it in the heat-allocation sensitivity and in the rail extension.
+
+\noindent\textbf{B and C: evaporation followed by dilution.} Direct evaporation reduces dry-bulb temperature while increasing moisture; the entering wet-bulb temperature $T_{wb}$ limits the achievable depression \cite{evapequip}. We adopt
+\begin{equation}
+ T_{o,s}=T_b-\min\{\Delta T_s^{\max},\;\varepsilon_s(T_b-T_{wb,b})\},
+ \qquad s\in\{B,C\},
+\label{eq:outlet}
+\end{equation}
+where the inlet/background state $b$ is outdoor air for the bus and evolving local background air for the rail station. Here $\Delta T_B^{\max}=5$ and $\Delta T_C^{\max}=8\,^{\circ}\mathrm C$. Applying these advertised shelter-temperature reductions as outlet caps is an explicit modeling convention; the problem does not specify their measurement location. The caps do not imply that either device achieves them under every climate.
+
+Let $w$ denote kg of water vapor per kg of dry air and $h$ the moist-air enthalpy in J/kg of dry air. Using standard SI psychrometric relations \cite{psychrolib},
+\begin{align}
+ w&=0.621945\frac{p_v}{p-p_v},\qquad p_v=\phi p_{sat}(T),\\
+ h(T,w)&=1006T+w(2501000+1860T),
+\label{eq:enthalpy}
+\end{align}
+where $\phi$ is RH as a fraction. Approximating evaporation as isenthalpic, $h_{o,s}\simeq h_b$, gives
+\begin{equation}
+ w_{o,s}=\frac{h_b-1006T_{o,s}}{2501000+1860T_{o,s}}.
+\end{equation}
+This neglects fan heat and make-up-water enthalpy; near-constant enthalpy is not an assertion of exact constant wet-bulb temperature \cite{evap}.
+
+\noindent\textbf{One local-delivery model for both venues.} Let a device stream $\dot m_{s,z}$ mix with entrained background air $\dot m_{e,z}$ in a small region around the passenger. With negligible local air storage, balanced outflow, and $x\in\{h,w\}$,
+\begin{equation}
+ 0=\dot m_{s,z}(x_s^{\rm sup}-x_{\ell,s,z})+
+ \dot m_{e,z}(x_b-x_{\ell,s,z}),\qquad
+ \beta_{s,z}=\frac{\dot m_{s,z}}{\dot m_{s,z}+\dot m_{e,z}}.
+\label{eq:delivery-balance}
+\end{equation}
+A fraction $\chi$ of device electricity may dissipate into the supply air before reaching people. Write $p_s$ for unit power in kW and $P_s=1000p_s$ for watts. With unit dry-air supply flow $\dot m_s$, define
+\begin{equation}
+ h_s^{\rm sup}=h_{o,s}+\chi P_s/\dot m_s,\qquad
+ w_s^{\rm sup}=w_{o,s},\qquad 0\leq\chi\leq1.
+\label{eq:supply-heat}
+\end{equation}
+For a fan, the unheated outlet equals its inlet. Solving Eq.~\eqref{eq:delivery-balance} gives the shared operator
+\begin{align}
+ w_{\ell,s,z}&=(1-\beta_{s,z})w_b+\beta_{s,z}w_s^{\rm sup},\\
+ h_{\ell,s,z}&=(1-\beta_{s,z})h_b+\beta_{s,z}h_s^{\rm sup},\\
+ T_{\ell,s,z}&=\frac{h_{\ell,s,z}-2501000w_{\ell,s,z}}{1006+1860w_{\ell,s,z}}.
+\label{eq:mixing}
+\end{align}
+RH is recovered from $T_\ell,w_\ell$, not averaged. All local states must satisfy psychrometric and SET-domain limits. The bus base case uses $b=a$ and $\chi=0$. Its assumed $\beta$ values imply entrainment-to-supply ratios $(1-\beta)/\beta$: $0.25/1.22/9.00$ for B and $0.11/0.43/1.50$ for C. These are an explicit flow-ratio closure, not newly measured airflow. If the strips are supplied in parallel, their supply branches must sum to one device's flow; no full-device flow is counted independently in every strip.
+
+The local quasi-steady approximation requires air residence time to be short relative to weather or operating changes. No measured residence time is available, so the bus calculation is a conditional steady-state comparison. Its fixed outdoor reservoir also omits accumulated crowd heat and humidity. The station extension releases that approximation while retaining Eqs.~\eqref{eq:outlet}--\eqref{eq:mixing} and the response below.
+
+\subsection{Converting local conditions to a common human response}
+
+We compute standard effective temperature (SET), denoted $\Theta$, from
+\begin{equation}
+ \Theta_{s,z}=F_{\mathrm{SET}}(T_{\ell,s,z},T_{r,z},v_{s,z},\phi_{\ell,s,z};\mathrm{met},\mathrm{clo}).
+\label{eq:set}
+\end{equation}
+SET compares physiological heat exchange with a reference environment, incorporating temperature, humidity, air movement and radiation \cite{thermalcomfort,fanguide}. We use \texttt{pythermalcomfort} with applicability checks \cite{pythermal}. SET is a quasi-steady engineering proxy here; it does not resolve each passenger's prior walking or transient physiology.
+
+\subsection{Measuring cooling efficiency}
+
+For the warm-weather scenarios, define the hot-discomfort proxy
+\begin{equation}
+ D(\Theta)=[\Theta-\Theta_c]_+,\qquad [x]_+=\max(x,0).
+\end{equation}
+The threshold is an assumed reference defining useful relief, not a scheme-admission constraint or an ASHRAE safety limit. Let $0$ denote the same shelter without active cooling, retaining the same shade, weather, radiation, and background air movement. The signed local improvement is
+\begin{equation}
+ b_{s,z,k}=D(\Theta_{0,z,k})-D(\Theta_{s,z,k}).
+\end{equation}
+Negative values are retained: an adverse condition must reduce useful service. Over time steps of $\Delta t_k$ hours,
+\begin{align}
+ U_s&=\sum_k\sum_z n_{z,k}b_{s,z,k}\Delta t_k, &
+ E_s&=\sum_k p_{s,k}\Delta t_k,\\
+ \eta_s&=U_s/E_s,\qquad E_s>0.
+\label{eq:bus-efficiency}
+\end{align}
+The unit of $\eta$ is person$\cdot{}^{\circ}\mathrm C\cdot$h/kWh, with temperature measured on the SET scale. This is a service-efficiency index, not a thermodynamic percentage or COP. Empty zones earn no credit, although operating electricity is still counted. The zero-energy baseline has no efficiency ratio.
+
+For service accounting, define remaining discomfort,
+\begin{equation}
+ R_s=\sum_k\sum_z n_{z,k}D(\Theta_{s,z,k})\Delta t_k,
+ \qquad \overline D_s=\frac{R_s}{\sum_k\sum_z n_{z,k}\Delta t_k}.
+\label{eq:remaining}
+\end{equation}
+The identity $U_s+R_s=R_0$ checks that relief is counted against the same baseline. Here $R_s$ is a diagnostic of the numerator, not an additional ranking objective: Requirements 2 and 3 compare $\eta_s$. Its later use as an adequacy objective or constraint is introduced in Section~\ref{sec:effectiveness}. A comfortable baseline earns no additional hot-discomfort relief.
+
+\noindent\textbf{Geometry and demand.} Use either headcounts $n_z$ or gross-area densities $\rho_z$ with $n_z=\rho_z A_z$. Area is counted once, not multiplied into the numerator again. The uniform and eight-person-strip cases imply $1.85$ and $3.69$ persons per gross square metre; these are concentration stress scenarios, not demonstrated usable capacities. Bench and circulation dimensions are needed for a deployable layout. Fixed headcounts and fields give fixed service; fixed densities and fields give service proportional to area. These are accounting properties, not a claim that airflow is independent of geometry.
+
+\noindent\textbf{A ranking result independent of the assumed delivery maps.} Under the interpreted constant powers and a common operating period,
+\begin{equation}
+\begin{aligned}
+ \eta_B>\eta_A&\iff U_B>4.8U_A,\\
+ \eta_C>\eta_A&\iff U_C>10U_A,\\
+ \eta_C>\eta_B&\iff U_C>\frac{25}{12}U_B.
+\end{aligned}
+\label{eq:break-even}
+\end{equation}
+Thus nominal temperature reduction alone cannot justify a larger device. Its accumulated passenger relief must compensate for its larger electricity input. These inequalities follow from the given power ratios; their validity does not depend on the assumed zone profiles.
+
+\subsection{Numerical results: mechanisms and efficiency ranking}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.90\linewidth]{figures/01_local_conditions.pdf}
+\caption{Simulated local air temperature, RH, and SET under the stated assumptions. Fan A leaves air temperature unchanged while changing SET. B and C lower air temperature and increase RH. These are scenario outputs, not field measurements.}
+\label{fig:bus-local}
+\end{figure}
+
+Spatial delivery matters even within one small shelter. In the dry case, C gives SET $26.3\,^{\circ}\mathrm C$ near the outlet but $29.4\,^{\circ}\mathrm C$ at the edge. At RH $70\%$, these become $33.1$ and $35.2\,^{\circ}\mathrm C$. A single mean air-temperature reduction would conceal these differences. A, meanwhile, improves SET without changing the $34\,^{\circ}\mathrm C$ dry-bulb temperature.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.90\linewidth]{figures/24_bus_efficiency.pdf}
+\caption{Uniform occupancy: cooling efficiency $\eta=U/E$ for the two assumed humidity cases. SET-based relief defines the numerator; the ranking criterion is efficiency alone.}
+\label{fig:bus-efficiency}
+\end{figure}
+
+For uniform occupancy, dry-case efficiencies are $84.6$, $24.5$ and $21.1$ for A, B and C. At RH $70\%$, they are $90.6$, $21.1$ and $15.2$. Thus A is the efficiency leader under both specified climates. Requirements 2 and 3 retain this ratio-based comparison; Section~\ref{sec:effectiveness} considers what these ratios do not establish about overall service.
+
+\subsection{Climate and passenger distribution}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.90\linewidth]{figures/03_humidity_sweep.pdf}
+\caption{RH sweep with temperature, radiation, occupancy, and delivery profiles fixed. Outlet cooling is bounded by both the specified cap and the wet-bulb depression.}
+\label{fig:bus-humidity}
+\end{figure}
+
+B/C's assumed outlet drops are $5/8\,^{\circ}\mathrm C$ at RH $30\%$ but approximately $3.4/3.4\,^{\circ}\mathrm C$ at RH $70\%$. Equal high-humidity drops follow from the common assumed effectiveness once neither cap binds; delivery profiles still differ. Nonlinear SET and a changing baseline mean service efficiency need not vary monotonically with RH.
+
+In dry conditions, A's efficiency falls from $118.3$ with near-heavy occupancy to $48.3$ with edge-heavy occupancy. B exceeds C under uniform occupancy ($24.5$ versus $21.1$), but C exceeds B under edge-heavy occupancy ($16.6$ versus $15.5$). A remains the efficiency leader in all six nominal climate--occupancy cases. Full occupancy and endpoint-sensitivity figures remain separately available with the computational material.
+
+\subsection{When the efficiency ranking changes}
+
+A poorly aimed or obstructed fan can consume electricity without delivering its nominal air movement to passengers. We test this specific failure mode using
+\begin{equation}
+ v_{A,z}(q)=v_0+q(v_{A,z}^{\mathrm{nom}}-v_0),\qquad 0\leq q\leq1,
+\end{equation}
+while holding $p_A=0.25$ kW. Here $q$ describes delivery loss at occupied positions, \emph{not} a fan-speed control setting; changing motor speed would require a different power model. The B/C profiles stay fixed in this particular stress test.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.90\linewidth]{figures/05_delivery_decision.pdf}
+\caption{Conditional efficiency winner on the complete RH--fan-delivery grid: RH $20$--$80\%$ in one-percentage-point steps and $q=0$--$1$ in steps of $0.02$. The boundary is grid-resolved. This tests fan delivery loss; it is not a universal climate-selection map.}
+\label{fig:bus-decision}
+\end{figure}
+
+The first sampled $q$ at which A wins is $0.18$ at RH $30\%$ and $0.16$ at RH $70\%$; the switch lies between that sample and the preceding $0.02$ step. B wins below these levels; C wins no cell of this specific grid. These are conditional delivery thresholds, not universal climate recommendations. Measure occupied-location $(T,\mathrm{RH},v,T_r)$, electricity and occupancy to replace the assumed profiles before using the comparison for an installation.
+
+\subsection{Sensitivity, verification, and scope}
+
+
+
+Across the tested individual endpoint changes, the largest B/A and C/A efficiency ratios are $0.432$ and $0.372$; no endpoint reverses the nominal advantage of A. This does not prove robustness over every intermediate value or joint parameter combination. Added-speed factors scale $v-v_0$, and cooled-air fractions are capped at one. The rating-interpretation test removes the $5/8\,^{\circ}\mathrm C$ outlet caps while retaining the wet-bulb constraint; it addresses uncertainty in where the quoted temperature effects were measured. The delivery-loss test in Figure~\ref{fig:bus-decision} already demonstrates that stronger departures can change the winner.
+
+\noindent\textbf{Relaxing the bus heat approximation.} A separate $\chi=0,0.5,1$ test assumes unit supply flows $0.6/0.6/1.2$ kg dry air/s and, for A's previously immaterial scalar mixing, $\beta_A=(0.8,0.45,0.1)$. These additional assumptions are not inferred from rated power. From $\chi=0$ to 1, dry-case A/B/C efficiencies change from $84.6/24.5/21.1$ to $81.0/20.8/18.0$; humid-case values change from $90.6/21.1/15.2$ to $86.8/17.4/12.1$. A remains the most efficient in these tested cases. This quantifies the efficiency consequence of the introductory zero-local-heat approximation; the rail comparison includes this heat and tests its allocation.
+
+\noindent\textbf{Verification.} The implementation checks psychrometric round trips, dry-air moisture/enthalpy mixing balances, wet-bulb bounds, and saturation. Service-accounting checks verify $U_s+R_s=R_0$, zero benefit at zero occupancy, zero benefit when all delivered effects vanish, and unchanged rankings when every zone's population doubles. A signed-adverse-effect check confirms that worsening discomfort is not clipped away. No credit is given for additional cooling of an already comfortable baseline. Geometry checks verify unit conversion and area conservation, equivalence of count and density inputs, fixed-count invariance, and fixed-density scaling under unchanged local fields.
+
+\Needspace{4\baselineskip}
+\noindent\textbf{Limitations and transfer.} Local profiles and representative passengers remain assumptions; the numerical ranking is conditional on them. The conservation-based mixing closure uses assumed flow ratios; fan curves, crosswind and opening geometry have not been used to identify them. Radiation is fixed for a shaded shelter, so direct sun and changing shadow patterns need additional modeling. Short waiting times and varied physiological histories are not resolved by quasi-steady SET. Without measured flow, water consumption cannot be calculated reliably from the moisture increase alone; water and operating cost belong in the later effectiveness analysis. Section~\ref{sec:rail} retains the same device, local mixing, SET and service modules, and adds a dynamic background, surface storage and variable equipment deployment.
+
+\noindent\textbf{Reproducibility.} The project retains PsychroLib 2.5.0 and \texttt{pythermalcomfort} 4.8.1 inputs, source code, CSV results, software versions and verification records. Each figure is a separately replaceable PDF. These are conditional simulations, not experimental validation.
+
+\clearpage
+\input{sections/rail_model}
+
+\clearpage
+\input{sections/effectiveness}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\begin{thebibliography}{99}
+\fontsize{9.5}{11}\selectfont
+\urlstyle{same}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\bibitem{ashrae}
+ASHRAE. \emph{2026 ASHRAE Handbook---Refrigeration},
+Chapter 15, \emph{Retail Food Store Refrigeration and Equipment}.
+Product Temperatures and Display Refrigerator Cooling Load sections.
+\url{https://handbook.ashrae.org/Handbooks/R26/IP/r26_ch15/r26_ch15_ip.aspx}.
+Accessed November 7, 2026.
+
+\bibitem{etl}
+UK Department for Energy Security and Net Zero.
+\emph{Energy Technology List: Retrofit Measures for Open Fronted Refrigerated Display Cabinets}.
+Definitions and product-temperature performance requirements.
+\url{https://etl.energysecurity.gov.uk/products/refrigeration-equipment/retrofit-measures-open-fronted-refrigerated-display-cabinets}.
+Accessed November 7, 2026.
+
+\bibitem{energystar}
+ENERGY STAR. \emph{Ceiling Fan Installation and Usage Tips}.
+\url{https://www.energystar.gov/products/ceiling_fans/installation-and-usage-tips}.
+Accessed November 7, 2026.
+
+\bibitem{evap}
+ASHRAE. \emph{2023 ASHRAE Handbook---HVAC Applications},
+Chapter 53, \emph{Evaporative Cooling}.
+\url{https://handbook.ashrae.org/Handbooks/A23/SI/A23_Ch53/a23_ch53_si.aspx}.
+Accessed November 7, 2026.
+
+\bibitem{problem}
+COMAP. \emph{2026 HiMCM Problem B: Air Conditioning the Environment: Modeling Energy Waste in Public Cooling}.
+User-supplied problem statement, Requirement 2(a), p.~2.
+
+\bibitem{evapequip}
+ASHRAE. \emph{2020 ASHRAE Handbook---HVAC Systems and Equipment},
+Chapter 41, \emph{Evaporative Air-Cooling Equipment}, Section 1.
+\url{https://handbook.ashrae.org/handbooks/S20/SI/s20_ch41/s20_ch41_si.aspx}.
+Accessed November 7, 2026.
+
+\bibitem{fanguide}
+Center for the Built Environment, University of California, Berkeley.
+\emph{Fans for Cooling People Guidebook: Elevated Air Speed and Thermal Comfort}.
+\url{https://cbe-berkeley.gitbook.io/fans-guidebook/full-guidebook/elevated-air-speed-and-thermal-comfort}.
+Accessed November 7, 2026.
+
+\bibitem{thermalcomfort}
+ASHRAE. \emph{2017 ASHRAE Handbook---Fundamentals},
+Chapter 9, \emph{Thermal Comfort}, Section 10, Environmental Indices.
+\url{https://handbook.ashrae.org/Handbooks/f17/IP/f17_ch09/f17_ch09_ip.aspx}.
+Accessed November 7, 2026.
+
+\bibitem{pythermal}
+Tartarini, F., and Schiavon, S. (2020).
+pythermalcomfort: A Python package for thermal comfort research.
+\emph{SoftwareX}, 12, 100578.
+\url{https://doi.org/10.1016/j.softx.2020.100578}.
+SET API and applicability limits:
+\url{https://pythermalcomfort.readthedocs.io/en/stable/documentation/models.html}.
+Accessed November 7, 2026.
+
+\bibitem{psychrolib}
+Meyer, D., and Thevenard, D. (2019).
+PsychroLib: a library of psychrometric functions to calculate thermodynamic properties of air.
+\emph{Journal of Open Source Software}, 4(33), 1137.
+\url{https://doi.org/10.21105/joss.01137}.
+SI psychrometric API:
+\url{https://psychrometrics.github.io/psychrolib/api_docs.html}.
+Accessed November 7, 2026.
+
+\bibitem{nycshelter}
+New York City Department of Transportation.
+\emph{Street Design Manual: Bus Stop Shelter}, Description (regular-size shelter).
+\url{https://www.nycstreetdesign.info/furniture/bus-stop-shelter}.
+Accessed November 7, 2026.
+
+\bibitem{hillphoenix}
+Hillphoenix. \emph{CF-R/CF-FS-R/CF-S-R Multi-Deck Merchandiser: Installation \& Operations Manual}, April 2021, Technical Reference, printed p.~4 (PDF p.~8).
+\url{https://www.hillphoenix.com/wp-content/uploads/2021/06/CF-S-R-display-case-manual.pdf}.
+Product classification: \url{https://www.hillphoenix.com/products/cf}.
+Accessed November 7, 2026.
+
+\bibitem{epzone}
+EnergyPlus Development Team. \emph{Engineering Reference},
+``Basis for the Zone and Air System Integration'' and ``Moisture Predictor-Corrector.''
+\href{https://energyplus.readthedocs.io/en/latest/guides/engineering-reference/2.1-basis-for-the-zone-and-air-system-integration.html}{Online source};
+\href{https://energyplus.readthedocs.io/en/latest/guides/engineering-reference/2.4-moisture-predictor-corrector.html}{Online source}.
+Accessed November 7, 2026.
+
+\bibitem{cruz2026}
+Cruz-Salas, M.V., Puerto, E., Rojas, J., Barrios, G., Huelsz, G., and Ram\'irez, G. (2026).
+Mist evaporative cooling system with natural ventilation in a semi-outdoor environment: Theoretical models, experiments, and thermal simulations.
+\emph{Energy and Buildings}, 366, 117700.
+\url{https://doi.org/10.1016/j.enbuild.2026.117700}.
+
+\bibitem{ventilation}
+ASHRAE. \emph{2025 ASHRAE Handbook---Fundamentals}, Chapter 16,
+\emph{Ventilation and Infiltration}, Section 10, Natural Ventilation.
+\href{https://handbook.ashrae.org/Handbooks/F25/SI/F25_Ch16/F25_Ch16_si.aspx}{Online source}.
+Accessed November 7, 2026.
+
+\bibitem{canberra-rsp}
+RSP. \emph{Canberra Station}. Project description and site area.
+\href{https://rsp.design/project/canberrastation/}{Online source}. Accessed November 7, 2026.
+
+\bibitem{canberra-lta}
+Land Transport Authority. \emph{Stations, stations on the tracks, which is the greenest of them all?}
+Canberra station: natural ventilation, planting, glazing and louvers.
+\href{https://www.lta.gov.sg/content/ltagov/en/who_we_are/statistics_and_publications/Connect/greenmrtstations.html}{Online source}.
+Accessed November 7, 2026.
+
+\bibitem{canberra-dimensions}
+\emph{The Straits Times}. \emph{Safety first as work starts on new Canberra MRT station on `live' North-South Line}, March 26, 2016.
+Source identified in the user-supplied schematic for approximate structural dimensions.
+\href{https://www.straitstimes.com/singapore/safety-first-as-work-starts-on-new-canberra-mrt-station-on-live-north-south-line}{Online source}.
+
+\bibitem{singapore-climate}
+Meteorological Service Singapore. \emph{Climate of Singapore}. Temperature and humidity climatology.
+\href{https://www.weather.gov.sg/climate-climate-of-singapore}{Online source}. Accessed November 7, 2026.
+
+\bibitem{gemini}
+Google Gemini. \emph{AI-generated analysis of the 2026 HiMCM Problem B},
+user-supplied PDF conversation excerpt, November 2026.
+Consulted for process-oriented exposition; the proposed efficiency formula was
+reviewed but not adopted. Exact model identifier was not available in the supplied excerpt.
+
+\bibitem{codex}
+OpenAI. \emph{Codex}, AI-assisted formulation, reference checking,
+English drafting, and LaTeX preparation, November 2026.
+Exact deployed model identifier to be recorded from the session interface.
+See the preliminary AI-use record following this draft.
+
+\bibitem{aipolicy}
+COMAP. \emph{Use of AI Tools in COMAP Contests}, v102025.
+\url{https://www.contest.comap.com/undergraduate/contests/mcm/flyer/Contest_AI_Policy.pdf}.
+Accessed November 7, 2026.
+\end{thebibliography}
+
+% Add Requirement 3, complete Requirement 4 calibration, and add Requirement 5 before References.
+% Replace the working summary after completing the full analysis.
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Report on Use of AI Tools}
+\section*{Report on Use of AI Tools}
+\noindent\textbf{Preliminary record for this partial draft.}
+
+OpenAI Codex assisted with translation, model formulation, source checking, Python calculations, English drafting, figures and LaTeX preparation for Requirements 1 and 2 during November 2026. Record the exact deployed model identifier from the session interface. The following is a usage summary, not a transcript.
+
+For Requirement 1, the user requested justification of cooling-efficiency quantities and their transfer from food storage to public cooling. Codex organized energy, service quantity, quality and duration, reviewed sources and drafted the explanation. A user-supplied Google Gemini analysis informed the process-oriented organization; its exact model identifier was unavailable.
+
+At the user's request, the 2025 Problem B papers of Teams 16442, 16738 and 16739 were read as structural examples. Their estimates, weighting methods and wording were not adopted. The user also supplied freezer, shelter and Canberra schematics. Codex incorporated them as separate PDFs, checked available dimensional sources and distinguished architectural evidence from modeled occupied area and operating assumptions.
+
+For Requirement 2(a), Codex implemented a three-zone bus scenario with psychrometric calculations and published SET, generated charts and CSV outputs, and developed sensitivity and accounting checks. For Requirement 2(b), Codex implemented dynamic background heat/moisture and surface balances, variable counts, allocation and coverage, comparing candidates against a matched no-device baseline.
+
+After the user supplied Cruz-Salas et al.'s research and requested clearer model inheritance, Codex developed a shared local delivery operator, connected it to background balances, added heat-allocation and airflow sensitivities, tested conservation and limiting cases, reran comparisons, and revised figures and prose. AI review checked equations, units, implementation and figure consistency. The cafeteria study's accuracy was not transferred to Canberra.
+
+At the user's request, Codex subsequently separated cooling-efficiency comparison in Requirements 1--3 from overall-effectiveness decisions in Requirement 4. The physical models and numerical results were retained; efficiency-only charts were generated from the frozen CSVs, and the A3 full-candidate and A36 equal-coverage rankings were distinguished. Residual-discomfort/energy tradeoffs and conditional selection rules were relocated to Requirement 4. Cost and non-thermal experience remain explicit uncalibrated inputs.
+
+All numerical outputs are conditional simulations. No field measurements, real installation inventory or experimental validation were produced; independent student verification has not been asserted. Geometry, airflow, mixing, coverage and occupancy assumptions remain identified in the paper and scenario files.
+
+Before submission, add exact prompts and complete outputs for retained AI contributions, including Gemini, and complete tool/model details required by the contest guidance \cite{aipolicy}. Retain this source and conversation as records. Requirement 3, the cost/experience calibration in Requirement 4, Requirement 5 and the final summary remain unfinished.
+
+\end{document}

@@ -1,0 +1,46 @@
+\section{Assumptions and Justifications}
+\begingroup\setlength{\intextsep}{4pt}
+\label{sec:assumptions}
+\begin{enumerate}[leftmargin=*,itemsep=2pt,topsep=2pt,label=\textbf{A\arabic*.}]
+\item \textbf{Matched service boundary.} Comparisons share weather, people, geometry and period; the problem's kW/hr entries are interpreted as kW. \textit{Justification:} A common workload and complete device-energy accounting isolate strategy efficiency.
+\item \textbf{Zoned air and rapid local mixing.} Zones have uniform background states; local supply mixes at negligible storage, with disjoint footprints and separately prescribed speed. \textit{Justification:} This resolves occupied-location differences when local residence time is short relative to the 120-s station disturbance.
+\item \textbf{Conserved heat and water.} Evaporation is near-adiabatic; background dry-air mass is fixed and exchange is balanced; shaded radiation uses mean radiant temperature. Condensation is excluded in public-space cases. \textit{Justification:} These approximations retain the dominant transfers while counting every electrical and vapor-enthalpy source once.
+\item \textbf{Reference human response.} SET uses standing transport users and seated diners at 1.2 met and 0.5 clo, with a $26^\circ$C excess reference. \textit{Justification:} One signed-relief measure compares airflow and evaporation. Dry-heat tests use $T_a=T_r=39/40^\circ$C and RH $15/20\%$: $40^\circ$C is the implementation boundary; the interior $39^\circ$C test retains the ranking \cite{pythermal}.
+\item \textbf{Explicit design inputs.} Published sources establish site geometry and climate context; tabulated estimates specify operating and economic conditions. \textit{Justification:} Reproducible inputs support sensitivity analysis. Costs use one currency and horizon; equipment clearance is the visitor-access proxy. SET relief and operational heat-safety procedures serve separate purposes.
+\end{enumerate}
+
+
+\begin{table}[H]
+\centering\fontsize{9.5}{10.7}\selectfont
+\caption{Transport-case inputs. Geometry sources are cited; remaining entries are model design assumptions.}
+\label{tab:bus-assumptions}\label{tab:rail-inputs}
+\begin{tabularx}{\linewidth}{@{}p{.18\linewidth}XX@{}}
+\toprule
+Input & Bus shelter & Canberra waiting area\\
+\midrule
+Geometry & $4.2672\times1.5240\times2.7178$ m \cite{nycshelter}; three equal gross strips & $L=220$ m \cite{canberra-dimensions}; effective waiting width $6$ m, usable fraction $.8$, air height $4$ m; three zones\\
+Climate / radiation & $T_a=34^\circ$C; RH $30/70\%$; $T_r=36^\circ$C & $T_o=33^\circ$C, RH $70\%$; external $T_{r,o}=33^\circ$C \cite{singapore-climate}\\
+People / time & $(4,4,4)$ people, 1 h; redistribution $(8,3,1)$ or $(1,3,8)$ & $(26.4,44,17.6)\to(88,198,66)$ linearly per 15-min cycle; 2-h warm-up + 2-h evaluation\\
+Exchange & Fixed outdoor background & ACH $(8,4,10)$ plus $(8,4,12)$ in last 2 min; adjacent flow $.88$ kg dry air/s\\
+Surface / people & Prescribed radiant conditions & Per zone $C_m=17.6$ MJ/K; $H_{ma}/H_{mo}=880/1760$ W/K; absorbed load $3520$ W; $F=(.55,.85,.55)$; per person $q_c/q_r=45/30$ W, $g=45/(2.45\times10^6)$ kg/s\\
+Device delivery & Profiles in Table~\ref{tab:bus-fields}; $\chi=0$; $\chi$ sensitivity uses A $\beta=(.8,.45,.1)$ and rail flows & $\beta=.5$, $\chi=1$; A/B/C flow $.6/.6/1.2$ kg dry air/s; footprints $20/30/40$ m$^2$\\
+Shared response & \multicolumn{2}{p{.77\linewidth}@{}}{Pressure $101325$ Pa; $v_0=.2$ m/s; body area $1.8258$ m$^2$, external work zero; $\varepsilon_{B/C}=.7$; outlet drops capped at $5/8^\circ$C. $\Theta_c$ sensitivity $24/26/28^\circ$C.}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+\begin{table}[H]
+\centering\fontsize{9.5}{10.7}\selectfont
+\caption{Local speed and mixing profiles in zone order; each entry describes an independent local state.}
+\label{tab:bus-fields}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Device & Bus speed (m/s) & Bus $\beta_{s,z}$ & Rail covered speed (m/s)\\
+\midrule
+A & $1/.55/.25$ & Immaterial at $\chi=0$ & $.60/1/.50$\\
+B & $.80/.50/.30$ & $.80/.45/.10$ & $.50/.80/.45$\\
+C & $1/.80/.50$ & $.90/.70/.40$ & $.75/1/.60$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\endgroup

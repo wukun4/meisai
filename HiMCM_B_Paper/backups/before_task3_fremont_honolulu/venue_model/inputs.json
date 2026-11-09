@@ -1,0 +1,122 @@
+{
+  "status": "Illustrative design assumptions; not a measured installation",
+  "venues": {
+    "Phoenix": {
+      "name": "Ullman Terrace, Desert Botanical Garden",
+      "t_c": 36.0,
+      "rh": 0.25,
+      "tr_c": 38.0,
+      "areas_m2": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "people": [
+        60.0,
+        40.0,
+        20.0
+      ],
+      "residual_cap_c": 4.5,
+      "energy_cap_kwh_year": 6000.0
+    },
+    "Singapore": {
+      "name": "Satay Street, Lau Pa Sat",
+      "t_c": 32.0,
+      "rh": 0.75,
+      "tr_c": 34.0,
+      "areas_m2": [
+        80.0,
+        80.0,
+        80.0
+      ],
+      "people": [
+        60.0,
+        36.0,
+        24.0
+      ],
+      "residual_cap_c": 7.5,
+      "energy_cap_kwh_year": 2400.0
+    }
+  },
+  "devices": {
+    "A": {
+      "power_kw": 0.25,
+      "v_m_s": [
+        1.0,
+        0.55,
+        0.25
+      ],
+      "cooled_mass_fractions": [
+        0,
+        0,
+        0
+      ],
+      "epsilon": 0.0,
+      "max_drop_c": 0.0,
+      "footprint_m2": 20.0,
+      "supply_kg_da_s": 1.2,
+      "floor_clearance_m2": 0.5,
+      "capital_usd": 300.0,
+      "maintenance_usd_year": 30.0
+    },
+    "B": {
+      "power_kw": 1.2,
+      "v_m_s": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "cooled_mass_fractions": [
+        0.8,
+        0.45,
+        0.1
+      ],
+      "epsilon": 0.7,
+      "max_drop_c": 5.0,
+      "footprint_m2": 30.0,
+      "supply_kg_da_s": 2.0,
+      "floor_clearance_m2": 1.0,
+      "capital_usd": 1000.0,
+      "maintenance_usd_year": 100.0
+    },
+    "C": {
+      "power_kw": 2.5,
+      "v_m_s": [
+        1.0,
+        0.8,
+        0.5
+      ],
+      "cooled_mass_fractions": [
+        0.9,
+        0.7,
+        0.4
+      ],
+      "epsilon": 0.7,
+      "max_drop_c": 8.0,
+      "footprint_m2": 40.0,
+      "supply_kg_da_s": 3.0,
+      "floor_clearance_m2": 1.5,
+      "capital_usd": 2000.0,
+      "maintenance_usd_year": 200.0
+    }
+  },
+  "economics": {
+    "period_h": 4.0,
+    "hours_year": 600.0,
+    "electricity_usd_kwh": 0.2,
+    "water_usd_m3": 3.0,
+    "make_up_factor": 1.15,
+    "discount_rate": 0.05,
+    "life_year": 5,
+    "coverage_min": 0.8,
+    "floor_loss_max": 0.035,
+    "met": 1.2,
+    "clo": 0.5,
+    "position": "sitting",
+    "baseline_v": 0.2,
+    "set_reference_c": 26.0,
+    "comparison_coverage": 0.6
+  },
+  "crf": 0.23097479812826793,
+  "provenance": "Official sources establish venue identity and climate class; all engineering, occupancy, weather snapshot and cost inputs are assumptions."
+}

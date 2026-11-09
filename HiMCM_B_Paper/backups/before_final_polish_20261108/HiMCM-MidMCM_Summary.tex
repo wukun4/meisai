@@ -1,0 +1,111 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HiMCM/MidMCM LaTeX Template -- 2026 %%
+%% CP-SET Framework -- complete five-task manuscript
+%% Efficiency/effectiveness scope separation, November 8, 2026.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+\newcommand{\Problem}{B}
+\newcommand{\Team}{18588}
+\usepackage{newtxtext}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{newtxmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage{needspace}
+\usepackage{booktabs,tabularx,array}
+\usepackage{enumitem,titlesec,caption,multicol,tocloft,float,placeins}
+\usepackage[hidelinks]{hyperref}
+\newif\ifinlineai
+\inlineaitrue
+\captionsetup{font=small,labelfont=bf,skip=4pt}
+\titlespacing*{\section}{0pt}{10pt plus2pt minus1pt}{5pt}
+\titlespacing*{\subsection}{0pt}{8pt plus1pt minus1pt}{3pt}
+\setlength{\textfloatsep}{9pt plus2pt minus2pt}
+\setlength{\floatsep}{7pt plus1pt minus1pt}
+\setlength{\intextsep}{8pt plus1pt minus1pt}
+\setcounter{topnumber}{5}
+\setcounter{bottomnumber}{4}
+\setcounter{totalnumber}{8}
+\renewcommand{\topfraction}{.95}
+\renewcommand{\bottomfraction}{.9}
+\renewcommand{\textfraction}{.05}
+\renewcommand{\floatpagefraction}{.85}
+\setlength{\headheight}{15pt}
+\setlength{\parskip}{1.5pt}
+\setlength{\parindent}{1.2em}
+\widowpenalty=10000
+\clubpenalty=10000
+\lhead{Team \Team}
+\rhead{}
+\cfoot{}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+\graphicspath{{.}}
+\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+\thispagestyle{empty}
+\vspace*{-16ex}
+\centerline{\begin{tabular}{*3{c}}
+\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Problem Chosen}\\ \Large \Problem\end{center}}&
+\parbox[t]{0.3\linewidth}{\begin{center}\textbf{2026\\ HiMCM/MidMCM\\ Summary Sheet}\end{center}}&
+\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Team Control Number}\\ \Large \Team\end{center}}\\
+\hline
+\end{tabular}}
+
+\begin{center}
+\vspace{1.1em}
+{\Large\bfseries CP-SET: Measuring Useful Cooling\\in Open Public Spaces}\\[.5em]
+{\bfseries Summary}
+\end{center}
+An open cooling system should be judged by the useful service reaching its users. We develop the \textbf{Coupled Psychrometric-SET Service Efficiency \& Effectiveness Framework (CP-SET)} to connect heat and moisture balances, local air delivery, human thermal response and operational decisions.
+
+The freezer case establishes four essential quantities: service quantity, local quality, duration and electrical input. Its useful storage service motivates a human-service analogue: signed SET-excess relief accumulated over passenger-hours, divided by the electricity used by every operating device. This distinguishes efficiency from the adequacy of the cooling delivered.
+
+For a New York City bus-shelter geometry, the framework combines wet-bulb-limited evaporation, dry-air-weighted local mixing and Standard Effective Temperature. At $34^\circ$C, fan A achieves efficiencies of $84.58$ and $90.57$ person$\cdot{}^\circ$C$\cdot$h/kWh at $30\%$ and $70\%$ RH. B and C require $4.8$ and $10$ times A's accumulated relief to overcome their power ratios. A delivery-loss test identifies where B overtakes A. A separate hot-dry test shows why larger thermal improvement need not imply higher efficiency.
+
+At Canberra MRT station, the same delivery and response modules are retained while zone enthalpy, humidity and surface temperature evolve with exchange, passenger loads and equipment operation. Across 24 sampled installations, A3 reaches the highest efficiency, $37.58$; among six equal-coverage benchmarks, A36 leads at $35.49$. Relocating the same AB30 inventory toward passenger demand raises its efficiency from $15.39$ to $18.39$. Coverage and local delivery therefore matter alongside the rated cooling effect.
+
+At \textbf{Fremont Street Experience} and the \textbf{Honolulu Zoo ticket queue}, modeled service areas differ by a factor of $139.7$. Largest-fitting pure A/B/C plans achieve efficiencies of $11.88/5.06/5.72$ and $47.71/21.28/20.63$, respectively. A controlled climate exchange confirms the B--C reversal. An energy-weighted bound establishes each site's maximum efficiency, while scale and boundary tests separate device replication from lost coverage and clipped delivery.
+
+Extending the same physical outputs to thermal performance, visitor access, annual energy and cost gives an integer allocation problem. The stated operator policy selects A266C16 in Fremont and A1B1 in Honolulu, at equivalent annual costs of USD $50{,}926$ and $627$. In Honolulu, relaxing required mean relief from $1.50$ to $1.49^\circ$C selects three fans instead: the cost-minimizing choice depends on the service threshold.
+
+Conservation checks, limiting-case recovery and time-step refinement verify the numerical implementation. Climate, local delivery and cost sensitivities identify the assumptions that affect the decision. The resulting memorandum and public explanation translate useful cooling per kWh into equipment placement, operating schedules and extreme-heat procedures.
+
+\noindent\textbf{Keywords:} psychrometrics; local air delivery; Standard Effective Temperature; cooling service efficiency; multi-objective decisions.
+
+\newpage
+\pagestyle{fancy}\rhead{Page \thepage}
+\setcounter{tocdepth}{1}
+\section*{Contents}
+{\fontsize{10}{11.5}\selectfont
+\setlength{\cftbeforesecskip}{1pt}
+\begin{multicols}{2}
+\makeatletter\@starttoc{toc}\makeatother
+\end{multicols}}
+\vspace{4pt}
+\input{sections/introduction}\clearpage
+\input{sections/assumptions}\clearpage
+\IfFileExists{sections/venue_assumptions.tex}{\input{sections/venue_assumptions}}{}
+\input{sections/nomenclature}
+\clearpage
+\input{sections/core_models}
+\input{sections/rail_model}\FloatBarrier
+\IfFileExists{sections/applications.tex}{\input{sections/applications}}{}
+\IfFileExists{sections/effectiveness_complete.tex}{\input{sections/effectiveness_complete}}{}
+\IfFileExists{sections/operator_memo.tex}{\input{sections/operator_memo}}{}
+\IfFileExists{sections/public_blog.tex}{\input{sections/public_blog}}{}
+\clearpage
+\phantomsection\addcontentsline{toc}{section}{References}
+\input{sections/references_complete}
+\clearpage
+\phantomsection\addcontentsline{toc}{section}{Report on Use of AI Tools}
+\input{sections/ai_report}
+\end{document}

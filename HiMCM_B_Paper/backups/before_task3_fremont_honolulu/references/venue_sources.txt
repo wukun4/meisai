@@ -1,0 +1,136 @@
+Task 3-5 source audit and ready-to-insert bibliography entries
+Access date for all web sources: 2026-11-08.
+
+BEGIN BIBITEMS
+\bibitem{ullman}
+Desert Botanical Garden. Facility rental packet: Ullman Terrace and Webster Center, August 2024; and Strange Garden event information, October 2026.
+\url{https://dbg.org/wp-content/uploads/2024/08/ES24_FacilityRentalPacket_August2024-1.pdf}.
+\url{https://dbg.org/events/strange-garden/2026-10-22/}.
+Accessed November 8, 2026.
+
+\bibitem{satay-street}
+Lau Pa Sat. Satay Street: open-air dining on Boon Tat Street.
+\url{https://www.laupasat.sg/sataystreet/}.
+Accessed November 8, 2026.
+
+\bibitem{phoenix-climate}
+R. J. Schmidli and A. Jamison. \emph{Climate of Phoenix, Arizona}.
+NOAA Technical Memorandum NWS WR-177, third revision, July 1996.
+\url{https://www.weather.gov/media/wrh/online_publications/TMs/TM-177.pdf}.
+Accessed November 8, 2026.
+
+\bibitem{eia-commercial}
+U.S. Energy Information Administration. Electric Power Annual: average revenue per kilowatthour by state and sector, 2025 data, released October 21, 2026.
+\url{https://www.eia.gov/electricity/annual/secrev-map.php}.
+Accessed November 8, 2026.
+
+\bibitem{nws-heat}
+National Weather Service. During a Heat Wave: outdoor-activity guidance.
+\url{https://www.weather.gov/safety/heat-during}.
+Accessed November 8, 2026.
+
+\bibitem{nea-heat}
+National Environment Agency and Ministry of Sustainability and the Environment.
+New Heat Stress Advisory Launched to Guide Public on Minimising Risk of Heat-Related Illnesses, July 24, 2023.
+\url{https://www.nea.gov.sg/media/news/news/index/new-heat-stress-advisory-launched-to-guide-public-on-minimising-risk-of-heat-related-illnesses}.
+Accessed November 8, 2026.
+END BIBITEMS
+
+Existing bibliography key to reuse, not duplicate:
+singapore-climate -> Meteorological Service Singapore, Climate of Singapore,
+https://www.weather.gov.sg/climate-climate-of-singapore/
+
+Evidence and permitted interpretation
+------------------------------------
+Ullman: Official rental packet describes Ullman Terrace as an outdoor tiered patio
+used for ceremonies, receptions and dining. Official October 2026 event page
+names live music on Ullman Terrace, confirming a current venue. The legacy
+webster-center page appeared in official search results but returned 404 when
+opened; bibliography uses the official packet plus the current event page.
+No outdoor area measurement is supplied by the cited sources. The separate
+1,500-square-foot figure concerns Webster Auditorium; DO NOT use it as the
+terrace area. Likewise 50-150 guests is a rental-complex capacity statement,
+not a measurement validating our 120-guest scenario.
+
+Satay Street: Official operator page confirms open-air alfresco dining on Boon
+Tat Street, with weekday hours 7 pm-3 am and weekend hours 3 pm-3 am. The warm
+afternoon scenario is consistent with weekend operation. Area and guest counts
+are modeled sector assumptions, not the venue's total area/capacity. A separate
+corporate-events 48-guest reservation package is not used as total capacity.
+
+Phoenix climate: NOAA memorandum's general summary identifies a desert climate,
+low annual rainfall and low relative humidity; it also describes summer monsoon
+variability. It supports the dry-climate contrast, not the exact 36 C / 25% RH
+design snapshot. Singapore climate: MSS describes year-round high humidity,
+daily temperature variation, and daytime maxima usually around 31-33 C. Exact
+32 C / 75% RH and both radiant temperatures remain assumptions.
+
+EIA: Official table gives Arizona 2025 commercial average 12.45 US cents/kWh.
+This is a statistical state-sector average, not either venue's quoted tariff.
+The comparison uses a common assumed USD 0.20/kWh planning price. The 0.10-0.30
+sensitivity range brackets that reference. Other ownership, maintenance and
+water costs are assumptions, not manufacturer or operator quotations.
+
+NWS heat: Official guidance supports monitoring forecasts, reducing/eliminating
+or rescheduling strenuous outdoor activities to cooler times, minimizing direct
+sun exposure, and cooling/rest breaks. NEA/MSE advisory uses official heat-stress
+information (including WBGT), available via myENV and the weather portal, to guide
+prolonged outdoor activity. The NEA page was indexed in primary-source search;
+direct automated opening returned 403. No SET value is presented as a medical
+threshold, and no concrete WBGT thresholds are imported into this paper.
+
+Source-selection change:
+Gardens by the Bay's official announcement states Satay by the Bay closed from
+2026-10-01 for redevelopment. Thus the initially suggested site was replaced by
+Lau Pa Sat Satay Street, not described as currently open. Official notice:
+https://www.gardensbythebay.com.sg/en/promotions/summer-greek-shack.html
+
+Parameter and result audit
+-------------------------
+All new numerical assumptions are centralized in sections/venue_assumptions.tex
+and venue_model/inputs.json. Device powers/caps, evaporation epsilon and bus
+delivery profiles are imported unchanged from model/scenario.json. Dining guests
+use sitting posture, with the existing 1.2 met / 0.5 clo values.
+
+Task 3 set: all nonnegative integer per-zone (A,B,C) counts satisfying
+20*x_A+30*x_B+40*x_C <= zone area; exclude the all-zero energy baseline only
+when forming eta. Thus 12,166/3,374 positive-energy layouts in Phoenix/Singapore.
+Full-set eta maxima: 81.0973818612 and 134.8920027428 person-C-h/kWh; tied by
+A1-A5 confined to Phoenix's busiest zone and A1-A4 in Singapore's busiest zone.
+A1 is shown only as the smallest tied maximizer. Task 3 common-coverage q=0.60
+benchmarks minimize energy within each pure type; this is a separate matched
+comparison, not an eligibility filter for the full-set eta ranking.
+
+Task 4 set: apply q>=0.80, then group by total device counts and retain the
+least-residual eligible layout. This is safe ONLY because annual energy, cost,
+water and device/service-clearance loss depend on total counts, not position,
+under the uniform background assumed here. The remaining 199/106 count groups
+have 80/32 coverage-constrained Pareto representatives. These are NOT claimed
+to be unconditional Pareto sets over all low-coverage layouts.
+
+Decision: minimize annual cost subject to q>=.80, X<=.035,
+Rbar<=4.5/7.5 C, and Eyear<=6000/2400 kWh in Phoenix/Singapore respectively.
+The assumed design policies select A10C2/A10. Original-layout matrices by row:
+Phoenix [[1,0,2],[5,0,0],[4,0,0]], Singapore [[4,0,0],[4,0,0],[2,0,0]].
+
+Key results for abstract:
+Phoenix A10C2: eta=41.6289914, U=1248.869743 person-C-h per 4 h,
+E=30 kWh/session; Rbar=4.4821897 C; coverage=.9666667; X=.0266667;
+capital USD7000; annual equivalent cost USD3360.1813;
+annual electricity4500kWh; water318.573L/session,47.7859m3/year.
+Singapore A10: eta=97.1222420, U=971.222420, E=10 kWh/session;
+Rbar=7.4527933 C; coverage=.90; X=.0208333;
+capitalUSD3000; annual equivalent costUSD1292.9244;
+annual electricity1500kWh; evaporative make-up water0.
+
+243 price combinations per venue vary A/B/C capital independently +/-30%,
+electricity and water +/-50%. Phoenix retains A10C2 in228 cases, A4C3 in15;
+Singapore retains A10 in all243. Physical stress tests show the nominal plans
+need reallocation under degraded speed/delivery; humidity+10pp makes both
+original policies infeasible within their energy limits. This is resolved by
+an operating action (revisit timing/radiant exposure/service budget), not by
+asserting the nominal policy remains feasible.
+
+Figures are original simulation outputs, separately replaceable PDF files:
+27_venue_comparison.pdf = eta vs coverage over all positive-energy layouts.
+28_effectiveness.pdf = selected annual cost components and service-policy curve.

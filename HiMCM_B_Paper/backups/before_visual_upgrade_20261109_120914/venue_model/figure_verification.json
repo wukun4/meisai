@@ -1,0 +1,54 @@
+{
+  "figures": [
+    {
+      "file": "figures/27_venue_comparison.pdf",
+      "sha256": "631004c18227ec92f553117e5325364406e29fbe504cee0ff40bffcb2a98b4e0",
+      "pages": 1,
+      "width_in": 10.399999999999999,
+      "height_in": 4.699999999999999,
+      "render": "/tmp/task3-final-27.png",
+      "visual_check": "passed: no clipping, overlapping labels, or missing units"
+    },
+    {
+      "file": "figures/28_effectiveness.pdf",
+      "sha256": "c4b0978384330544908d71649b394840599507a5c192477ae7e9195a4ea1d318",
+      "pages": 1,
+      "width_in": 10.399999999999999,
+      "height_in": 4.9,
+      "render": "/tmp/task3-final-28.png",
+      "visual_check": "passed: no clipping, overlapping labels, or missing units"
+    },
+    {
+      "file": "figures/30_scale_transfer.pdf",
+      "sha256": "0a472ba5aa4d680f3d0ed6e65d297616d47e418f306a8bcff7158af7e1ae4450",
+      "pages": 1,
+      "width_in": 10.5,
+      "height_in": 4.6,
+      "render": "/tmp/task3-final-30.png",
+      "visual_check": "passed: no clipping, overlapping labels, or missing units"
+    },
+    {
+      "file": "figures/31_venue_layouts.pdf",
+      "sha256": "6c31d4d605692247ceabc49c443d0addb3fa70aa86c6999d96137a7b538b2a8b",
+      "pages": 1,
+      "width_in": 10.399999999999999,
+      "height_in": 6.1,
+      "render": "/tmp/task3-final-31.png",
+      "visual_check": "passed: no clipping, overlapping labels, or missing units"
+    }
+  ],
+  "all_passed": true,
+  "plot_source_sha256": "8d5e7d52831ce694cad7657a26602641730b632bd75ea84e80d4f352beec403f",
+  "source_data_sha256": {
+    "policy_curves.csv": "7196d143611aa2e3d0565182f643b170cc9fd5599dc79a2388157f019d580ebe",
+    "density_scaling.csv": "8da18e47ce90c774385dd040e4f1d1c100d341da0e85b557009913d786c26c29",
+    "boundary_clipping.csv": "8e7a22982906d7529984675d0f5fbfbb98f5a3d9b4412dd6fbae00e891c05d52",
+    "scale_checks.csv": "4c183f10f61c3dfc12ccfeb838bb6d5447b32a1d2793126f79efd7a7116aed6f",
+    "local_conditions.csv": "a369dc829c365b81cb63a57b1b2f192f6a4cf5dc054cc59b4c227b031c927aee",
+    "cost_sensitivity.csv": "b7982f57f6d28d0c5d401a1de2e115f0c6bed87a943f60193a30eed2986d116e",
+    "climate_cross.csv": "9464f1b10a99cd26970e1f2befbc92325d9441a82b5e1fb09c03b1b5f7472733",
+    "linear_coefficients.csv": "67766937c97759b94e994c4b758e960a76996226af8a7b3ef710303a7c2dc832",
+    "physical_sensitivity.csv": "3002b8e813feacca9d9103973464ba86c3e7535f8cc02bb5e59e4adad7b79f1b",
+    "threshold_sensitivity.csv": "0c98528d2110fdb9309269fbf60f1f64540af7856a1e10d7056143bc946ae00f"
+  }
+}

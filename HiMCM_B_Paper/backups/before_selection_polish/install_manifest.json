@@ -1,0 +1,17 @@
+[
+  {
+    "path": "HiMCM-MidMCM_Summary.tex",
+    "sha256": "d36240e9c023c886743d3bf866c5b9497067b2c342809a16967e2ae63d46697b",
+    "before": "4403e8176da3103a764d9c348144d867bb61f462351af7be428177508457aebd"
+  },
+  {
+    "path": "HiMCM-MidMCM_Summary.pdf",
+    "sha256": "8d77f9dfcbfc95874020a5c199438eac1d8308f240a59811459e791330358694",
+    "before": "9e4dca379da71610da5327d9f7a8920b7a4c3fa5e7c98f013223e0627f16f153"
+  },
+  {
+    "path": "sections/rail_model.tex",
+    "sha256": "3f4f4066d31e670a04e829bbc6bc609038c1a8a4d61f2c841471250c99413a74",
+    "before": "7d1fbd47c7d30442d70fde25b934899b54fd9e6188571e31cd5b7d9802594ce3"
+  }
+]

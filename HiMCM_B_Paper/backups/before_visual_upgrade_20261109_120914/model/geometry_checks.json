@@ -1,0 +1,191 @@
+{
+  "checks": {
+    "metric_dimensions_match_documented_imperial_values": true,
+    "zone_areas_partition_gross_footprint": true,
+    "zone_bounds_contiguous_and_equal_area": true,
+    "fixed_counts_and_prescribed_fields_geometry_change_preserves_service": true,
+    "equivalent_density_and_counts_produce_same_service": true,
+    "fixed_density_and_prescribed_fields_double_area_doubles_service": true,
+    "fixed_density_area_change_does_not_rescale_power_or_local_benefit": true,
+    "invalid_or_ambiguous_occupancy_inputs_rejected": true,
+    "nonpositive_or_nonfinite_dimensions_rejected": true
+  },
+  "source": {
+    "source_title": "New York City DOT Street Design Manual: Bus Stop Shelter, regular size",
+    "source_url": "https://www.nycstreetdesign.info/furniture/bus-stop-shelter",
+    "source_accessed": "2026-11-07",
+    "source_dimensions": {
+      "length_ft": 14,
+      "width_ft": 5,
+      "height_ft": 8,
+      "height_in": 11
+    }
+  },
+  "dimensions_m": {
+    "length_m": 4.2672,
+    "width_m": 1.524,
+    "height_m": 2.7178
+  },
+  "gross_plan_area_m2": 6.5032128,
+  "zones": [
+    {
+      "zone": "Near",
+      "x_min_m": 0.0,
+      "x_max_m": 1.4223999999999999,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 0.7111999999999999,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677375999999997
+    },
+    {
+      "zone": "Middle",
+      "x_min_m": 1.4223999999999999,
+      "x_max_m": 2.8447999999999998,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 2.1336,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677375999999997
+    },
+    {
+      "zone": "Edge",
+      "x_min_m": 2.8447999999999998,
+      "x_max_m": 4.2672,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 3.556,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677376
+    }
+  ],
+  "occupancies": [
+    {
+      "occupancy": "Uniform",
+      "input_basis": "people",
+      "zone": "Near",
+      "x_min_m": 0.0,
+      "x_max_m": 1.4223999999999999,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 0.7111999999999999,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677375999999997,
+      "mean_people": 4.0,
+      "gross_density_people_m2": 1.845241785721667
+    },
+    {
+      "occupancy": "Uniform",
+      "input_basis": "people",
+      "zone": "Middle",
+      "x_min_m": 1.4223999999999999,
+      "x_max_m": 2.8447999999999998,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 2.1336,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677375999999997,
+      "mean_people": 4.0,
+      "gross_density_people_m2": 1.845241785721667
+    },
+    {
+      "occupancy": "Uniform",
+      "input_basis": "people",
+      "zone": "Edge",
+      "x_min_m": 2.8447999999999998,
+      "x_max_m": 4.2672,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 3.556,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677376,
+      "mean_people": 4.0,
+      "gross_density_people_m2": 1.8452417857216665
+    },
+    {
+      "occupancy": "Near-heavy",
+      "input_basis": "people",
+      "zone": "Near",
+      "x_min_m": 0.0,
+      "x_max_m": 1.4223999999999999,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 0.7111999999999999,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677375999999997,
+      "mean_people": 8.0,
+      "gross_density_people_m2": 3.690483571443334
+    },
+    {
+      "occupancy": "Near-heavy",
+      "input_basis": "people",
+      "zone": "Middle",
+      "x_min_m": 1.4223999999999999,
+      "x_max_m": 2.8447999999999998,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 2.1336,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677375999999997,
+      "mean_people": 3.0,
+      "gross_density_people_m2": 1.3839313392912502
+    },
+    {
+      "occupancy": "Near-heavy",
+      "input_basis": "people",
+      "zone": "Edge",
+      "x_min_m": 2.8447999999999998,
+      "x_max_m": 4.2672,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 3.556,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677376,
+      "mean_people": 1.0,
+      "gross_density_people_m2": 0.46131044643041663
+    },
+    {
+      "occupancy": "Edge-heavy",
+      "input_basis": "people",
+      "zone": "Near",
+      "x_min_m": 0.0,
+      "x_max_m": 1.4223999999999999,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 0.7111999999999999,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677375999999997,
+      "mean_people": 1.0,
+      "gross_density_people_m2": 0.46131044643041674
+    },
+    {
+      "occupancy": "Edge-heavy",
+      "input_basis": "people",
+      "zone": "Middle",
+      "x_min_m": 1.4223999999999999,
+      "x_max_m": 2.8447999999999998,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 2.1336,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677375999999997,
+      "mean_people": 3.0,
+      "gross_density_people_m2": 1.3839313392912502
+    },
+    {
+      "occupancy": "Edge-heavy",
+      "input_basis": "people",
+      "zone": "Edge",
+      "x_min_m": 2.8447999999999998,
+      "x_max_m": 4.2672,
+      "y_min_m": 0.0,
+      "y_max_m": 1.524,
+      "center_x_m": 3.556,
+      "center_y_m": 0.762,
+      "gross_area_m2": 2.1677376,
+      "mean_people": 8.0,
+      "gross_density_people_m2": 3.690483571443333
+    }
+  ],
+  "interpretation": "Gross geometry defines positions and density-to-count accounting. Local air-speed and treated-air fractions remain prescribed; geometry does not predict these fields. Fixed-count result invariance and fixed-density scaling apply only under that assumption. These are not capacity or net standing-area tests."
+}

@@ -1,0 +1,86 @@
+Research source for the unified cooling-service revision
+=======================================================
+
+Verified against the supplied paper (all locators below are PDF page numbers).
+
+Bibitem ready for insertion
+--------------------------
+\bibitem{cruzsalas2026}
+M.~V. Cruz-Salas, E. Puerto, J. Rojas, G. Barrios, G. Huelsz, and G. Ram\'{i}rez.
+Mist evaporative cooling system with natural ventilation in a semi-outdoor
+environment: Theoretical models, experiments, and thermal simulations.
+\emph{Energy and Buildings}, 366:117700, 2026.
+\url{https://doi.org/10.1016/j.enbuild.2026.117700}.
+
+English paragraph for the model-development discussion (194 words)
+-----------------------------------------------------------------
+Cruz-Salas et al. develop a thermodynamic model of mist cooling coupled with
+natural ventilation in a semi-outdoor cafeteria \cite{cruzsalas2026}. Their
+distinction between evaporative outlet conditions and conditions in the recipient
+space motivates a common device-to-delivery interface in our models. Dry-air and
+water conservation, approximately isenthalpic evaporation, and a wet-bulb
+saturation limit provide the physical basis for the evaporative-device module.
+Enthalpy and humidity ratio describe the subsequent mixing with background air.
+For the bus shelter, we prescribe this background and evaluate quasi-steady local
+conditions. For the rail station, we retain the device, mixing, SET, and service
+calculations while allowing background enthalpy, humidity ratio, and surface
+temperature to evolve with ventilation, inter-zone exchange, and passenger
+loads. This extension is our reduced-order formulation; it is not the paper's
+EnergyPlus implementation. Their experimental validation concerns an unoccupied
+cafeteria during the dry-hot season, and the study does not evaluate predicted or
+perceived thermal comfort. Consequently, its reported temperature accuracy does
+not validate our occupied, humid-climate station or its SET predictions. We use
+the study to support the heat-and-moisture coupling and matched no-cooling
+comparison, while retaining explicitly assumed parameters and separate
+recipient-response modules for food compliance and human thermal service.
+
+Specific evidence and limits for integration
+-------------------------------------------
+1. PDF p4, Section 3.1.1, equations (1)-(3): isenthalpic approximation, conserved
+   dry-air flow, and the water-vapor/liquid-water balance. Equations (8)-(12)
+   introduce misting effectiveness and impose a wet-bulb/saturation limit.
+2. PDF p4, Section 3.1.2, equation (14), and p5: Model 2 reproduces the outlet
+   air state of the physical mist model using an ideal evaporative cooling
+   system plus air mixing for implementation in EnergyPlus. Model 2 is an
+   implementation surrogate, not a claim that the real equipment is a wet pad.
+3. PDF p6, Sections 3.2.1 and 3.2.4: the cafeteria was 126 m^2; measurements
+   were on 15-17 February 2025 during the dry-hot season, with neither occupancy
+   nor other internal heat gains. These conditions differ from crowded,
+   humid-climate Canberra station. The study does not validate our station.
+4. PDF p13, Section 4.8: matched simulations with mist on/off isolate the
+   contribution of mist cooling, giving maximum/mean air-temperature reductions
+   of 2.9/1.9 degrees C. These are outcomes of the cafeteria experiment/model,
+   not assumed performance for any of our devices or climates.
+5. PDF p13: average misting-line effectiveness epsilon_m is 0.18 at the entrance
+   and 0.17 at the lattice wall. Its definition is equation (8), p4: the fraction
+   of supplied liquid-water flow contributing to potential evaporation within
+   the represented zone (before the saturation check). It is NOT the familiar
+   wet-bulb temperature-drop effectiveness of a direct evaporative cooler.
+   Do not replace our assumed epsilon = 0.70 with 0.18, or cite the study as
+   evidence for 0.70. The study also reports cafeteria-scale temperature
+   effectiveness epsilon_ce = 0.16, defined separately by equation (13), p4.
+6. PDF p15-16, Section 5: perfect mixing within each thermal zone cannot resolve
+   every spatial/temporal variation. Predicted and perceived occupant comfort
+   were not evaluated; additional humidity may reduce the benefit of lower
+   dry-bulb temperature. This supports retaining the human SET response module,
+   but does not establish its validation or transfer a cafeteria calibration.
+7. The physical principles support a common heat/moisture interface. Freezer
+   food-temperature compliance and human SET remain distinct response modules.
+   Compliance mass-hours/kWh and person-time thermal service/kWh cannot be
+   directly ranked against each other without an additional stated conversion.
+
+Figure and caption suggestion
+-----------------------------
+figures/19_model_inheritance.pdf
+Rebuild: figure_sources/make_model_inheritance.py
+Suggested caption: "Inheritance of the cooling-service framework. The freezer
+defines the service and energy accounting, while the human-service applications
+share device, local-delivery, SET, and service calculations. The rail model
+extends the fixed-background shelter model with evolving zone states and device
+allocation. Food and human services retain distinct response modules and units."
+
+The figure is an original conceptual synthesis. Cite Cruz-Salas et al. in the
+nearby discussion for the evaporative/mixing principles; do not caption this
+figure as reproduced or validated by that study. The figure deliberately does
+not claim that SET is applicable to food or that all freezer dynamics have been
+implemented in the current paper.

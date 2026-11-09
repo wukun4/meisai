@@ -1,0 +1,237 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HiMCM/MidMCM LaTeX Template -- 2026 %%
+%% Problem B: Requirement 1 working draft
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+\newcommand{\Problem}{B}
+\newcommand{\Team}{1111111} % Replace with the actual Team Control Number.
+\usepackage{newtxtext}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{newtxmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\setlength{\headheight}{15pt}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{1.2em}
+\lhead{Team \Team}
+\rhead{}
+\cfoot{}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+\graphicspath{{.}}
+\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+\thispagestyle{empty}
+\vspace*{-16ex}
+\centerline{\begin{tabular}{*3{c}}
+\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Problem Chosen}\\ \Large \Problem\end{center}}&
+\parbox[t]{0.3\linewidth}{\begin{center}\textbf{2026\\ HiMCM/MidMCM\\ Summary Sheet}\end{center}}&
+\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Team Control Number}\\ \Large \textcolor{red}{\Team}\end{center}}\\
+\hline
+\end{tabular}}
+
+\begin{center}
+\vspace{1.5em}
+{\Large\bfseries Measuring Useful Cooling in Open Systems}\\[0.8em]
+{\bfseries Working summary: Requirement 1 only}
+\end{center}
+An open freezer case must maintain appropriate product temperatures despite heat exchange with its surroundings. Electricity use alone does not show how well it performs this task.
+
+We distinguish thermal demand, electrical input, and delivered storage service. Infiltration, cabinet heat transfer, internal equipment, restocking, and defrost contribute to demand. Equipment condition modifies performance, while temperature differences across product locations determine whether the intended service is delivered.
+
+We propose compliant product mass-hours per kilowatt-hour as a service-efficiency measure, accompanied by a compliance fraction and product-specific temperature-excursion constraints. Comparisons require matched products, loading, ambient conditions, and complete operating cycles. This proposed indicator measures temperature-control service; it is not a food-safety certification.
+
+The same principle motivates later public-space models: evaluate cooling at the beneficiary's location and accumulate useful improvement over people and time, relative to a common baseline.
+
+\medskip
+\noindent\textit{Draft status.} Only Requirement 1 is developed here. Requirements 2--5 and the final whole-paper summary remain to be completed. No empirical performance results are claimed.
+
+\clearpage
+\pagestyle{fancy}
+\rhead{Page \thepage}
+\tableofcontents
+\clearpage
+
+\section{Understanding the Problem: What Makes Cooling Efficient?}
+\label{sec:understand}
+\subsection{Service objective and comparison boundary}
+
+An open freezer case provides a storage service: products must remain within their appropriate temperature requirements while being available for sale. Low electricity use is insufficient evidence of efficiency. Switching a case off minimizes immediate input but eventually fails its task; cooling below the required range need not improve that task. A low discharge-air temperature also does not establish that every product is adequately cooled.
+
+We separate \emph{thermal load}, \emph{electrical input}, and \emph{delivered service}. For like-for-like equipment comparisons, fix the product class, prescribed loading and replenishment, ambient temperature and humidity, and evaluation period. Initial and final thermal states must be comparable, including product temperatures and frost accumulation. Otherwise, a short trial could appear efficient by consuming cooling stored beforehand. Include representative restocking, compressor cycling, and complete defrost-and-recovery cycles. AI-assisted formulation and drafting are documented in the appended record \cite{codex}.
+
+\subsection{Heat loads and operating mechanisms}
+
+For a representative cycle with negligible net change in stored thermal energy, we organize demand as
+\begin{equation}
+Q_{\mathrm{evap}}\simeq
+Q_{\mathrm{inf}}+Q_{\mathrm{wall}}+Q_{\mathrm{rad}}
++Q_{\mathrm{int}}+Q_{\mathrm{stock}}+Q_{\mathrm{def}}.
+\label{eq:budget}
+\end{equation}
+All terms are thermal energies over the same period. This load budget is an accounting framework, not a fitted prediction of their shares. The thermal pathways are consistent with the display-refrigeration framework in ASHRAE \cite{ashrae}.
+
+\paragraph{Air infiltration.}
+Ambient air entering the opening exchanges heat and moisture with the cold region. Opening geometry, ambient wind, and air-curtain entrainment affect this exchange. Humidity adds condensation and frost-related loads. Warm-air ingress and cold-air escape are two descriptions of this exchange, not independent loads to add twice. We would record opening dimensions, ambient temperature and humidity, and exchange airflow. The ETL identifies reduced infiltration as a mechanism for open-case energy savings \cite{etl}.
+
+\paragraph{Cabinet heat transfer.}
+For solid-envelope transfer, a first approximation is
+\begin{equation}
+\dot Q_{\mathrm{wall}}=UA(T_a-T_c),
+\end{equation}
+where $U$ is the overall heat-transfer coefficient, $A$ is envelope area, and $T_a,T_c$ are representative ambient and internal air temperatures. Insulation and thermal bridges affect $U$. Radiation through exposed openings enters $Q_{\mathrm{rad}}$ separately; a contribution already included in an effective coefficient must not be added twice.
+
+\Needspace{8\baselineskip}
+\paragraph{Internal equipment heat.}
+For lights, fans, and other internal components, write
+$\dot Q_{\mathrm{int}}=\sum_j f_jP_j$, where $P_j$ is electrical power and $f_j$ is the fraction released inside the refrigerated boundary. Exclude heaters already assigned to $Q_{\mathrm{def}}$. Direct auxiliary electricity and subsequent compressor work to remove that heat are separate expenditures. Hot-side components outside the cabinet are not automatically internal cabinet heat sources.
+
+\paragraph{Restocking load.}
+For incoming batches requiring pull-down, use
+\begin{equation}
+Q_{\mathrm{stock}}=\sum_b m_b
+\bigl[u_b(T_{\mathrm{in},b})-u_b(T_{\mathrm{store},b})\bigr],
+\end{equation}
+where $m_b$ is batch mass and $u_b$ is product-specific thermal energy per unit mass, including phase change when relevant. Already-frozen stock does not automatically require a new freezing load. Arrival temperature, batch size, packaging, and placement affect recovery. This pull-down term must not also be added through a second explicit product-energy balance.
+
+\paragraph{Defrost and operating cycles.}
+Defrost introduces heat and recovery demand; frost can impair heat exchange and airflow beforehand \cite{ashrae}. Record timing, power, and product temperatures through the entire cycle. $Q_{\mathrm{def}}$ is the net defrost heat that the evaporator must subsequently remove, excluding heat carried away by drainage or released outside the cold region. Its removal is already included in $Q_{\mathrm{evap}}$. The energy denominator counts the full attributable electrical input, including plant input for hot-gas defrost where used, rather than assuming every case uses an electric heater.
+
+\subsection{Equipment condition and temperature distribution}
+
+\paragraph{Equipment age modifies performance.}
+Calendar age is not a separate heat source. Represent condition through documented or measured changes in $UA$, airflow, heat-exchanger performance, refrigeration capacity, and input at a given operating point. Maintenance and repairs may change these parameters. We therefore do not add an arbitrary aging load or annual efficiency penalty. Condition scenarios must be compared under the same service demand.
+
+\paragraph{Spatial variation determines service delivery.}
+Temperatures may differ near the opening, at the rear, and between shelves. Let $T_i(t)$ denote product temperature and $m_i(t)$ the associated mass in representative occupied group $i$. Product-core measurements or suitable product simulators are preferable to equating product temperature with instantaneous air temperature. Air measurements require a validated product-response model.
+
+For a common product class, report the hottest and coldest product histories and the spread
+\begin{equation}
+\Delta T_{\mathrm{sp}}(t)=\max_i T_i(t)-\min_i T_i(t).
+\end{equation}
+A cabinet can be uniformly too warm, so small spread alone is not success. Each location must also be evaluated against its product requirements. Mixed products require group-specific limits before service is aggregated.
+
+\subsection{Energy efficiency and delivered storage service}
+
+Include the cabinet and its attributable refrigeration plant, including a remote plant where present:
+\begin{equation}
+E_{\mathrm{sys}}=\int_0^\tau
+\left(P_{\mathrm{comp}}+P_{\mathrm{fans}}+P_{\mathrm{lights}}
++P_{\mathrm{def}}+P_{\mathrm{aux}}\right)\,dt.
+\label{eq:energy}
+\end{equation}
+These components must not overlap; do not add a whole-system meter to component readings. Allocate shared-plant input consistently. Power in kW and time in hours give electricity in kWh.
+
+The system coefficient of performance is
+\begin{equation}
+COP_{\mathrm{sys}}=\frac{Q_{\mathrm{evap}}}{E_{\mathrm{sys}}},
+\end{equation}
+with both energies in consistent units. COP measures heat removal per unit electrical input. Two cases with similar COP can nevertheless need different heat removal to provide the same storage service. It does not by itself distinguish preservation from avoidable heat exchange.
+
+We propose a complementary service indicator. For product group $i$, define
+\begin{equation}
+I_i(t)=\mathbf{1}\{T_i^{-}\leq T_i(t)\leq T_i^{+}\},
+\end{equation}
+where $[T_i^{-},T_i^{+}]$ is its prescribed storage range; a one-sided requirement can be used where appropriate. Then
+\begin{align}
+S_T&=\int_0^\tau\sum_i m_i(t)I_i(t)\,dt,
+&
+M_T&=\int_0^\tau\sum_i m_i(t)\,dt,\\
+\eta_{\mathrm{food}}&=\frac{S_T}{E_{\mathrm{sys}}},
+&
+R_T&=\frac{S_T}{M_T}.
+\label{eq:service}
+\end{align}
+For positive denominators, $\eta_{\mathrm{food}}$ measures compliant product mass-hours per kWh; $R_T$ is the compliant fraction of product mass-time. Cooling farther within an acceptable range does not automatically receive additional credit.
+
+These are proposed modeling indicators, not regulatory ratings. Loading above prescribed limits cannot be used to inflate service. Report each group's excursion magnitude, longest continuous excursion, and temperature history alongside $R_T$. Acceptance bounds must follow the relevant product requirements; later compliant hours cannot erase an unacceptable earlier event. ETL retrofit criteria likewise require maintenance of the appropriate product temperature classification \cite{etl}.
+
+To illustrate normalization across service capacities, maintaining 100 kg in specification for 10 h using 10 kWh gives $100\ \mathrm{kg\,h/kWh}$. Maintaining 200 kg for the same time using 12 kWh gives approximately $167\ \mathrm{kg\,h/kWh}$. The latter uses more electricity but provides more service per unit input. These hypothetical values illustrate the indicator at different service scales; they are not a matched-load equipment test. Both examples assume the same product requirements and compliant loading.
+
+\Needspace{9\baselineskip}
+\subsection{Implications for public-space cooling}
+
+The example motivates three principles: evaluate outcomes at the beneficiary, account for service quantity and duration, and compare input within a common boundary. Geometry, humidity, condition, and maintenance explain performance; they need not become arbitrary weighted score terms. Cost and convenience can be evaluated separately.
+
+For a venue, product mass is replaced by the number of people exposed, and temperature compliance by an appropriate thermal-benefit measure. A preliminary formulation is
+\begin{equation}
+U_s=\int_0^\tau\sum_z n_z(t)
+\left[d\!\left(\Theta_z^{(0)}(t)\right)
+-d\!\left(\Theta_z^{(s)}(t)\right)\right]dt,
+\qquad \eta_s=\frac{U_s}{E_s},\quad E_s>0.
+\label{eq:people}
+\end{equation}
+Here $z$ indexes occupied zones, $n_z(t)$ is occupancy, and $s$ is a strategy. Baseline $0$ means no active cooling under matched weather, occupancy, and geometry. The thermal-environment index $\Theta$ and discomfort function $d$ will be justified in subsequent models. They must capture humidity, local air speed, and radiation as well as air temperature to compare fans and evaporative coolers fairly.
+
+Retain negative local benefits and report adverse exposure separately. The energy-free baseline has no defined efficiency ratio; compare its absolute service and exposure. Remaining unsafe exposure requires a separate assessment: improvement alone does not establish adequacy. This carries the freezer's service requirements into the later analysis of comfort, safety, energy, and cost.
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\begin{thebibliography}{9}
+\bibitem{ashrae}
+ASHRAE. \emph{2026 ASHRAE Handbook---Refrigeration},
+Chapter 15, \emph{Retail Food Store Refrigeration and Equipment}.
+Product Temperatures and Display Refrigerator Cooling Load sections.
+\url{https://handbook.ashrae.org/Handbooks/R26/IP/r26_ch15/r26_ch15_ip.aspx}.
+Accessed November 7, 2026.
+
+\bibitem{etl}
+UK Department for Energy Security and Net Zero.
+\emph{Energy Technology List: Retrofit Measures for Open Fronted Refrigerated Display Cabinets}.
+Definitions and product-temperature performance requirements.
+\url{https://etl.energysecurity.gov.uk/products/refrigeration-equipment/retrofit-measures-open-fronted-refrigerated-display-cabinets}.
+Accessed November 7, 2026.
+
+\bibitem{codex}
+OpenAI. \emph{Codex}, AI-assisted formulation, reference checking,
+English drafting, and LaTeX preparation, November 2026.
+Exact deployed model identifier to be recorded from the session interface.
+See the preliminary AI-use record following this draft.
+
+\bibitem{aipolicy}
+COMAP. \emph{Use of AI Tools in COMAP Contests}, v102025.
+\url{https://www.contest.comap.com/undergraduate/contests/mcm/flyer/Contest_AI_Policy.pdf}.
+Accessed November 7, 2026.
+\end{thebibliography}
+
+% Add Requirements 2--5, the memorandum, and the blog before References.
+% Replace the working summary after completing the full analysis.
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Report on Use of AI Tools}
+\section*{Report on Use of AI Tools}
+\noindent\textbf{Preliminary record for this partial draft.}
+
+OpenAI Codex assisted with problem translation, the overall modeling discussion,
+and the development of Requirement 1 in November 2026. The exact deployed model
+identifier must be recorded from the session interface.
+
+For this edit, the user requested an English section in the supplied template
+covering infiltration, cabinet heat transfer, internal equipment, restocking,
+defrost and operating cycles, equipment age, and spatial temperatures. This is
+a summary of the request, not a verbatim transcript.
+
+The assistant proposed the accounting framework and indicators, checked source
+material, drafted the English text, and prepared the LaTeX. A separate AI review
+pass checked technical consistency. No field measurements or empirical
+performance results were produced.
+
+Before submission, add the exact relevant prompts and complete outputs,
+including earlier retained contributions and any additional AI tools, as
+required by the contest reporting guidance \cite{aipolicy}. Retain this source
+file and the chat as records. The student team's independent verification is
+still required and has not been asserted in this preliminary record.
+
+\end{document}
+

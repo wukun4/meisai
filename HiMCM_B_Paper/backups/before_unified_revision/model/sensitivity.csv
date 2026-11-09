@@ -1,0 +1,73 @@
+climate,factor,endpoint,device,ratio_to_A
+Dry,Evap. effectiveness: 0.5–0.9,0,B,0.28980355539296987
+Dry,Evap. effectiveness: 0.5–0.9,1,B,0.28980355539296987
+Dry,Cooled-air fraction: ×0.75–1.25,0,B,0.2675661396588417
+Dry,Cooled-air fraction: ×0.75–1.25,1,B,0.3127287716559597
+Dry,Fan added speed: x0.5–1.5,0,B,0.43168634709898646
+Dry,Fan added speed: x0.5–1.5,1,B,0.23953084859750481
+Dry,Evap. added speed: x0.5–1.5,0,B,0.2027883736132184
+Dry,Evap. added speed: x0.5–1.5,1,B,0.34791955514692907
+Dry,Rating cap: applied / removed,0,B,0.28980355539296987
+Dry,Rating cap: applied / removed,1,B,0.3710508312507151
+Dry,SET threshold: 24–28°C,0,B,0.28980355539296987
+Dry,SET threshold: 24–28°C,1,B,0.28980355539296987
+Dry,Mean radiant temperature: 34–38°C,0,B,0.3015856289937221
+Dry,Mean radiant temperature: 34–38°C,1,B,0.28012620109246866
+Dry,Activity: 1.1–1.6 met,0,B,0.292790629135943
+Dry,Activity: 1.1–1.6 met,1,B,0.29767464423127954
+Dry,Clothing: 0.3–0.7 clo,0,B,0.2885006676915684
+Dry,Clothing: 0.3–0.7 clo,1,B,0.28971705903901546
+Dry,Evap. effectiveness: 0.5–0.9,0,C,0.22823039489196997
+Dry,Evap. effectiveness: 0.5–0.9,1,C,0.24990879791781537
+Dry,Cooled-air fraction: ×0.75–1.25,0,C,0.21949149729865852
+Dry,Cooled-air fraction: ×0.75–1.25,1,C,0.27158334354589914
+Dry,Fan added speed: x0.5–1.5,0,C,0.37225980866505803
+Dry,Fan added speed: x0.5–1.5,1,C,0.20655670133537907
+Dry,Evap. added speed: x0.5–1.5,0,C,0.18818793547074342
+Dry,Evap. added speed: x0.5–1.5,1,C,0.27963493826748426
+Dry,Rating cap: applied / removed,0,C,0.24990879791781537
+Dry,Rating cap: applied / removed,1,C,0.265520154797913
+Dry,SET threshold: 24–28°C,0,C,0.24990879791781537
+Dry,SET threshold: 24–28°C,1,C,0.2093086803472059
+Dry,Mean radiant temperature: 34–38°C,0,C,0.257496798862752
+Dry,Mean radiant temperature: 34–38°C,1,C,0.23845525159380118
+Dry,Activity: 1.1–1.6 met,0,C,0.2500990131681558
+Dry,Activity: 1.1–1.6 met,1,C,0.32336436661035833
+Dry,Clothing: 0.3–0.7 clo,0,C,0.22070324569511335
+Dry,Clothing: 0.3–0.7 clo,1,C,0.25063025934090266
+Humid,Evap. effectiveness: 0.5–0.9,0,B,0.22336464974934173
+Humid,Evap. effectiveness: 0.5–0.9,1,B,0.24316992034557913
+Humid,Cooled-air fraction: ×0.75–1.25,0,B,0.22459173233403745
+Humid,Cooled-air fraction: ×0.75–1.25,1,B,0.24187736008581534
+Humid,Fan added speed: x0.5–1.5,0,B,0.36376296844814365
+Humid,Fan added speed: x0.5–1.5,1,B,0.18840268522942527
+Humid,Evap. added speed: x0.5–1.5,0,B,0.1455081108166776
+Humid,Evap. added speed: x0.5–1.5,1,B,0.294805789469897
+Humid,Rating cap: applied / removed,0,B,0.23315230662350658
+Humid,Rating cap: applied / removed,1,B,0.23315230662350658
+Humid,SET threshold: 24–28°C,0,B,0.23315230662350658
+Humid,SET threshold: 24–28°C,1,B,0.23315230662350658
+Humid,Mean radiant temperature: 34–38°C,0,B,0.23790431259647035
+Humid,Mean radiant temperature: 34–38°C,1,B,0.22961473694149412
+Humid,Activity: 1.1–1.6 met,0,B,0.236596579520178
+Humid,Activity: 1.1–1.6 met,1,B,0.21877211838041208
+Humid,Clothing: 0.3–0.7 clo,0,B,0.23647401384014088
+Humid,Clothing: 0.3–0.7 clo,1,B,0.23663292859238177
+Humid,Evap. effectiveness: 0.5–0.9,0,C,0.15910597976107746
+Humid,Evap. effectiveness: 0.5–0.9,1,C,0.17615949608503634
+Humid,Cooled-air fraction: ×0.75–1.25,0,C,0.160154688684187
+Humid,Cooled-air fraction: ×0.75–1.25,1,C,0.1727799965455552
+Humid,Fan added speed: x0.5–1.5,0,C,0.2613308300357692
+Humid,Fan added speed: x0.5–1.5,1,C,0.1353503088069071
+Humid,Evap. added speed: x0.5–1.5,0,C,0.1106753076897948
+Humid,Evap. added speed: x0.5–1.5,1,C,0.20442666396816156
+Humid,Rating cap: applied / removed,0,C,0.1674988690426882
+Humid,Rating cap: applied / removed,1,C,0.1674988690426882
+Humid,SET threshold: 24–28°C,0,C,0.1674988690426882
+Humid,SET threshold: 24–28°C,1,C,0.1674988690426882
+Humid,Mean radiant temperature: 34–38°C,0,C,0.17127404021156287
+Humid,Mean radiant temperature: 34–38°C,1,C,0.16433064218663668
+Humid,Activity: 1.1–1.6 met,0,C,0.16760567617668093
+Humid,Activity: 1.1–1.6 met,1,C,0.18886302489416393
+Humid,Clothing: 0.3–0.7 clo,0,C,0.16748338687817263
+Humid,Clothing: 0.3–0.7 clo,1,C,0.16620748345740313

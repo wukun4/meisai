@@ -1,0 +1,17 @@
+{
+  "model/local_conditions.csv": true,
+  "model/scenario_results.csv": true,
+  "model/humidity_sweep.csv": true,
+  "model/delivery_decision_map.csv": true,
+  "model/fan_delivery_thresholds.csv": true,
+  "model/sensitivity.csv": true,
+  "model/results_summary.json": true,
+  "figures/04_occupancy.pdf": true,
+  "figures/06_sensitivity.pdf": true,
+  "figures/02_efficiency_and_quality.pdf": true,
+  "figures/03_humidity_sweep.pdf": true,
+  "figures/05_delivery_decision.pdf": true,
+  "figures/01_local_conditions.pdf": true,
+  "geometry_checks_all_passed": true,
+  "existing_checks_all_passed": true
+}

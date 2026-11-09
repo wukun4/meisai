@@ -1,0 +1,19 @@
+\clearpage
+\section[Strengths, weaknesses and extensions]{Strengths, Weaknesses, and Future Extensions}
+\label{sec:evaluation}
+\begingroup\small
+\subsection*{Strengths}
+\begin{enumerate}[leftmargin=*,itemsep=3pt,topsep=2pt,parsep=0pt]
+\item \textbf{Conservation without double counting.} Dry-air mass, water and moist-air enthalpy balances connect equipment, local mixing and background zones. Vapor enthalpy includes its latent contribution once; electrical input and return flows close consistently. These identities give the physical modules a common accounting basis.
+\item \textbf{Transfer across scales.} The same response and service operators cover a $6.5$-m$^2$ bus shelter, a $60$-m$^2$ ticket queue and an $8{,}382$-m$^2$ canopy corridor. The last two differ by about 140 times in area; the full span is about 1,290 times. Dimensionless mixing and coverage fractions support transfer, while controlled scaling separates replication from lost coverage. Efficiency itself retains its physical units.
+\item \textbf{Certifiable venue decisions.} The analytical energy-weighted bound gives the global efficiency maximum for the fixed-background venue allocation model. Zero-gap MILP solutions certify minimum annual cost under the stated service constraints. These guarantees apply to the specified model; the dynamic station comparison remains a set of 24 sampled installations.
+\item \textbf{Decision reversals with physical meaning.} The $1.49^\circ$C versus $1.50^\circ$C service target changes Honolulu's least-cost choice. Higher background wind changes Fremont's efficiency-maximizing device from A to C. Both results reveal why an equipment ranking depends on delivered service and its baseline.
+\end{enumerate}
+\subsection*{Weaknesses and future extensions}
+\begin{enumerate}[leftmargin=*,itemsep=3pt,topsep=2pt,parsep=0pt]
+\item \textbf{Physiological memory.} Repeated quasi-steady SET evaluations do not track an individual's previous exertion, sweating or stored body heat. A time-dependent two-node physiological model could carry skin and core states along pedestrian trajectories and represent changing metabolic activity.
+\item \textbf{Prescribed local delivery.} The bandwise mixing fraction $\beta$ and local air speeds approximate jet entrainment and decay. Fast CFD-informed jet correlations, calibrated with local air-speed and humidity measurements, could replace fixed bands and resolve obstructions and overlapping jets.
+\item \textbf{Directional solar exposure.} Mean radiant temperature and surface loads represent the dominant shaded environment but do not resolve asymmetric direct shortwave exposure on people. Solar-position tracking, moving shadow masks and body-projection factors could extend the model to partially sunlit platforms and corridors.
+\end{enumerate}
+\endgroup
+\FloatBarrier

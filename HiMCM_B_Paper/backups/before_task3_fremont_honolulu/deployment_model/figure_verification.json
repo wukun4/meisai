@@ -1,0 +1,61 @@
+{
+  "figures": [
+    {
+      "path": "figures/14_deployment_tradeoff.pdf",
+      "pages": 1,
+      "embedded_raster_images": 0,
+      "sha256": "f3bc7a78b6e4ab8db162e9874c1dfdeb2797109c9841a8890652e8432a263c9d",
+      "rendered_preview": "/tmp/himcm-unified-figure-qa/14_deployment_tradeoff.png",
+      "visual_review": "Passed: labels, legends, limits and explanatory notes readable; no clipping or overlaps observed."
+    },
+    {
+      "path": "figures/15_deployment_mix.pdf",
+      "pages": 1,
+      "embedded_raster_images": 0,
+      "sha256": "bed575af6b37b4b360b56adb3f91e1c12a675a209705bf24893f59c4d08743ee",
+      "rendered_preview": "/tmp/himcm-unified-figure-qa/15_deployment_mix.png",
+      "visual_review": "Passed: labels, legends, limits and explanatory notes readable; no clipping or overlaps observed."
+    },
+    {
+      "path": "figures/16_deployment_coverage.pdf",
+      "pages": 1,
+      "embedded_raster_images": 0,
+      "sha256": "ec753601e1466e5f8553611f922b725f56bb4a648f61002421f98eb8bb8b1894",
+      "rendered_preview": "/tmp/himcm-unified-figure-qa/16_deployment_coverage.png",
+      "visual_review": "Passed: labels, legends, limits and explanatory notes readable; no clipping or overlaps observed."
+    },
+    {
+      "path": "figures/17_zone_thermal_maps.pdf",
+      "pages": 1,
+      "embedded_raster_images": 0,
+      "sha256": "5161b10ba9b0250bac095f19b9c1fb15d83720ba4a402ee9376df9e25711cd39",
+      "rendered_preview": "/tmp/himcm-unified-figure-qa/17_zone_thermal_maps.png",
+      "visual_review": "Passed: labels, legends, limits and explanatory notes readable; no clipping or overlaps observed."
+    },
+    {
+      "path": "figures/18_occupancy_service_maps.pdf",
+      "pages": 1,
+      "embedded_raster_images": 0,
+      "sha256": "8504687a09fdb1dca8d4d4bd5c34106ca946567248cc54efcfc7a5e1a0ce31a4",
+      "rendered_preview": "/tmp/himcm-unified-figure-qa/18_occupancy_service_maps.png",
+      "visual_review": "Passed: labels, legends, limits and explanatory notes readable; no clipping or overlaps observed."
+    },
+    {
+      "path": "figures/20_local_delivery_sensitivity.pdf",
+      "pages": 1,
+      "embedded_raster_images": 0,
+      "sha256": "379224006cc986c0f2d9ddcc610daba66655e0cbdf12185ffd2f4ce73b0d9dfb",
+      "rendered_preview": "/tmp/himcm-unified-figure-qa/20_local_delivery_sensitivity.png",
+      "visual_review": "Passed: labels, legends, limits and explanatory notes readable; no clipping or overlaps observed."
+    },
+    {
+      "path": "figures/21_model_reduction_checks.pdf",
+      "pages": 1,
+      "embedded_raster_images": 0,
+      "sha256": "a0056c10860dcb5a7ec1b47f2ded030e86b168bac69fdc24e3783b3c49b95796",
+      "rendered_preview": "/tmp/himcm-unified-figure-qa/21_model_reduction_checks.png",
+      "visual_review": "Passed: labels, legends, limits and explanatory notes readable; no clipping or overlaps observed."
+    }
+  ],
+  "all_standalone_vector_pdfs": true
+}

@@ -1,0 +1,23 @@
+{
+  "retrieved": "2026-11-08",
+  "sources": [
+    {
+      "name": "NASA POWER Climatology API",
+      "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "parameters": [
+        "T2M",
+        "RH2M",
+        "PS"
+      ],
+      "month": "JUL",
+      "period": "January 2001 - December 2025",
+      "sample_manifest": "climate_samples.json"
+    },
+    {
+      "name": "PublicaMundi state boundaries",
+      "url": "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json",
+      "file": "us-states.json",
+      "sha256": "6f23ed91fce2c25d57c01d83225342ba40258e9571c486c3999bd827c80d193b"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "Dry": [
+    {
+      "zone": "Entrance",
+      "air_temperature_c": 33.910552589998844,
+      "rh": 0.29532861299647983,
+      "surface_temperature_c": 34.490128920607575,
+      "dry_air_mass_kg": 363.4503513652479
+    },
+    {
+      "zone": "Core",
+      "air_temperature_c": 34.9784184744126,
+      "rh": 0.29091161107168856,
+      "surface_temperature_c": 35.152002618687966,
+      "dry_air_mass_kg": 363.4503513652479
+    },
+    {
+      "zone": "Platform edge",
+      "air_temperature_c": 33.609405666945484,
+      "rh": 0.29662265538408744,
+      "surface_temperature_c": 34.321911183173754,
+      "dry_air_mass_kg": 363.4503513652479
+    }
+  ],
+  "Humid": [
+    {
+      "zone": "Entrance",
+      "air_temperature_c": 33.909894887266994,
+      "rh": 0.6753006210826907,
+      "surface_temperature_c": 34.49003304255634,
+      "dry_air_mass_kg": 356.11783046293255
+    },
+    {
+      "zone": "Core",
+      "air_temperature_c": 34.96629816939154,
+      "rh": 0.6490451919754671,
+      "surface_temperature_c": 35.14976935029784,
+      "dry_air_mass_kg": 356.11783046293255
+    },
+    {
+      "zone": "Platform edge",
+      "air_temperature_c": 33.609743661175045,
+      "rh": 0.6830763587424024,
+      "surface_temperature_c": 34.32201844292504,
+      "dry_air_mass_kg": 356.11783046293255
+    }
+  ]
+}

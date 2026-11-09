@@ -1,0 +1,163 @@
+{
+  "venues": {
+    "Fremont": {
+      "name": "Fremont Street Experience canopy corridor",
+      "t_c": 38.0,
+      "rh": 0.2,
+      "tr_c": 39.0,
+      "baseline_v": 0.2,
+      "canopy_length_m": 419.1,
+      "effective_width_m": 20.0,
+      "areas_m2": [
+        2400.0,
+        3600.0,
+        2382.0
+      ],
+      "people_by_hour": [
+        [
+          120.0,
+          240.0,
+          90.0
+        ],
+        [
+          180.0,
+          480.0,
+          150.0
+        ],
+        [
+          240.0,
+          720.0,
+          180.0
+        ],
+        [
+          180.0,
+          480.0,
+          150.0
+        ]
+      ]
+    },
+    "Honolulu": {
+      "name": "Honolulu Zoo entrance ticket queue",
+      "t_c": 31.0,
+      "rh": 0.65,
+      "tr_c": 33.0,
+      "baseline_v": 0.35,
+      "assumed_length_m": 10.0,
+      "assumed_width_m": 6.0,
+      "areas_m2": [
+        60.0
+      ],
+      "people_by_hour": [
+        [
+          12.0
+        ],
+        [
+          24.0
+        ],
+        [
+          36.0
+        ],
+        [
+          24.0
+        ]
+      ]
+    }
+  },
+  "devices": {
+    "A": {
+      "power_kw": 0.25,
+      "footprint_m2": 20.0,
+      "supply_kg_da_s": 1.2,
+      "beta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "v_reference_m_s": [
+        1.0,
+        0.55,
+        0.25
+      ],
+      "epsilon": 0.0,
+      "max_drop_c": 0.0,
+      "floor_clearance_m2": 0.5,
+      "capital_usd": 300.0,
+      "maintenance_usd_year": 30.0
+    },
+    "B": {
+      "power_kw": 1.2,
+      "footprint_m2": 30.0,
+      "supply_kg_da_s": 2.0,
+      "beta": [
+        0.8,
+        0.45,
+        0.1
+      ],
+      "v_reference_m_s": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "epsilon": 0.7,
+      "max_drop_c": 5.0,
+      "floor_clearance_m2": 1.0,
+      "capital_usd": 1000.0,
+      "maintenance_usd_year": 100.0
+    },
+    "C": {
+      "power_kw": 2.5,
+      "footprint_m2": 40.0,
+      "supply_kg_da_s": 3.0,
+      "beta": [
+        0.9,
+        0.7,
+        0.4
+      ],
+      "v_reference_m_s": [
+        1.0,
+        0.8,
+        0.5
+      ],
+      "epsilon": 0.7,
+      "max_drop_c": 8.0,
+      "floor_clearance_m2": 1.5,
+      "capital_usd": 2000.0,
+      "maintenance_usd_year": 200.0
+    }
+  },
+  "common": {
+    "period_h": 4.0,
+    "time_step_h": 1.0,
+    "pressure_pa": 101325.0,
+    "met": 1.2,
+    "clo": 0.5,
+    "position": "standing",
+    "set_reference_c": 26.0,
+    "chi": 0.0,
+    "hours_year": 600.0,
+    "electricity_usd_kwh": 0.2,
+    "water_usd_m3": 3.0,
+    "make_up_factor": 1.15,
+    "discount_rate": 0.05,
+    "life_year": 5
+  },
+  "policy": {
+    "coverage_min": 0.8,
+    "mean_relief_min_c": 1.5,
+    "floor_loss_max": 0.035,
+    "annual_energy_cap_kwh_per_m2": 30.0
+  },
+  "crf": 0.23097479812826793,
+  "assumptions": {
+    "geometry": "Only Fremont canopy length 419.1 m is source-derived. Width 20 m, three conceptual zones, and Honolulu customer queue 10 m by 6 m are assumptions.",
+    "weather": "Ta, RH, MRT and background speeds are representative test conditions, not weather observations.",
+    "occupancy": "Four prescribed hourly populations, uniform within each zone; integration over 4 h.",
+    "velocity": "v = v0 + (reference strip speed - 0.2 m/s). Scalar mixing and speed increments are independent reduced inputs.",
+    "strips": "Three equal-area delivery strips per device, distinct from demand zones. Nominal allocations prohibit overlap and boundary clipping.",
+    "background": "Outdoor scalar background externally maintained; no calibrated humidity-storage ODE.",
+    "heat": "chi=0 neglects local electrical heating; full electrical power enters energy and cost.",
+    "annual": "600 representative operating hours per year; the four-hour profile is a service test.",
+    "clipping": "Separate stress test retains near then middle then far strip; lost area has no service credit; full power/water retained.",
+    "policy": "Task 4 only: q>=0.8, mean SET-excess relief>=1.5 C, floor clearance<=3.5%, annual energy<=30 kWh/m2."
+  }
+}

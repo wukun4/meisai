@@ -1,0 +1,27 @@
+Open refrigerated display case illustration: source and usage audit
+
+Original supplied image: ../开放式冷柜.png
+Unmodified source copy: open_display_case_original.png
+Figure asset: ../figures/09_open_display_case.pdf
+Generator: make_open_display_case.py
+
+The drawing is user-supplied, not a manufacturer-provided drawing. The original
+pixels are retained. The PDF page viewport ends at source-image y=906 to omit
+the old embedded Figure 1 label and source line; LaTeX manages both instead.
+
+Manufacturer sources checked November 7, 2026:
+https://www.hillphoenix.com/products/cf
+https://www.hillphoenix.com/wp-content/uploads/2021/06/CF-S-R-display-case-manual.pdf
+The April 2021 manual covers CF-R/CF-FS-R/CF-S-R. Its printed page 4 (PDF page 8)
+shows the CF-R 4-ft case external length 48.5 inches [123.2 cm], depth 30 inches
+[76.2 cm], and height 57.75 inches [146.7 cm]. These match the supplied image's
+rounded labels 1232 mm, 762 mm and 1467 mm. Exact inch conversions are 1231.9,
+762 and 1466.85 mm, respectively. No performance values are extracted here.
+
+The product page classifies CF as a medium-temperature refrigerated display
+case for bakery/beverage/dairy/deli applications. The paper therefore uses this
+figure as an illustration of open-front geometry and layered product positions,
+not as a frozen-storage product specification. The internal shelf arrangement
+is schematic; the manufacturer lists different standard shelf counts and
+optional extra shelves. No shelf count, usable volume or shelf spacing from the
+supplied illustration is treated as a verified specification.

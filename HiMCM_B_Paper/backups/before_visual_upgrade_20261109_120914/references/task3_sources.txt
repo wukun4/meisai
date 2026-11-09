@@ -1,0 +1,132 @@
+TASK 3 SOURCE LEDGER: FREMONT STREET EXPERIENCE AND HONOLULU ZOO
+Verified/accessed: 2026-11-08
+Purpose: document the real venue identities and climate rationale separately from
+the estimated geometry, operating conditions, and simulated cooling outcomes.
+No remote media were downloaded or incorporated during this source-update task.
+
+1. FREMONT CANOPY LENGTH
+Bibitem key: fremont-canopy
+Author/publisher: Fremont Street Experience (venue operator).
+Title: The Canopy.
+URL: https://fremontstreetexperience.com/the-canopy/
+Location in source: opening paragraph under "Vegas' Neon Sky".
+Verified fact: the operator gives the overhead canopy length as 1,375 feet.
+Derived value: 1,375 x 0.3048 = 419.1 m. The conversion is arithmetic, not a
+separate measurement. Preserve the source's precision; 419 m is also appropriate.
+Allowed use: establish the length scale of the covered pedestrian corridor.
+Not established: effective cooling width, occupied area, air volume, opening area,
+air-change rate, local wind, shading fraction, crowd density, equipment inventory,
+or measured cooling performance. Any such Task 3 inputs are scenario estimates.
+
+2. HONOLULU ZOO ENTRANCE AND PUBLIC QUEUE
+Bibitem key: honolulu-zoo-entrance
+Author/publisher: Urban Works (project architect).
+Title: Zoo Entrance & Gift Shop.
+URL: https://uwarchitects.com/project/honolulu-zoo-entrance-gift-shop/
+Project date: completed 2011.
+Verified facts: the architect identifies an entrance project for the City and
+County of Honolulu and describes shaded space for purchasing tickets and queuing.
+The project includes other functions, including a gift shop and concierge space.
+Qualitative visual evidence: the architect's project gallery shows a low,
+column-supported entrance canopy opening onto the exterior visitor forecourt.
+This is evidence of the visitor-side spatial arrangement, not a survey drawing.
+Reference gallery images (previously inspected; not copied into this project):
+https://uwarchitects.com/wp-content/uploads/2016/04/courtyard.jpg
+https://uwarchitects.com/wp-content/uploads/2016/04/kapahulu.jpg
+Model boundary: the public queue outside the admission booth, beneath the
+entrance canopy and any explicitly included adjacent queue spillover. Exclude
+the enclosed staff booth, gift shop, and the rest of the zoo.
+Not established: present-day queue dimensions, exact shade extent, ventilation
+rate, fan inventory, occupancy, or temperature. The historic project images are
+not 2026 field measurements and do not prove unchanged operational layout.
+
+3. ON-SITE TICKETING AFTER DIGITAL SALES BEGAN
+Bibitem key: honolulu-zoo-ticketing
+Author/publisher: Office of Councilmember Radiant Cordero, Honolulu City Council.
+Title: Report to the 'Aiea Community Association, December 2025.
+URL: https://www.aieacommunity.org/wp-content/uploads/2025/12/December-2025-Report-to-Aiea-Community-Association_final.pdf
+Locator: PDF page 2, "Honolulu Zoo Launches New Online Ticketing System".
+Provenance: council-office report, hosted by the community association; its first
+page identifies the council office, government contact address, and public funding.
+Verified facts: digital ticketing began on November 1, 2025; the report explicitly
+says visitors retained the option to purchase tickets in person at the front gate.
+Allowed use: establish that online ticketing did not eliminate the on-site
+purchase function. Do not infer a measured arrival rate or waiting duration.
+
+4. CURRENT ADMISSION-BOOTH FUNCTION
+Bibitem key: honolulu-zoo-admission
+Author/publisher: Honolulu Zoological Society / official Honolulu Zoo website.
+Title: Buy Tickets.
+URL: https://www.honoluluzoo.org/visit/buy-tickets/
+Locator: Military subsection of the current admission page.
+Verified fact: military tickets are purchased at the admission booth with valid
+military identification; the page also offers online general admission.
+Allowed use: corroborate the continued operation of the admission booth as
+checked on the access date. This does not measure the number of walk-up visitors.
+Source conflict resolved: https://www.honolulu.gov/des/zoo/ still contains an
+older "No advance tickets available" statement. Do not repeat that obsolete
+restriction: the current official purchase page and the council report establish
+that online and on-site channels coexist.
+
+5. LAS VEGAS CLIMATE CONTEXT
+Bibitem key: las-vegas-climate
+Author/publisher: NOAA National Weather Service, Las Vegas office.
+Title: Las Vegas General Climatic Summary / Climate of Las Vegas.
+URL: https://www.weather.gov/vef/ClimateofLasVegas
+Locators: paragraphs on the desert valley, summer heat, moisture barriers, and
+the July-August monsoon.
+Verified facts: Las Vegas has a desert setting, abundant sunshine, very hot
+summers, and limited rainfall; monsoon incursions can raise summer humidity.
+The official climate station is at Harry Reid International Airport, not below
+the Fremont canopy. These facts motivate a hot-dry scenario, while acknowledging
+that dry conditions are not universal throughout the year.
+Not established: the scenario's exact dry-bulb temperature, relative humidity,
+mean radiant temperature, or pedestrian-level wind. Label these as assumptions,
+not observations from this source or from Fremont Street.
+
+6. HONOLULU CLIMATE AND WEAK-TRADE-WIND CASE
+Bibitem key: honolulu-climate
+Author/publisher: NOAA National Centers for Environmental Information (NCEI).
+Title: Local Climatological Data: Annual Summary with Comparative Data,
+Honolulu, Hawaii (PHNL), 2023.
+URL: https://www.ncei.noaa.gov/pub/access/cebrequests/2023lcdannual/01202313HNL.pdf
+Locator: printed/PDF page 7, local climate narrative (zero-based PDF page 6).
+Verified facts: Honolulu and Waikiki lie on Oahu's southern coastal plain;
+ocean influence moderates temperatures; northeasterly trade winds commonly
+provide cooling. When trades weaken or southerly flow replaces them, muggy
+conditions can develop. The document concerns Honolulu airport and regional
+climate; it is not an instrument record at the zoo's ticket queue.
+Allowed use: motivate a warm, weak-wind maritime case contrasting with the
+Las Vegas hot-dry case. Do not describe Honolulu as permanently stagnant or
+uniformly high-humidity, or claim this weak-wind case is an annual average.
+Not established: the assumed queue-level wind, air-change rate, temperature/RH
+combination, or its frequency. These remain scenario inputs and sensitivity axes.
+
+FACT / ASSUMPTION / OUTPUT CHECKLIST
+- Sourced geometry: only the Fremont canopy length, 1,375 ft = 419.1 m.
+- Qualitative sourced geometry: Honolulu's shaded public ticket-purchasing and
+  queue space, distinguished from enclosed service spaces.
+- Estimated geometry: all modeled widths, queue depth, height, usable area,
+  effective volume, zoning, obstacle and opening fractions.
+- Estimated operation: arrivals, occupancy, dwell time, exposure schedule,
+  equipment counts/capacities/placements, airflows and local coverage.
+- Estimated physics: representative weather, radiation, ACH/exchange rates,
+  delivery mixing, surface/thermal parameters and initial conditions unless
+  individually tied to an additional verified source.
+- Simulation outputs: comfort/SET changes, useful cooling service U, electrical
+  energy E, efficiency U/E, and strategy rankings. They are model predictions,
+  not the venues' measured performance or existing installed systems.
+- Comparisons must use a consistent service-energy definition and distinguish
+  a literal enlargement from replicating a local service module. Actual venue
+  identities do not validate assumed parameter values.
+- Geometry, system operation, and microclimate must not be inferred from the
+  presence of a canopy alone. The Honolulu case is the outdoor visitor queue,
+  not the potentially conditioned employee booth.
+
+Suggested concise wording for the paper:
+"The operator reports a 1,375-ft (419.1-m) Fremont canopy. For Honolulu Zoo,
+the architect documents shaded ticket-purchasing and queue space, and official
+admission information confirms continuing booth sales. All other geometric and
+operating inputs are declared scenario estimates. Regional climate sources
+motivate a hot-dry Las Vegas case and a warm, weak-wind Honolulu case; neither
+set of inputs is presented as an on-site monitoring record."

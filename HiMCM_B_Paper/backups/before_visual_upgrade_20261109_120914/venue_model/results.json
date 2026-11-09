@@ -1,0 +1,1178 @@
+{
+  "Fremont": {
+    "venue": {
+      "name": "Fremont Street Experience canopy corridor",
+      "t_c": 38.0,
+      "rh": 0.2,
+      "tr_c": 39.0,
+      "baseline_v": 0.2,
+      "canopy_length_m": 419.1,
+      "effective_width_m": 20.0,
+      "areas_m2": [
+        2400.0,
+        3600.0,
+        2382.0
+      ],
+      "people_by_hour": [
+        [
+          120.0,
+          240.0,
+          90.0
+        ],
+        [
+          180.0,
+          480.0,
+          150.0
+        ],
+        [
+          240.0,
+          720.0,
+          180.0
+        ],
+        [
+          180.0,
+          480.0,
+          150.0
+        ]
+      ]
+    },
+    "person_hours": 3210.0,
+    "thermal": {
+      "baseline_set_c": 33.77390732603446,
+      "baseline_residual_c": 7.773907326034461,
+      "wet_bulb_c": 20.76655880886556,
+      "devices": {
+        "A": {
+          "residual_c": 6.222957828099902,
+          "benefit_c": 1.5509494979345593,
+          "strip_benefit_c": [
+            2.536702720818088,
+            1.7504721567385602,
+            0.36567361624702954
+          ],
+          "water_m3_h": 0.0,
+          "outlet_t_c": 38.0
+        },
+        "B": {
+          "residual_c": 5.659231560019693,
+          "benefit_c": 2.1146757660147677,
+          "strip_benefit_c": [
+            3.41449839951591,
+            2.1199699304416875,
+            0.809558968086705
+          ],
+          "water_m3_h": 0.016501690042278194,
+          "outlet_t_c": 33.0
+        },
+        "C": {
+          "residual_c": 4.044517024850093,
+          "benefit_c": 3.729390301184368,
+          "strip_benefit_c": [
+            4.916463673943305,
+            3.921714038014894,
+            2.349993191594905
+          ],
+          "water_m3_h": 0.039690488608134684,
+          "outlet_t_c": 30.000000000000004
+        }
+      },
+      "local": [
+        {
+          "device": "A",
+          "strip": 1,
+          "beta": 0.0,
+          "entrainment_ratio": "infinite",
+          "strip_area_m2": 6.666666666666667,
+          "t_c": 38.0,
+          "rh": 0.2,
+          "w_kg_kg_da": 0.008248929023593815,
+          "h_j_kg_da": 59441.60579139574,
+          "v_m_s": 1.0,
+          "set_c": 31.237204605216373,
+          "baseline_set_c": 33.77390732603446,
+          "relief_c": 2.536702720818088,
+          "outlet_t_c": 38.0,
+          "outlet_rh": 0.2,
+          "outlet_w_kg_kg_da": 0.008248929023593815
+        },
+        {
+          "device": "A",
+          "strip": 2,
+          "beta": 0.0,
+          "entrainment_ratio": "infinite",
+          "strip_area_m2": 6.666666666666667,
+          "t_c": 38.0,
+          "rh": 0.2,
+          "w_kg_kg_da": 0.008248929023593815,
+          "h_j_kg_da": 59441.60579139574,
+          "v_m_s": 0.55,
+          "set_c": 32.0234351692959,
+          "baseline_set_c": 33.77390732603446,
+          "relief_c": 1.7504721567385602,
+          "outlet_t_c": 38.0,
+          "outlet_rh": 0.2,
+          "outlet_w_kg_kg_da": 0.008248929023593815
+        },
+        {
+          "device": "A",
+          "strip": 3,
+          "beta": 0.0,
+          "entrainment_ratio": "infinite",
+          "strip_area_m2": 6.666666666666667,
+          "t_c": 38.0,
+          "rh": 0.2,
+          "w_kg_kg_da": 0.008248929023593815,
+          "h_j_kg_da": 59441.60579139574,
+          "v_m_s": 0.25,
+          "set_c": 33.40823370978743,
+          "baseline_set_c": 33.77390732603446,
+          "relief_c": 0.36567361624702954,
+          "outlet_t_c": 38.0,
+          "outlet_rh": 0.2,
+          "outlet_w_kg_kg_da": 0.008248929023593815
+        },
+        {
+          "device": "B",
+          "strip": 1,
+          "beta": 0.8,
+          "entrainment_ratio": 0.24999999999999994,
+          "strip_area_m2": 10.0,
+          "t_c": 33.997104855593,
+          "rh": 0.29656816026087607,
+          "w_kg_kg_da": 0.009843295211253544,
+          "h_j_kg_da": 59441.60579139574,
+          "v_m_s": 0.8,
+          "set_c": 30.35940892651855,
+          "baseline_set_c": 33.77390732603446,
+          "relief_c": 3.41449839951591,
+          "outlet_t_c": 33.0,
+          "outlet_rh": 0.32606814979667437,
+          "outlet_w_kg_kg_da": 0.010241886758168476
+        },
+        {
+          "device": "B",
+          "strip": 2,
+          "beta": 0.45,
+          "entrainment_ratio": 1.2222222222222223,
+          "strip_area_m2": 10.0,
+          "t_c": 35.74551589381139,
+          "rh": 0.25040690169958907,
+          "w_kg_kg_da": 0.009145760004152414,
+          "h_j_kg_da": 59441.60579139575,
+          "v_m_s": 0.49999999999999994,
+          "set_c": 31.653937395592774,
+          "baseline_set_c": 33.77390732603446,
+          "relief_c": 2.1199699304416875,
+          "outlet_t_c": 33.0,
+          "outlet_rh": 0.32606814979667437,
+          "outlet_w_kg_kg_da": 0.010241886758168476
+        },
+        {
+          "device": "B",
+          "strip": 3,
+          "beta": 0.1,
+          "entrainment_ratio": 9.0,
+          "strip_area_m2": 10.0,
+          "t_c": 37.49836734534645,
+          "rh": 0.21041104968549887,
+          "w_kg_kg_da": 0.008448224797051282,
+          "h_j_kg_da": 59441.60579139575,
+          "v_m_s": 0.3,
+          "set_c": 32.964348357947756,
+          "baseline_set_c": 33.77390732603446,
+          "relief_c": 0.809558968086705,
+          "outlet_t_c": 33.0,
+          "outlet_rh": 0.32606814979667437,
+          "outlet_w_kg_kg_da": 0.010241886758168476
+        },
+        {
+          "device": "C",
+          "strip": 1,
+          "beta": 0.9,
+          "entrainment_ratio": 0.11111111111111108,
+          "strip_area_m2": 13.333333333333334,
+          "t_c": 30.795831595460573,
+          "rh": 0.40068417897156094,
+          "w_kg_kg_da": 0.011125051386502124,
+          "h_j_kg_da": 59441.60579139574,
+          "v_m_s": 1.0,
+          "set_c": 28.857443652091156,
+          "baseline_set_c": 33.77390732603446,
+          "relief_c": 4.916463673943305,
+          "outlet_t_c": 30.000000000000004,
+          "outlet_rh": 0.431185337861112,
+          "outlet_w_kg_kg_da": 0.011444620537936382
+        },
+        {
+          "device": "C",
+          "strip": 2,
+          "beta": 0.7,
+          "entrainment_ratio": 0.42857142857142866,
+          "strip_area_m2": 13.333333333333334,
+          "t_c": 32.390262447725476,
+          "rh": 0.3453546977102969,
+          "w_kg_kg_da": 0.010485913083633612,
+          "h_j_kg_da": 59441.60579139574,
+          "v_m_s": 0.8,
+          "set_c": 29.852193288019567,
+          "baseline_set_c": 33.77390732603446,
+          "relief_c": 3.921714038014894,
+          "outlet_t_c": 30.000000000000004,
+          "outlet_rh": 0.431185337861112,
+          "outlet_w_kg_kg_da": 0.011444620537936382
+        },
+        {
+          "device": "C",
+          "strip": 3,
+          "beta": 0.4,
+          "entrainment_ratio": 1.4999999999999998,
+          "strip_area_m2": 13.333333333333334,
+          "t_c": 34.78885198411707,
+          "rh": 0.27482959573160315,
+          "w_kg_kg_da": 0.009527205629330841,
+          "h_j_kg_da": 59441.60579139574,
+          "v_m_s": 0.49999999999999994,
+          "set_c": 31.423914134439556,
+          "baseline_set_c": 33.77390732603446,
+          "relief_c": 2.349993191594905,
+          "outlet_t_c": 30.000000000000004,
+          "outlet_rh": 0.431185337861112,
+          "outlet_w_kg_kg_da": 0.011444620537936382
+        }
+      ]
+    },
+    "efficiency_optimum": {
+      "upper_bound": 16.543461311301964,
+      "attaining_plan": {
+        "plan": "A1",
+        "x": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "coverage": 0.0033229491173416407,
+        "covered_person_hours": 10.666666666666666,
+        "mean_benefit_c": 0.005153726265203104,
+        "mean_residual_c": 7.768753599769258,
+        "service_person_c_h": 16.543461311301964,
+        "energy_kwh": 1.0,
+        "efficiency": 16.543461311301964,
+        "power_kw": 0.25,
+        "water_m3": 0.0,
+        "water_m3_year": 0.0,
+        "energy_kwh_year": 150.0,
+        "floor_loss": 5.965163445478406e-05,
+        "capital_usd": 300.0,
+        "annual_cost_usd": 129.2924394384804,
+        "components": {
+          "ownership": 69.29243943848039,
+          "maintenance": 30.0,
+          "electricity": 30.0,
+          "water": 0.0
+        },
+        "area_used_m2": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "service_by_hour_person_c_h": [
+          2.067932663912746,
+          4.135865327825492,
+          6.203797991738237,
+          4.135865327825492
+        ],
+        "family": "A"
+      },
+      "attaining_single_device_zone": 2,
+      "tied_single_device_pairs": [
+        {
+          "zone": 2,
+          "device": "A"
+        }
+      ],
+      "scope": "All integer nonoverlapping full-footprint allocations within the assumed zones, without a service or cost constraint."
+    },
+    "pure_largest_fit": {
+      "A": {
+        "plan": "A419",
+        "x": [
+          [
+            120,
+            0,
+            0
+          ],
+          [
+            180,
+            0,
+            0
+          ],
+          [
+            119,
+            0,
+            0
+          ]
+        ],
+        "counts": [
+          419,
+          0,
+          0
+        ],
+        "coverage": 0.9998509067225373,
+        "covered_person_hours": 3209.521410579345,
+        "mean_benefit_c": 1.5507182617907334,
+        "mean_residual_c": 6.223189064243728,
+        "service_person_c_h": 4977.805620348254,
+        "energy_kwh": 419.0,
+        "efficiency": 11.880204344506572,
+        "power_kw": 104.75,
+        "water_m3": 0.0,
+        "water_m3_year": 0.0,
+        "energy_kwh_year": 62850.0,
+        "floor_loss": 0.024994034836554522,
+        "capital_usd": 125700.0,
+        "annual_cost_usd": 54173.53212472328,
+        "components": {
+          "ownership": 29033.532124723282,
+          "maintenance": 12570.0,
+          "electricity": 12570.0,
+          "water": 0.0
+        },
+        "area_used_m2": [
+          2400.0,
+          3600.0,
+          2380.0
+        ],
+        "service_by_hour_person_c_h": [
+          697.810073856602,
+          1256.0737596370768,
+          1767.8480272174982,
+          1256.0737596370768
+        ],
+        "family": "A"
+      },
+      "B": {
+        "plan": "B279",
+        "x": [
+          [
+            0,
+            80,
+            0
+          ],
+          [
+            0,
+            120,
+            0
+          ],
+          [
+            0,
+            79,
+            0
+          ]
+        ],
+        "counts": [
+          0,
+          279,
+          0
+        ],
+        "coverage": 0.9991054403352244,
+        "covered_person_hours": 3207.1284634760705,
+        "mean_benefit_c": 2.1127840623704124,
+        "mean_residual_c": 5.661123263664049,
+        "service_person_c_h": 6782.036840209024,
+        "energy_kwh": 1339.1999999999998,
+        "efficiency": 5.064244952366357,
+        "power_kw": 334.79999999999995,
+        "water_m3": 18.415886087182464,
+        "water_m3_year": 2762.3829130773693,
+        "energy_kwh_year": 200880.0,
+        "floor_loss": 0.033285612025769504,
+        "capital_usd": 279000.0,
+        "annual_cost_usd": 140805.11741701886,
+        "components": {
+          "ownership": 64441.968677786754,
+          "maintenance": 27900.0,
+          "electricity": 40176.0,
+          "water": 8287.148739232109
+        },
+        "area_used_m2": [
+          2400.0,
+          3600.0,
+          2370.0
+        ],
+        "service_by_hour_person_c_h": [
+          950.6452996490065,
+          1711.2893787092303,
+          2408.8127831415572,
+          1711.2893787092303
+        ],
+        "family": "B"
+      },
+      "C": {
+        "plan": "C209",
+        "x": [
+          [
+            0,
+            0,
+            60
+          ],
+          [
+            0,
+            0,
+            90
+          ],
+          [
+            0,
+            0,
+            59
+          ]
+        ],
+        "counts": [
+          0,
+          0,
+          209
+        ],
+        "coverage": 0.9983599739479114,
+        "covered_person_hours": 3204.7355163727957,
+        "mean_benefit_c": 3.723274003932019,
+        "mean_residual_c": 4.050633322102442,
+        "service_person_c_h": 11951.709552621782,
+        "energy_kwh": 2090.0,
+        "efficiency": 5.718521317043915,
+        "power_kw": 522.5,
+        "water_m3": 33.1812484764006,
+        "water_m3_year": 4977.1872714600895,
+        "energy_kwh_year": 313500.0,
+        "floor_loss": 0.03740157480314961,
+        "capital_usd": 418000.0,
+        "annual_cost_usd": 215979.02743199625,
+        "components": {
+          "ownership": 96547.46561761599,
+          "maintenance": 41800.0,
+          "electricity": 62700.0,
+          "water": 14931.561814380268
+        },
+        "area_used_m2": [
+          2400.0,
+          3600.0,
+          2360.0
+        ],
+        "service_by_hour_person_c_h": [
+          1675.12563855717,
+          3015.639482333012,
+          4245.304949398589,
+          3015.639482333012
+        ],
+        "family": "C"
+      }
+    },
+    "policy": {
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "success": true,
+      "mip_gap": 0.0,
+      "objective_bound": 50926.068502654634,
+      "selected": {
+        "plan": "A266C16",
+        "x": [
+          [
+            116,
+            0,
+            0
+          ],
+          [
+            148,
+            0,
+            16
+          ],
+          [
+            2,
+            0,
+            0
+          ]
+        ],
+        "counts": [
+          266,
+          0,
+          16
+        ],
+        "coverage": 0.8179351365772891,
+        "covered_person_hours": 2625.571788413098,
+        "mean_benefit_c": 1.5002192236364609,
+        "mean_residual_c": 6.273688102398,
+        "service_person_c_h": 4815.703707873039,
+        "energy_kwh": 426.0,
+        "efficiency": 11.304468797824036,
+        "power_kw": 106.5,
+        "water_m3": 2.54019127092062,
+        "water_m3_year": 381.028690638093,
+        "energy_kwh_year": 63900.0,
+        "floor_loss": 0.018730613218802195,
+        "capital_usd": 111800.0,
+        "annual_cost_usd": 50926.068502654634,
+        "components": {
+          "ownership": 25822.982430740358,
+          "maintenance": 11180.0,
+          "electricity": 12780.0,
+          "water": 1143.086071914279
+        },
+        "area_used_m2": [
+          2320.0,
+          3600.0,
+          40.0
+        ],
+        "service_by_hour_person_c_h": [
+          647.4288331490226,
+          1204.121260658176,
+          1760.0323534076647,
+          1204.121260658176
+        ],
+        "family": "Mixed",
+        "scenario_annual_cost_usd": 50926.06850265463
+      },
+      "policy_margins": {
+        "coverage": 0.017935136577289068,
+        "floor": 0.016269386781197808,
+        "energy": 187560.0,
+        "area": 0.0,
+        "relief": 0.00021922363646087462
+      },
+      "objective_value": 50926.06850265463
+    },
+    "max_policy_relief": {
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "success": true,
+      "mip_gap": 0.0,
+      "objective_bound": -3.38780385109094,
+      "selected": {
+        "plan": "A105C157",
+        "x": [
+          [
+            0,
+            0,
+            60
+          ],
+          [
+            0,
+            0,
+            90
+          ],
+          [
+            105,
+            0,
+            7
+          ]
+        ],
+        "counts": [
+          105,
+          0,
+          157
+        ],
+        "coverage": 0.9998509067225373,
+        "covered_person_hours": 3209.521410579345,
+        "mean_benefit_c": 3.38780385109094,
+        "mean_residual_c": 4.386103474943521,
+        "service_person_c_h": 10874.850362001916,
+        "energy_kwh": 1675.0,
+        "efficiency": 6.492447977314577,
+        "power_kw": 418.75,
+        "water_m3": 24.92562684590858,
+        "water_m3_year": 3738.844026886288,
+        "energy_kwh_year": 251250.0,
+        "floor_loss": 0.03435934144595562,
+        "capital_usd": 345500.0,
+        "annual_cost_usd": 175818.32483397544,
+        "components": {
+          "ownership": 79801.79275331658,
+          "maintenance": 34550.0,
+          "electricity": 50250.0,
+          "water": 11216.532080658862
+        },
+        "area_used_m2": [
+          2400.0,
+          3600.0,
+          2380.0
+        ],
+        "service_by_hour_person_c_h": [
+          1505.0952400382441,
+          2732.255484801469,
+          3905.2441523607367,
+          2732.255484801469
+        ],
+        "family": "Mixed",
+        "scenario_annual_cost_usd": 175818.32483397546
+      },
+      "policy_margins": {
+        "coverage": 0.19985090672253725,
+        "floor": 0.0006406585540443821,
+        "energy": 210.0,
+        "area": 0.0
+      },
+      "objective_value": -3.38780385109094
+    }
+  },
+  "Honolulu": {
+    "venue": {
+      "name": "Honolulu Zoo entrance ticket queue",
+      "t_c": 31.0,
+      "rh": 0.65,
+      "tr_c": 33.0,
+      "baseline_v": 0.35,
+      "assumed_length_m": 10.0,
+      "assumed_width_m": 6.0,
+      "areas_m2": [
+        60.0
+      ],
+      "people_by_hour": [
+        [
+          12.0
+        ],
+        [
+          24.0
+        ],
+        [
+          36.0
+        ],
+        [
+          24.0
+        ]
+      ]
+    },
+    "person_hours": 96.0,
+    "thermal": {
+      "baseline_set_c": 31.462979741692195,
+      "baseline_residual_c": 5.462979741692195,
+      "wet_bulb_c": 25.562685955993842,
+      "devices": {
+        "A": {
+          "residual_c": 3.972174398522551,
+          "benefit_c": 1.4908053431696437,
+          "strip_benefit_c": [
+            2.5541319001448457,
+            1.589434591107672,
+            0.3288495382564136
+          ],
+          "water_m3_h": 0.0,
+          "outlet_t_c": 31.0
+        },
+        "B": {
+          "residual_c": 3.3352390811622805,
+          "benefit_c": 2.127740660529914,
+          "strip_benefit_c": [
+            3.592412707244602,
+            2.0680996938483,
+            0.72270958049684
+          ],
+          "water_m3_h": 0.01284946753828719,
+          "outlet_t_c": 27.193880169195698
+        },
+        "C": {
+          "residual_c": 2.2394797422213792,
+          "benefit_c": 3.2234999994708153,
+          "strip_benefit_c": [
+            4.271372377617954,
+            3.4043179869717015,
+            1.9948096338227899
+          ],
+          "water_m3_h": 0.01927420130743079,
+          "outlet_t_c": 27.193880169195698
+        }
+      },
+      "local": [
+        {
+          "device": "A",
+          "strip": 1,
+          "beta": 0.0,
+          "entrainment_ratio": "infinite",
+          "strip_area_m2": 6.666666666666667,
+          "t_c": 31.0,
+          "rh": 0.65,
+          "w_kg_kg_da": 0.018470524197266195,
+          "h_j_kg_da": 78445.79144257712,
+          "v_m_s": 1.1500000000000001,
+          "set_c": 28.90884784154735,
+          "baseline_set_c": 31.462979741692195,
+          "relief_c": 2.5541319001448457,
+          "outlet_t_c": 31.0,
+          "outlet_rh": 0.65,
+          "outlet_w_kg_kg_da": 0.018470524197266195
+        },
+        {
+          "device": "A",
+          "strip": 2,
+          "beta": 0.0,
+          "entrainment_ratio": "infinite",
+          "strip_area_m2": 6.666666666666667,
+          "t_c": 31.0,
+          "rh": 0.65,
+          "w_kg_kg_da": 0.018470524197266195,
+          "h_j_kg_da": 78445.79144257712,
+          "v_m_s": 0.7,
+          "set_c": 29.873545150584523,
+          "baseline_set_c": 31.462979741692195,
+          "relief_c": 1.589434591107672,
+          "outlet_t_c": 31.0,
+          "outlet_rh": 0.65,
+          "outlet_w_kg_kg_da": 0.018470524197266195
+        },
+        {
+          "device": "A",
+          "strip": 3,
+          "beta": 0.0,
+          "entrainment_ratio": "infinite",
+          "strip_area_m2": 6.666666666666667,
+          "t_c": 31.0,
+          "rh": 0.65,
+          "w_kg_kg_da": 0.018470524197266195,
+          "h_j_kg_da": 78445.79144257712,
+          "v_m_s": 0.39999999999999997,
+          "set_c": 31.13413020343578,
+          "baseline_set_c": 31.462979741692195,
+          "relief_c": 0.3288495382564136,
+          "outlet_t_c": 31.0,
+          "outlet_rh": 0.65,
+          "outlet_w_kg_kg_da": 0.018470524197266195
+        },
+        {
+          "device": "B",
+          "strip": 1,
+          "beta": 0.8,
+          "entrainment_ratio": 0.24999999999999994,
+          "strip_area_m2": 10.0,
+          "t_c": 27.953418259262506,
+          "rh": 0.8252368118680891,
+          "w_kg_kg_da": 0.019712018645409887,
+          "h_j_kg_da": 78445.79144257712,
+          "v_m_s": 0.95,
+          "set_c": 27.870567034447593,
+          "baseline_set_c": 31.462979741692195,
+          "relief_c": 3.592412707244602,
+          "outlet_t_c": 27.193880169195698,
+          "outlet_rh": 0.8758669684135515,
+          "outlet_w_kg_kg_da": 0.020022392257445808
+        },
+        {
+          "device": "B",
+          "strip": 2,
+          "beta": 0.45,
+          "entrainment_ratio": 1.2222222222222223,
+          "strip_area_m2": 10.0,
+          "t_c": 29.284635707297063,
+          "rh": 0.7434935636198841,
+          "w_kg_kg_da": 0.019168864824347022,
+          "h_j_kg_da": 78445.79144257712,
+          "v_m_s": 0.6499999999999999,
+          "set_c": 29.394880047843895,
+          "baseline_set_c": 31.462979741692195,
+          "relief_c": 2.0680996938483,
+          "outlet_t_c": 27.193880169195698,
+          "outlet_rh": 0.8758669684135515,
+          "outlet_w_kg_kg_da": 0.020022392257445808
+        },
+        {
+          "device": "B",
+          "strip": 3,
+          "beta": 0.1,
+          "entrainment_ratio": 9.0,
+          "strip_area_m2": 10.0,
+          "t_c": 30.618437870370535,
+          "rh": 0.6697256094729295,
+          "w_kg_kg_da": 0.018625711003284157,
+          "h_j_kg_da": 78445.79144257713,
+          "v_m_s": 0.4499999999999999,
+          "set_c": 30.740270161195355,
+          "baseline_set_c": 31.462979741692195,
+          "relief_c": 0.72270958049684,
+          "outlet_t_c": 27.193880169195698,
+          "outlet_rh": 0.8758669684135515,
+          "outlet_w_kg_kg_da": 0.020022392257445808
+        },
+        {
+          "device": "C",
+          "strip": 1,
+          "beta": 0.9,
+          "entrainment_ratio": 0.11111111111111108,
+          "strip_area_m2": 13.333333333333334,
+          "t_c": 27.573544109425995,
+          "rh": 0.8501791490665738,
+          "w_kg_kg_da": 0.01986720545142785,
+          "h_j_kg_da": 78445.79144257712,
+          "v_m_s": 1.1500000000000001,
+          "set_c": 27.19160736407424,
+          "baseline_set_c": 31.462979741692195,
+          "relief_c": 4.271372377617954,
+          "outlet_t_c": 27.193880169195698,
+          "outlet_rh": 0.8758669684135515,
+          "outlet_w_kg_kg_da": 0.020022392257445808
+        },
+        {
+          "device": "C",
+          "strip": 2,
+          "beta": 0.7,
+          "entrainment_ratio": 0.42857142857142866,
+          "strip_area_m2": 13.333333333333334,
+          "t_c": 28.33350279333456,
+          "rh": 0.8010176568489962,
+          "w_kg_kg_da": 0.019556831839391924,
+          "h_j_kg_da": 78445.79144257712,
+          "v_m_s": 0.95,
+          "set_c": 28.058661754720493,
+          "baseline_set_c": 31.462979741692195,
+          "relief_c": 3.4043179869717015,
+          "outlet_t_c": 27.193880169195698,
+          "outlet_rh": 0.8758669684135515,
+          "outlet_w_kg_kg_da": 0.020022392257445808
+        },
+        {
+          "device": "C",
+          "strip": 3,
+          "beta": 0.4,
+          "entrainment_ratio": 1.4999999999999998,
+          "strip_area_m2": 13.333333333333334,
+          "t_c": 29.475020450161555,
+          "rh": 0.7324865844227896,
+          "w_kg_kg_da": 0.01909127142133804,
+          "h_j_kg_da": 78445.79144257712,
+          "v_m_s": 0.6499999999999999,
+          "set_c": 29.468170107869405,
+          "baseline_set_c": 31.462979741692195,
+          "relief_c": 1.9948096338227899,
+          "outlet_t_c": 27.193880169195698,
+          "outlet_rh": 0.8758669684135515,
+          "outlet_w_kg_kg_da": 0.020022392257445808
+        }
+      ]
+    },
+    "efficiency_optimum": {
+      "upper_bound": 47.7057709814286,
+      "attaining_plan": {
+        "plan": "A1",
+        "x": [
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "coverage": 0.3333333333333333,
+        "covered_person_hours": 32.0,
+        "mean_benefit_c": 0.49693511438988125,
+        "mean_residual_c": 4.966044627302313,
+        "service_person_c_h": 47.7057709814286,
+        "energy_kwh": 1.0,
+        "efficiency": 47.7057709814286,
+        "power_kw": 0.25,
+        "water_m3": 0.0,
+        "water_m3_year": 0.0,
+        "energy_kwh_year": 150.0,
+        "floor_loss": 0.008333333333333333,
+        "capital_usd": 300.0,
+        "annual_cost_usd": 129.2924394384804,
+        "components": {
+          "ownership": 69.29243943848039,
+          "maintenance": 30.0,
+          "electricity": 30.0,
+          "water": 0.0
+        },
+        "area_used_m2": [
+          20.0
+        ],
+        "service_by_hour_person_c_h": [
+          5.963221372678575,
+          11.92644274535715,
+          17.889664118035725,
+          11.92644274535715
+        ],
+        "family": "A"
+      },
+      "attaining_single_device_zone": 1,
+      "tied_single_device_pairs": [
+        {
+          "zone": 1,
+          "device": "A"
+        }
+      ],
+      "scope": "All integer nonoverlapping full-footprint allocations within the assumed zones, without a service or cost constraint."
+    },
+    "pure_largest_fit": {
+      "A": {
+        "plan": "A3",
+        "x": [
+          [
+            3,
+            0,
+            0
+          ]
+        ],
+        "counts": [
+          3,
+          0,
+          0
+        ],
+        "coverage": 1.0,
+        "covered_person_hours": 96.0,
+        "mean_benefit_c": 1.4908053431696437,
+        "mean_residual_c": 3.972174398522551,
+        "service_person_c_h": 143.1173129442858,
+        "energy_kwh": 3.0,
+        "efficiency": 47.7057709814286,
+        "power_kw": 0.75,
+        "water_m3": 0.0,
+        "water_m3_year": 0.0,
+        "energy_kwh_year": 450.0,
+        "floor_loss": 0.025,
+        "capital_usd": 900.0,
+        "annual_cost_usd": 387.87731831544113,
+        "components": {
+          "ownership": 207.87731831544116,
+          "maintenance": 90.0,
+          "electricity": 90.0,
+          "water": 0.0
+        },
+        "area_used_m2": [
+          60.0
+        ],
+        "service_by_hour_person_c_h": [
+          17.889664118035725,
+          35.77932823607145,
+          53.668992354107175,
+          35.77932823607145
+        ],
+        "family": "A"
+      },
+      "B": {
+        "plan": "B2",
+        "x": [
+          [
+            0,
+            2,
+            0
+          ]
+        ],
+        "counts": [
+          0,
+          2,
+          0
+        ],
+        "coverage": 1.0,
+        "covered_person_hours": 96.0,
+        "mean_benefit_c": 2.127740660529914,
+        "mean_residual_c": 3.3352390811622805,
+        "service_person_c_h": 204.26310341087174,
+        "energy_kwh": 9.6,
+        "efficiency": 21.27740660529914,
+        "power_kw": 2.4,
+        "water_m3": 0.10279574030629753,
+        "water_m3_year": 15.419361045944628,
+        "energy_kwh_year": 1440.0,
+        "floor_loss": 0.03333333333333333,
+        "capital_usd": 2000.0,
+        "annual_cost_usd": 996.2076793943697,
+        "components": {
+          "ownership": 461.94959625653587,
+          "maintenance": 200.0,
+          "electricity": 288.0,
+          "water": 46.258083137833886
+        },
+        "area_used_m2": [
+          60.0
+        ],
+        "service_by_hour_person_c_h": [
+          25.532887926358967,
+          51.065775852717934,
+          76.5986637790769,
+          51.065775852717934
+        ],
+        "family": "B"
+      },
+      "C": {
+        "plan": "C1",
+        "x": [
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "counts": [
+          0,
+          0,
+          1
+        ],
+        "coverage": 0.6666666666666666,
+        "covered_person_hours": 64.0,
+        "mean_benefit_c": 2.1489999996472102,
+        "mean_residual_c": 3.3139797420449844,
+        "service_person_c_h": 206.30399996613218,
+        "energy_kwh": 10.0,
+        "efficiency": 20.630399996613217,
+        "power_kw": 2.5,
+        "water_m3": 0.07709680522972316,
+        "water_m3_year": 11.564520784458475,
+        "energy_kwh_year": 1500.0,
+        "floor_loss": 0.025,
+        "capital_usd": 2000.0,
+        "annual_cost_usd": 996.6431586099113,
+        "components": {
+          "ownership": 461.94959625653587,
+          "maintenance": 200.0,
+          "electricity": 300.0,
+          "water": 34.69356235337542
+        },
+        "area_used_m2": [
+          40.0
+        ],
+        "service_by_hour_person_c_h": [
+          25.787999995766523,
+          51.575999991533045,
+          77.36399998729956,
+          51.575999991533045
+        ],
+        "family": "C"
+      }
+    },
+    "policy": {
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "success": true,
+      "mip_gap": 0.0,
+      "objective_bound": 627.3962791356653,
+      "selected": {
+        "plan": "A1B1",
+        "x": [
+          [
+            1,
+            1,
+            0
+          ]
+        ],
+        "counts": [
+          1,
+          1,
+          0
+        ],
+        "coverage": 0.8333333333333334,
+        "covered_person_hours": 80.0,
+        "mean_benefit_c": 1.5608054446548383,
+        "mean_residual_c": 3.902174297037356,
+        "service_person_c_h": 149.83732268686447,
+        "energy_kwh": 5.8,
+        "efficiency": 25.834021152907667,
+        "power_kw": 1.45,
+        "water_m3": 0.05139787015314876,
+        "water_m3_year": 7.709680522972314,
+        "energy_kwh_year": 870.0,
+        "floor_loss": 0.025,
+        "capital_usd": 1300.0,
+        "annual_cost_usd": 627.3962791356653,
+        "components": {
+          "ownership": 300.26723756674835,
+          "maintenance": 130.0,
+          "electricity": 174.0,
+          "water": 23.129041568916943
+        },
+        "area_used_m2": [
+          50.0
+        ],
+        "service_by_hour_person_c_h": [
+          18.72966533585806,
+          37.45933067171612,
+          56.188996007574175,
+          37.45933067171612
+        ],
+        "family": "Mixed",
+        "scenario_annual_cost_usd": 627.3962791356653
+      },
+      "policy_margins": {
+        "coverage": 0.033333333333333326,
+        "floor": 0.010000000000000002,
+        "energy": 930.0,
+        "area": 10.0,
+        "relief": 0.06080544465483828
+      },
+      "objective_value": 627.3962791356653
+    },
+    "max_policy_relief": {
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "success": true,
+      "mip_gap": 0.0,
+      "objective_bound": -2.6459351140370915,
+      "selected": {
+        "plan": "A1C1",
+        "x": [
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "counts": [
+          1,
+          0,
+          1
+        ],
+        "coverage": 1.0,
+        "covered_person_hours": 96.0,
+        "mean_benefit_c": 2.6459351140370915,
+        "mean_residual_c": 2.817044627655103,
+        "service_person_c_h": 254.00977094756078,
+        "energy_kwh": 11.0,
+        "efficiency": 23.09179735886916,
+        "power_kw": 2.75,
+        "water_m3": 0.07709680522972316,
+        "water_m3_year": 11.564520784458475,
+        "energy_kwh_year": 1650.0,
+        "floor_loss": 0.03333333333333333,
+        "capital_usd": 2300.0,
+        "annual_cost_usd": 1125.9355980483917,
+        "components": {
+          "ownership": 531.2420356950163,
+          "maintenance": 230.0,
+          "electricity": 330.0,
+          "water": 34.69356235337542
+        },
+        "area_used_m2": [
+          60.0
+        ],
+        "service_by_hour_person_c_h": [
+          31.751221368445098,
+          63.502442736890195,
+          95.25366410533529,
+          63.502442736890195
+        ],
+        "family": "Mixed",
+        "scenario_annual_cost_usd": 1125.9355980483917
+      },
+      "policy_margins": {
+        "coverage": 0.19999999999999996,
+        "floor": 0.0016666666666666705,
+        "energy": 150.0,
+        "area": 0.0
+      },
+      "objective_value": -2.6459351140370915
+    }
+  }
+}

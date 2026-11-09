@@ -1,0 +1,18 @@
+{
+  "physical_backend": true,
+  "delivery_conservation": true,
+  "Phoenix_zero_control": true,
+  "Phoenix_matched_service_balance": true,
+  "Phoenix_policy_feasible": true,
+  "Phoenix_winner_on_pareto_frontier": true,
+  "Phoenix_saturation_bound": true,
+  "Phoenix_same_equipment_scale": true,
+  "Phoenix_replicated_equipment_scale": true,
+  "Singapore_zero_control": true,
+  "Singapore_matched_service_balance": true,
+  "Singapore_policy_feasible": true,
+  "Singapore_winner_on_pareto_frontier": true,
+  "Singapore_saturation_bound": true,
+  "Singapore_same_equipment_scale": true,
+  "Singapore_replicated_equipment_scale": true
+}

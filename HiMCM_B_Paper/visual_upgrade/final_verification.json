@@ -1,0 +1,68 @@
+{
+  "counted_pages": 25,
+  "ai_report_pages": 1,
+  "total_pages": 26,
+  "original_files_verified": 74,
+  "numbered_equation_environments_unchanged": 30,
+  "final_equation_number": 39,
+  "no_ai_mentions_in_counted_pages": true,
+  "no_overfull_boxes_or_undefined_references": true,
+  "raw_climate_responses_verified": 77,
+  "figures": [
+    {
+      "name": "34_continuous_thermal_fields",
+      "width": 3180,
+      "height": 2220,
+      "dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    {
+      "name": "35_us_climate_potential",
+      "width": 3180,
+      "height": 2340,
+      "dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    {
+      "name": "36_energy_service_radar",
+      "width": 3180,
+      "height": 3060,
+      "dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    {
+      "name": "37_bus_efficiency_delivery",
+      "width": 3180,
+      "height": 1140,
+      "dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    {
+      "name": "38_station_efficiency_sensitivity",
+      "width": 3180,
+      "height": 1200,
+      "dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    {
+      "name": "39_bus_local_fields",
+      "width": 3180,
+      "height": 1500,
+      "dpi": [
+        299.9994,
+        299.9994
+      ]
+    }
+  ],
+  "pdf_sha256": "d864829dc40fcc06a182b8967e5ff0bbeddbf85edb8e795a6ff9df211c72f6f7"
+}

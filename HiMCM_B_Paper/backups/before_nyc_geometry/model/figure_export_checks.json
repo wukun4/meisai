@@ -1,0 +1,64 @@
+{
+  "numerical_checks": {
+    "delivery_decision_map.csv": {
+      "sha256": "ee3504bbdd3ae545f219b74f01886cbe8d1f1930a3e2da376c38380467c2aadc",
+      "matches_original": true
+    },
+    "fan_delivery_thresholds.csv": {
+      "sha256": "c376eed2d2370c9dc53b5a030f6946bdd8291d465c10a1c85e0a597d898e5fc7",
+      "matches_original": true
+    },
+    "humidity_sweep.csv": {
+      "sha256": "e23fea6babe581fc059fde2f73a8b0b42f29685cd0642ae8bcb0f5a4205d942e",
+      "matches_original": true
+    },
+    "local_conditions.csv": {
+      "sha256": "b91667bc1f7deb1ab3f8585639eadb21a7fac6e0f79ae1d4d8e75f1994df35a3",
+      "matches_original": true
+    },
+    "scenario_results.csv": {
+      "sha256": "431bdd2271af2c2a3f55fb030f5633bf4a095694c5b0bc43bbc3ee904c5123b6",
+      "matches_original": true
+    },
+    "sensitivity.csv": {
+      "sha256": "977057f0df389ee55b19a4e4a43bc7d151ea5b2025a61d76d63985d3b05db4bb",
+      "matches_original": true
+    },
+    "results_summary.json": {
+      "matches_original": true
+    }
+  },
+  "pdf_checks": {
+    "01_local_conditions.pdf": {
+      "embedded_raster_images": 0,
+      "fonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nGAFAZX+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0\n",
+      "pdf_info": "Creator:         Matplotlib v3.11.2, https://matplotlib.org\nProducer:        Matplotlib pdf backend v3.11.2\nCreationDate:    Sat Nov  7 17:10:06 2026 JST\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       742.48 x 404.4 pts\nPage rot:        0\nFile size:       80228 bytes\nOptimized:       no\nPDF version:     1.4\n"
+    },
+    "02_efficiency_and_quality.pdf": {
+      "embedded_raster_images": 0,
+      "fonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nGIXSTG+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0\nDSWGTF+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     22  0\n",
+      "pdf_info": "Creator:         Matplotlib v3.11.2, https://matplotlib.org\nProducer:        Matplotlib pdf backend v3.11.2\nCreationDate:    Sat Nov  7 17:10:07 2026 JST\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       728.4 x 260.4 pts\nPage rot:        0\nFile size:       20664 bytes\nOptimized:       no\nPDF version:     1.4\n"
+    },
+    "03_humidity_sweep.pdf": {
+      "embedded_raster_images": 0,
+      "fonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nEBKNYR+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0\nDSWGTF+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     22  0\n",
+      "pdf_info": "Creator:         Matplotlib v3.11.2, https://matplotlib.org\nProducer:        Matplotlib pdf backend v3.11.2\nCreationDate:    Sat Nov  7 17:10:07 2026 JST\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       728.4 x 270.496 pts\nPage rot:        0\nFile size:       21039 bytes\nOptimized:       no\nPDF version:     1.4\n"
+    },
+    "04_occupancy.pdf": {
+      "embedded_raster_images": 0,
+      "fonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nGMPJRB+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0\nDRHTLE+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     22  0\n",
+      "pdf_info": "Creator:         Matplotlib v3.11.2, https://matplotlib.org\nProducer:        Matplotlib pdf backend v3.11.2\nCreationDate:    Sat Nov  7 17:10:07 2026 JST\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       728.4 x 260.4 pts\nPage rot:        0\nFile size:       19445 bytes\nOptimized:       no\nPDF version:     1.4\n"
+    },
+    "05_delivery_decision.pdf": {
+      "embedded_raster_images": 0,
+      "fonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nDJLVGI+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0\nPNCDCV+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     22  0\n",
+      "pdf_info": "Creator:         Matplotlib v3.11.2, https://matplotlib.org\nProducer:        Matplotlib pdf backend v3.11.2\nCreationDate:    Sat Nov  7 17:10:08 2026 JST\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       569.047 x 289.2 pts\nPage rot:        0\nFile size:       54021 bytes\nOptimized:       no\nPDF version:     1.4\n"
+    },
+    "06_sensitivity.pdf": {
+      "embedded_raster_images": 0,
+      "fonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nFRTWWB+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0\nDRHTLE+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     22  0\n",
+      "pdf_info": "Creator:         Matplotlib v3.11.2, https://matplotlib.org\nProducer:        Matplotlib pdf backend v3.11.2\nCreationDate:    Sat Nov  7 17:10:08 2026 JST\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       728.4 x 368.4 pts\nPage rot:        0\nFile size:       24844 bytes\nOptimized:       no\nPDF version:     1.4\n"
+    }
+  },
+  "visual_qa": "All six PDFs rendered and visually checked. No clipping or overlap; figure 5 equal-colored grid cells merged into contiguous vector fills to remove seams. Exactly six CSVs and results_summary.json match the original byte for byte."
+}

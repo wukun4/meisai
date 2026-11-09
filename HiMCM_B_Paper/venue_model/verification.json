@@ -1,0 +1,43 @@
+{
+  "checks": {
+    "physical_backend": true,
+    "delivery_closure": true,
+    "Fremont_bound_attained": true,
+    "Fremont_valid_set_all_strips": true,
+    "Fremont_nominal_policy_certified": true,
+    "Fremont_zero_control": true,
+    "Fremont_weighted_average_identity": true,
+    "Fremont_hourly_service_balance": true,
+    "Honolulu_bound_attained": true,
+    "Honolulu_valid_set_all_strips": true,
+    "Honolulu_nominal_policy_certified": true,
+    "Honolulu_zero_control": true,
+    "Honolulu_weighted_average_identity": true,
+    "Honolulu_hourly_service_balance": true,
+    "Honolulu_milp_equals_exhaustive": true,
+    "fixed_device_scaling": true,
+    "replicated_scaling": true,
+    "clipped_area_and_full_power": true,
+    "full_footprint_clipping_matches_nominal": true,
+    "243_prices_per_venue": true,
+    "price_milp_certified": true,
+    "sensitivity_domain": true,
+    "sensitivity_status_reported": true,
+    "density_proportionality": true
+  },
+  "details": {
+    "Fremont": {
+      "checked_allocations": 600,
+      "max_weighted_identity_error": 3.552713678800501e-15,
+      "max_hourly_service_balance_error": 3.637978807091713e-12,
+      "max_bound_violation": 0.0
+    },
+    "Honolulu": {
+      "checked_allocations": 9,
+      "max_weighted_identity_error": 3.552713678800501e-15,
+      "max_hourly_service_balance_error": 0.0,
+      "max_bound_violation": 0.0
+    }
+  },
+  "all_passed": true
+}

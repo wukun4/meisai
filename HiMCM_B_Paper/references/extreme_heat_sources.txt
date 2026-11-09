@@ -1,0 +1,75 @@
+EXTREME DRY-HEAT TEST: PRIMARY SOURCES, DOMAIN AUDIT AND ASSUMPTIONS
+Accessed 2026-11-08. No device performance or weather measurements are added.
+
+1. Official SET software documentation (existing bibliography key: pythermal)
+https://pythermalcomfort.readthedocs.io/en/stable/documentation/models.html#standard-effective-temperature-set
+https://pythermalcomfort.readthedocs.io/en/stable/_modules/pythermalcomfort/models/set_tmp.html
+The SET API describes tdb and tr applicability using 10 < temperature < 40 C,
+and returns NaN outside its applicability checks when limit_inputs=True.
+The package paper is Tartarini F and Schiavon S (2020), SoftwareX12,100578:
+https://doi.org/10.1016/j.softx.2020.100578
+The paper establishes the software method; the installed-version guard is
+audited from source and execution rather than inferred from the2020 release.
+
+Installed pythermalcomfort4.8.1 implementation audit:
+pythermalcomfort/models/set_tmp.py calls _check_ashrae55_compliance when
+limit_inputs=True. _internal/ashrae55.py passes (10.0,40.0) to _valid_range for
+tdb and tr; _internal/validation.py rejects x<lower OR x>upper, so the endpoints
+are included. Direct tests accepted Ta=Tr=40 and rejected Tr42,Ta42 and Tr44.
+Thus40C is labelled a default-guard-accepted boundary, not strict-interior or
+additional empirical validation. Ta=Tr=39 is the strict-interior confirmation.
+All extrapolations first record default-guard rejection and its warnings;
+only the separately labelled diagnostic branch then uses limit_inputs=False.
+No existing backend guard or physical module is changed.
+
+2. ASHRAE2017 Handbook--Fundamentals, Chapter9,Thermal Comfort
+(existing bibliography key: thermalcomfort; source below is SI edition)
+https://handbook.ashrae.org/Handbooks/F17/SI/f17_ch09/f17_ch09_si.aspx
+Section3, Sensible Heat Loss from Skin, equations(5)--(6), gives convective
+exchange at clothing/exposed-skin surfaces in terms of the surface-air
+temperature difference. Section3, Evaporative Heat Loss from Skin,
+equation(12), relates evaporation to wettedness and vapor-pressure difference.
+Their signs and joint contribution explain why temperature, humidity and
+air movement must enter the same heat-balance response. A fixed35C rule is
+not imposed by this test, and air cooling is not substituted for SET relief.
+
+3. Primary experimental support for competing exchanges (background source;
+not used to fit parameters, and not necessary as a new paper bibliography item)
+Cramer MN,Huang M,Moralez G,Crandall CG (2020). Keeping older individuals cool
+in hot and moderately humid conditions: wetted clothing with and without an
+electric fan. Journal of Applied Physiology128(3):604--611.
+https://doi.org/10.1152/japplphysiol.00786.2019
+https://pmc.ncbi.nlm.nih.gov/articles/PMC7099436/
+Nine older participants were tested near42.4C,34.2%RH. The study quantified
+concurrent changes in convective heat gain and evaporative loss. Its people,
+clothing and conditions differ from our scenario; its measurements are not
+transferred to our model. It supports the mechanism, not an assumed ranking
+or health prediction for our40C scenario.
+
+ASSUMPTIONS TO CENTRALISE IN THE PAPER'S SECTION2
+- Hypothetical stress grid: Ta40/41/42C; RH15/17.5/20%; Tr=Ta or Ta+2C.
+- Strict-interior confirmation: Ta=Tr=39C,RH15/20%.
+- Paper figure: only Ta=Tr=40C,RH15/20%, with default SET guard retained.
+- The +2C MRT convention is tested but all its40--42C cases lie outside the
+  present SET guard. Such rows and all42C rows are diagnostic material only.
+- Fixed ambient background; chi=0 (bus approximation neglects local motor
+  and pump heat); no new bus heat-storage or solar model.
+- Uniform mean occupancy(4,4,4),one-hour period; same matched uncooled baseline.
+- Pressure101325Pa; standing;1.2met;0.5clo;body area1.8258m2;external work0met.
+- SET service reference26C; baseline air speed0.2m/s.
+- Device powers A/B/C=.25/1.2/2.5kW; B/C effectiveness=.7.
+- B/C outlet-temperature drop caps5/8C, retained in every climate.
+- Local speeds in near/middle/edge order:
+  A=(1.0,.55,.25),B=(.8,.5,.3),C=(1.0,.8,.5)m/s.
+- Local delivered dry-air fractions beta:
+  A=(0,0,0),B=(.8,.45,.1),C=(.9,.7,.4).
+- These are existing delivery assumptions, not calibrated airflow data.
+- Temperature/humidity use the existing conserved-h/w stream-mixing backend.
+
+ARTIFACTS
+model/extreme_heat_test.py regenerates separate accepted and diagnostic CSVs,
+extreme_heat_checks.json,extreme_heat_diagnostic.json,and figure26.
+No ODE is solved; this is a bus-model climate stress test. Accepted cases are
+cross-checked against the existing scalar simulate.evaluate implementation.
+The original physical modules,scenario and scenario-results CSV are hashed
+before and after execution; they must remain unchanged.

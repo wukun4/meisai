@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering\fontsize{9.5}{10.7}\selectfont
+\caption{Venue design inputs. The canopy length and site identities are sourced; occupied width, queue area, weather snapshots, attendance, delivery and prices are planning assumptions.}
+\label{tab:venue-inputs}
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+Input & Fremont Street Experience & Honolulu Zoo ticketing queue\\
+\midrule
+Service boundary & $419.1$-m canopy \cite{fremont-canopy}; assumed $20$-m occupied width; $A_z=(2400,3600,2382)$ m$^2$ & Window-side shaded public queue \cite{honolulu-zoo-entrance,honolulu-zoo-admission}; one assumed $10\times6$ m demand area\\
+Climate / radiation & $T_a/T_r=38/39^\circ$C; RH $20\%$; $v_0=0.20$ m/s \cite{las-vegas-climate} & Warm, weak-wind case: $31/33^\circ$C; RH $65\%$; $v_0=0.35$ m/s \cite{honolulu-climate}\\
+Hourly occupancy & $(120,240,90)$; $(180,480,150)$; $(240,720,180)$; $(180,480,150)$ & $12,24,36,24$ simultaneous visitors over four successive one-hour intervals\\
+Common physics & \multicolumn{2}{p{0.80\linewidth}@{}}{Prescribed outdoor background; $\chi=0$; standing visitors, 1.2 met, 0.5 clo. Each complete device footprint has three equal-area delivery strips with Table~\ref{tab:bus-fields}'s bus $\beta$ values and $v=v_0+(v_{\rm bus}-0.20)$ m/s. Uniform density within each demand zone; disjoint footprints.}\\
+Unit A/B/C & \multicolumn{2}{p{0.80\linewidth}@{}}{Footprints $20/30/40$ m$^2$; flow $1.2/2/3$ kg$_{da}$/s; clearance $0.5/1/1.5$ m$^2$; capital USD $300/1000/2000$; annual maintenance USD $30/100/200$.}\\
+Operating basis & \multicolumn{2}{p{0.80\linewidth}@{}}{$H=4$ h/session; $H_y=600$ h/y; equipment life 5 y, discount 5\%, zero salvage; USD $0.20$/kWh and $3$/m$^3$; make-up-water factor $1.15$.}\\
+Task 4 policy & \multicolumn{2}{p{0.80\linewidth}@{}}{$q\ge0.80$; mean SET-excess relief $\ge1.5^\circ$C; clearance fraction $X\le0.035$; annual energy $\le30\sum_z A_z$ kWh. These conditions enter only the effectiveness decision.}\\
+Transfer tests & \multicolumn{2}{p{0.80\linewidth}@{}}{Exchange the complete weather tuple at fixed geometry/attendance; scale area and attendance together; clip a single device's far-to-near strips only in the separate boundary test. RH, radiant temperature, natural speed and area are varied individually.}\\
+\bottomrule
+\end{tabularx}
+\end{table}

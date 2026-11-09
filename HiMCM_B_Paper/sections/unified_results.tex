@@ -1,0 +1,27 @@
+Among 24 sampled plans, A3 maximizes $\eta$ at $37.58$; among the six equal-$68.18\%$-coverage benchmarks, A36 leads at $35.49$. The distinct candidate sets answer scale and device-comparison questions, respectively (Figure~\ref{fig:deployment-efficiency}).
+
+Plan suffixes give total device counts. For A36/B24/C18/AB30/AC27/ABC24, per-zone $(A,B,C)$ counts are $(12,0,0)$, $(0,8,0)$, $(0,0,6)$, $(6,4,0)$, $(6,0,3)$ and $(3,2,3)$, respectively; A3 places one fan in each zone.
+
+\begin{table}[!ht]
+\centering\small
+\caption{Nominal efficiency accounting: $U$ in person$\cdot{}^{\circ}$C$\cdot$h, $E$ in kWh.}
+\label{tab:deployment-results}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Plan & Person-time coverage & $U$ & $E$ & $\eta$\\
+\midrule
+A3 & 5.68\% & 56.38 & 1.5 & 37.58\\
+A36 & 68.18\% & 638.89 & 18.0 & 35.49\\
+B24 & 68.18\% & 446.28 & 57.6 & 7.75\\
+C18 & 68.18\% & 453.00 & 90.0 & 5.03\\
+AB30 & 68.18\% & 581.61 & 37.8 & 15.39\\
+AC27 & 68.18\% & 593.68 & 54.0 & 10.99\\
+ABC24 & 68.18\% & 524.76 & 63.9 & 8.21\\
+AB30-R & 76.19\% & 695.07 & 37.8 & 18.39\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Redistributing AB30's 18 A and 12 B units to zone counts $(3,4,0)$, $(12,3,0)$ and $(3,5,0)$ raises person-time coverage from $68.18\%$ to $76.19\%$. At the same 37.8 kWh, $U$ rises from $581.61$ to $695.07$ and $\eta$ from $15.39$ to $18.39$: allocation changes useful delivery without adding equipment.
+
+A36 retains its equal-coverage efficiency lead for all 15 combinations $\beta=0/0.25/0.5/0.75/1$, $\chi=0/0.5/1$. Varying A's unit flow through $0.3/0.6/1.2$ kg dry air/s gives efficiencies $34.06/35.49/36.22$. Figure~\ref{fig:local-sensitivity} shows the controlled delivery sensitivity.

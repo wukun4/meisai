@@ -1,0 +1,87 @@
+Task 2a source and inference audit — 2026-11-07
+Prepared for the existing HiMCM Problem B paper; no observed device data are created here.
+
+1. Verified thermal sources (five primary/official entries; geometry source below)
+
+[S1] Tartarini, F., and Schiavon, S. (2020). pythermalcomfort: A Python package for thermal comfort research. SoftwareX, 12, 100578.
+DOI: https://doi.org/10.1016/j.softx.2020.100578
+Author-maintained citation verified at https://github.com/pythermalcomfort/pythermalcomfort (README citation).
+API source: https://pythermalcomfort.readthedocs.io/en/latest/documentation/models.html#standard-effective-temperature-set
+Verified documentation version: 4.8.1. Record the actually installed version separately for reproducibility.
+SET maps dry-bulb temperature, mean radiant temperature, local air speed, RH, metabolic rate, and clothing to a reference temperature. It is not simply air temperature minus a fan's advertised cooling effect. API defaults: body_surface_area=1.8258 m², p_atm=101325 Pa, position='standing', external work wme=0. The documented standard applicability limits are 10<tdb<40°C, 10<tr<40°C, 0<v<2m/s, 1<met<4, 0<clo<1.5. With limit_inputs=True, out-of-domain inputs return NaN. The documentation's limits do not establish universal outdoor validation. Use round_output=False in calculations.
+
+[S2] ASHRAE (2023). 2023 ASHRAE Handbook—HVAC Applications, Chapter 53, Evaporative Cooling.
+https://handbook.ashrae.org/Handbooks/A23/SI/A23_Ch53/a23_ch53_si.aspx
+Chapter 53, General Applications/Cooling, supports direct evaporation's lower dry bulb and greater moisture content, its entering-wet-bulb limit, and a process approximately at constant enthalpy. Thus T_out=T_a-epsilon*(T_a-T_wb), 0<=epsilon<=1, is appropriate for a single-stage direct evaporative approximation. The maximum physical dry-bulb depression is T_a-T_wb. Nearly constant enthalpy is an approximation to the constant-wet-bulb path, not an exact zero water-energy balance for every device. The chapter's 35°C dry-bulb/24°C wet-bulb/80% effectiveness example yields 26.2°C leaving temperature; it is illustrative, not a measured rating of problem B or C.
+
+[S3] Center for the Built Environment, University of California, Berkeley (n.d.). Fans for Cooling People Guidebook: Elevated air speed and thermal comfort.
+https://cbe-berkeley.gitbook.io/fans-guidebook/full-guidebook/elevated-air-speed-and-thermal-comfort
+The official guide explains the six environmental/personal factors and the convective and evaporative mechanisms of fans. It explains SET as a common equivalent-temperature metric and cooling effect as a thermal-comfort equivalence. Its example of 0.5m/s and about 2°C cooling effect is conditional on office conditions (24.4°C operative temperature, 50% RH, 0.6clo, 1.13met). That numerical example cannot calibrate all outdoor bus-stop climates. Use a corporate author and n.d. unless a publication date is independently confirmed.
+
+[S4] Gagge, A. P., Fobelets, A. P., and Berglund, L. G. (1986). A standard predictive index of human response to the thermal environment. ASHRAE Transactions, 92(2B), 709–731.
+Original model attribution; bibliography cross-checked in the official package reference list and publisher handbook bibliography (S5):
+https://pythermalcomfort.readthedocs.io/en/latest/documentation/references.html#gagge1986
+No DOI independently verified. Cite S1 for the numerical implementation and S4 only for model origin; the original full paper was not accessed during this audit.
+
+[S5] ASHRAE (2017). 2017 ASHRAE Handbook—Fundamentals, Chapter 9, Thermal Comfort, section 10, Environmental Indices.
+https://handbook.ashrae.org/Handbooks/f17/IP/f17_ch09/f17_ch09_ip.aspx
+The publisher describes SET using a reference environment at 50% RH and equivalent skin temperature and skin wettedness; its standard clothing depends on activity. This definition supports comparison through physiological equivalence and does not make SET an observed passenger-satisfaction score. The chapter explicitly says its standard conditions represent typical indoor applications. This is a useful source for the outdoor-transfer caveat. Its bibliography confirms Gagge et al. (1986), ASHRAE Transactions 92(2B).
+
+2. What follows from the problem table (logical inference; do not claim literature measured these devices)
+
+The reported fan effect ('feels up to 3°C cooler') is an apparent/comfort statement; the evaporative figures (up to 5°C and 8°C) are dry-bulb changes. These quantities are not directly comparable and do not specify local SET changes. The text does not identify the fan's apparent-temperature index. Without rating weather, outlet flow, sensor distance, occupied footprint and humidity, the table cannot identify epsilon, airspeed maps or coverage uniquely. Treat device fields as explicit scenario assumptions or seek calibration data. Do not manufacture a reference state by assuming the peaks must occur in a chosen scenario.
+
+The problem's kW/hr label is dimensionally unsuitable for ordinary constant power. State the modeling convention explicitly: take the listed 0.25, 1.2 and 2.5 as mean operating power in kW, so E=P*duration in kWh. This is an interpretation of ambiguous problem data, not a correction verified from equipment specifications.
+
+3. Minimum limitations to write near the model
+
+The calculations compare hypothetical, locally uniform conditions and a stated reference person; they do not establish physiological safety for every waiting passenger. State met, clo, posture, pressure and radiation assumptions. Outdoor sunlight must enter through a defensible mean radiant temperature (or be explicitly excluded by a shaded-stop scenario); setting T_r=T_a without explanation hides a key bus-stop load. SET under the chosen quasi-steady calculation does not follow the transient physiology of someone who has just walked rapidly to the stop. A hot-only threshold penalty is a decision proxy, not an ASHRAE-prescribed universal discomfort or illness threshold. Report sensitivity to its chosen threshold and to met/clo.
+
+Keep numerical cases within the documented implementation limits, especially T_r<40°C and v<2m/s, or visibly flag extrapolation. Turning limit_inputs=False does not validate the resulting values. Baseline and device cases must use the same occupancy, weather, radiation and evaluation interval. Preserve signed benefit: b=[SET_0-SET_c]_+ - [SET_s-SET_c]_+; adverse effects should remain negative. E=0 for the baseline makes its efficiency ratio undefined; baseline is a reference, not a competing ratio.
+
+4. Ranking and sensitivity safeguards (our analysis/design advice)
+
+Declare the full scenario and parameter grid before reading rankings. Clearly separate problem-given powers/effect descriptions, literature equations, and sourced nominal geometry and assumed mixing/occupancy. Do not change device reach, epsilon or fan speed after seeing a desired winner. Show all cases in the declared domain, not only favorable examples.
+
+Use a matched test: identical stop geometry and occupancy distributions for all devices. Coverage should arise from specified local fields; each passenger is counted once. The paper can show conditional decision maps over unmeasured coverage/airflow parameters. A grid's winning fraction is not a real-world probability unless its weights are supported by data; label it fraction of tested parameter combinations. Report rank changes and break-even boundaries when assumptions dominate.
+
+Report both total signed service U and U/E, plus remaining discomfort or unmet service. An energetically efficient but tiny treated area need not satisfy the stop's service requirement. With a fixed evaluation interval, exact break-even tests from the assumed powers are:
+  eta_B>eta_A iff U_B>4.8 U_A;
+  eta_C>eta_A iff U_C>10 U_A;
+  eta_C>eta_B iff U_C>(25/12) U_B.
+These multiply by positive powers and remain valid for signed U; ratio formulations U_B/U_A require care when U_A<=0. Their derivation is independent of an unverified device map and is strong material for the paper.
+
+Uniformly multiplying every zone's occupancy by the same factor multiplies all U/E equally, so it cannot change ranking under a linear service model. A crowd-driven rank change requires changed spatial distribution, capacity/coverage saturation, or explicit feedback. Do not present a rank switch caused by merely relabeling population size.
+
+Good figures: (a) process/metric mapping from freezer to people; (b) matched occupied-zone maps of signed benefit; (c) U versus energy, labeling efficiency slopes and service adequacy; (d) humidity-by-temperature comparison within applicability bounds; (e) conditional break-even map versus effective reach; (f) sensitivity intervals for uncertain reach/epsilon, met/clo and threshold. Every simulated figure should say 'illustrative scenario; not field measurements'.
+
+
+5. Adopted NYC shelter geometry (2026-11-07 update)
+
+[S6] New York City Department of Transportation. Street Design Manual: Bus Stop
+Shelter, Description, regular-size configuration.
+https://www.nycstreetdesign.info/furniture/bus-stop-shelter
+Verified November 7, 2026. The listed nominal dimensions are 14 feet long,
+5 feet wide and 8 feet 11 inches high. Exact SI conversions are 4.2672 m,
+1.524 m and 2.7178 m. This is a New York City regular shelter; other sizes
+are documented, so it is not a universal New York State shelter standard.
+
+Model-derived geometry: gross footprint 6.5032128 m2; three equal lengthwise
+strips each 2.1677376 m2; centers x=0.7112, 2.1336 and 3.556 m, y=0.762 m.
+The device end x=0, three-zone division and locally uniform delivery fields
+are modeling choices, not source observations. The gross footprint does not
+subtract bench/frame area. The height is not used as a closed cooled volume.
+
+The supplied schematic supports adopting a source-based geometry. It does
+not supply passenger counts or measured air-speed/mixing profiles. Retained
+12-person and eight-person-zone cases are illustrative concentration stress
+scenarios, not capacity/fit assertions. Uniform implied gross density is
+approximately 1.845 people/m2; the most occupied zone is approximately
+3.690 people/m2 before any furniture subtraction.
+
+Code now derives zone areas/positions from geometry and supports n=rho*A when
+gross density is the input. Fixed counts with prescribed local profiles keep
+previous service rankings unchanged; fixed-density area changes scale the
+count and service. No geometry-to-airflow prediction has been established.
+Tests in geometry_checks.json verify this accounting distinction, SI units,
+partition conservation and invalid-input handling.

@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering\fontsize{9.5}{10.7}\selectfont
+\caption{Dining-venue design assumptions. Official sources establish venue identity and climate class; numerical inputs are planning estimates. Complete inputs are in \texttt{venue\_model/inputs.json}.}
+\label{tab:venue-inputs}
+\begin{tabularx}{\linewidth}{@{}p{.20\linewidth}XX@{}}
+\toprule
+Scenario input & Ullman Terrace, Phoenix & Satay Street, Singapore\\
+\midrule
+Venue/sector & Outdoor patio \cite{ullman}; $300$ m$^2$ in three equal zones & Open-air dining street \cite{satay-street}; $240$ m$^2$ in three equal zones\\
+Climate/guests & $T_a/T_r=36/38^\circ$C, RH $25\%$; $n=(60,40,20)$ \cite{phoenix-climate} & $T_a/T_r=32/34^\circ$C, RH $75\%$; $n=(60,36,24)$ \cite{singapore-climate}\\
+Delivery/response & \multicolumn{2}{p{.77\linewidth}@{}}{Fixed background, $\chi=0$; seated guests with shared met/clo/$v_0$; equal person fractions in three local strips using Table~\ref{tab:bus-fields}'s bus profiles. Zone density uniform; footprints disjoint.}\\
+Unit A/B/C inputs & \multicolumn{2}{p{.77\linewidth}@{}}{$a_k=20/30/40$ m$^2$; supply $1.2/2/3$ kg dry air/s; clearance $b_k=.5/1/1.5$ m$^2$; capital USD $300/1000/2000$; annual maintenance USD $30/100/200$.}\\
+Time and prices & \multicolumn{2}{p{.77\linewidth}@{}}{$H=4$ h/session, $H_y=600$ h/year; life $L=5$ y, $r=5\%$, zero salvage; USD $.20$/kWh and $3$/m$^3$; water multiplier $\lambda_w=1.15$, $\rho_w=1000$ kg/m$^3$.}\\
+Task 4 limits & $\overline R_{\max}=4.5^\circ$C; $E_{\max}=6000$ kWh/y & $\overline R_{\max}=7.5^\circ$C; $E_{\max}=2400$ kWh/y\\
+Comparison/policy & \multicolumn{2}{p{.77\linewidth}@{}}{Task 3 has no coverage constraint; its common-coverage benchmark uses $q=.60$. Task 4 minimizes annual cost with $q\ge.80$, $X\le.035$ and the limits above.}\\
+Sensitivity & \multicolumn{2}{p{.77\linewidth}@{}}{Capital $\pm30\%$; water/electricity $\pm50\%$; RH $\pm10$ pp; evaporative $\beta\pm.15$ clipped to $[0,1]$; induced speed $\pm20\%$.}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+

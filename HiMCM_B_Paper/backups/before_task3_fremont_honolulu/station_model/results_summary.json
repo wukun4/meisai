@@ -1,0 +1,216 @@
+{
+  "status": "Assumption-driven simulation; internal verification, not empirical validation",
+  "checks": {
+    "service_plus_remaining_equals_baseline": true,
+    "all_electricity_counted": true,
+    "global_energy_and_moisture_conserved": true,
+    "gas_phase_and_set_domain_valid": true,
+    "uniform_unloaded_state_is_equilibrium": true,
+    "interzone_and_air_surface_exchanges_cancel": true,
+    "empty_station_zero_service_positive_energy": true,
+    "half_step_efficiency_change_below_0_5_percent": true,
+    "half_step_mean_remaining_change_below_0_02_c": true,
+    "unhelpful_fan_heat_retains_negative_service": true,
+    "half_step_peak_core_rh_change_below_0_001": true
+  },
+  "nominal": [
+    {
+      "rh_out": 0.3,
+      "ventilation_multiplier": 1.0,
+      "strategy": "A",
+      "person_hours": 100.0,
+      "energy_kwh": 1.5,
+      "service_person_c_h": 218.83519187557823,
+      "efficiency": 145.89012791705215,
+      "remaining_person_c_h": 361.7042911791172,
+      "mean_remaining_c": 3.617042911791172,
+      "mean_relief_c": 2.1883519187557825,
+      "baseline_remaining_person_c_h": 580.5394830546954,
+      "peak_core_rh": 0.29090510725662794,
+      "peak_core_air_temperature_c": 35.59161421533967
+    },
+    {
+      "rh_out": 0.3,
+      "ventilation_multiplier": 1.0,
+      "strategy": "B",
+      "person_hours": 100.0,
+      "energy_kwh": 7.199999999999999,
+      "service_person_c_h": 256.121843148533,
+      "efficiency": 35.57247821507403,
+      "remaining_person_c_h": 324.41763990616244,
+      "mean_remaining_c": 3.244176399061624,
+      "mean_relief_c": 2.56121843148533,
+      "baseline_remaining_person_c_h": 580.5394830546954,
+      "peak_core_rh": 0.4006874141451807,
+      "peak_core_air_temperature_c": 34.94240437444334
+    },
+    {
+      "rh_out": 0.3,
+      "ventilation_multiplier": 1.0,
+      "strategy": "C",
+      "person_hours": 100.0,
+      "energy_kwh": 15.0,
+      "service_person_c_h": 390.88811090011836,
+      "efficiency": 26.059207393341225,
+      "remaining_person_c_h": 189.65137215457702,
+      "mean_remaining_c": 1.8965137215457701,
+      "mean_relief_c": 3.9088811090011837,
+      "baseline_remaining_person_c_h": 580.5394830546954,
+      "peak_core_rh": 0.5531019834764445,
+      "peak_core_air_temperature_c": 34.86903235426943
+    },
+    {
+      "rh_out": 0.7,
+      "ventilation_multiplier": 1.0,
+      "strategy": "A",
+      "person_hours": 100.0,
+      "energy_kwh": 1.5,
+      "service_person_c_h": 253.07400325008527,
+      "efficiency": 168.7160021667235,
+      "remaining_person_c_h": 803.8213486955517,
+      "mean_remaining_c": 8.038213486955517,
+      "mean_relief_c": 2.530740032500853,
+      "baseline_remaining_person_c_h": 1056.895351945637,
+      "peak_core_rh": 0.6513465458142156,
+      "peak_core_air_temperature_c": 35.575927559643176
+    },
+    {
+      "rh_out": 0.7,
+      "ventilation_multiplier": 1.0,
+      "strategy": "B",
+      "person_hours": 100.0,
+      "energy_kwh": 7.199999999999999,
+      "service_person_c_h": 211.4301100888106,
+      "efficiency": 29.365293067890367,
+      "remaining_person_c_h": 845.4652418568265,
+      "mean_remaining_c": 8.454652418568266,
+      "mean_relief_c": 2.114301100888106,
+      "baseline_remaining_person_c_h": 1056.895351945637,
+      "peak_core_rh": 0.7262227618867056,
+      "peak_core_air_temperature_c": 34.937016233283394
+    },
+    {
+      "rh_out": 0.7,
+      "ventilation_multiplier": 1.0,
+      "strategy": "C",
+      "person_hours": 100.0,
+      "energy_kwh": 15.0,
+      "service_person_c_h": 229.8542183981339,
+      "efficiency": 15.323614559875592,
+      "remaining_person_c_h": 827.0411335475031,
+      "mean_remaining_c": 8.270411335475032,
+      "mean_relief_c": 2.298542183981339,
+      "baseline_remaining_person_c_h": 1056.895351945637,
+      "peak_core_rh": 0.7616186879696247,
+      "peak_core_air_temperature_c": 34.92019866039851
+    }
+  ],
+  "warmup_states": {
+    "Dry": [
+      {
+        "zone": "Entrance",
+        "air_temperature_c": 33.910552589998844,
+        "rh": 0.29532861299647983,
+        "surface_temperature_c": 34.490128920607575,
+        "dry_air_mass_kg": 363.4503513652479
+      },
+      {
+        "zone": "Core",
+        "air_temperature_c": 34.9784184744126,
+        "rh": 0.29091161107168856,
+        "surface_temperature_c": 35.152002618687966,
+        "dry_air_mass_kg": 363.4503513652479
+      },
+      {
+        "zone": "Platform edge",
+        "air_temperature_c": 33.609405666945484,
+        "rh": 0.29662265538408744,
+        "surface_temperature_c": 34.321911183173754,
+        "dry_air_mass_kg": 363.4503513652479
+      }
+    ],
+    "Humid": [
+      {
+        "zone": "Entrance",
+        "air_temperature_c": 33.909894887266994,
+        "rh": 0.6753006210826907,
+        "surface_temperature_c": 34.49003304255634,
+        "dry_air_mass_kg": 356.11783046293255
+      },
+      {
+        "zone": "Core",
+        "air_temperature_c": 34.96629816939154,
+        "rh": 0.6490451919754671,
+        "surface_temperature_c": 35.14976935029784,
+        "dry_air_mass_kg": 356.11783046293255
+      },
+      {
+        "zone": "Platform edge",
+        "air_temperature_c": 33.609743661175045,
+        "rh": 0.6830763587424024,
+        "surface_temperature_c": 34.32201844292504,
+        "dry_air_mass_kg": 356.11783046293255
+      }
+    ]
+  },
+  "convergence": [
+    {
+      "climate": "Dry",
+      "strategy": "A",
+      "efficiency_relative_difference": 1.3047608801582494e-07,
+      "remaining_absolute_difference_c": 5.668805385106168e-07,
+      "peak_core_rh_absolute_difference": 3.404859701905405e-06
+    },
+    {
+      "climate": "Dry",
+      "strategy": "B",
+      "efficiency_relative_difference": 3.8746990794067916e-07,
+      "remaining_absolute_difference_c": 7.110417818978476e-07,
+      "peak_core_rh_absolute_difference": 4.930604780017944e-08
+    },
+    {
+      "climate": "Dry",
+      "strategy": "C",
+      "efficiency_relative_difference": 1.2724610011670984e-06,
+      "remaining_absolute_difference_c": 4.6925395373875745e-06,
+      "peak_core_rh_absolute_difference": 1.4213248789030075e-07
+    },
+    {
+      "climate": "Humid",
+      "strategy": "A",
+      "efficiency_relative_difference": 1.1970487793073566e-07,
+      "remaining_absolute_difference_c": 6.78364967754419e-07,
+      "peak_core_rh_absolute_difference": 4.921777220223689e-07
+    },
+    {
+      "climate": "Humid",
+      "strategy": "B",
+      "efficiency_relative_difference": 2.1657671695718045e-07,
+      "remaining_absolute_difference_c": 8.333314980291107e-07,
+      "peak_core_rh_absolute_difference": 3.959114525109442e-08
+    },
+    {
+      "climate": "Humid",
+      "strategy": "C",
+      "efficiency_relative_difference": 5.013286641254631e-07,
+      "remaining_absolute_difference_c": 1.5277486671294582e-06,
+      "peak_core_rh_absolute_difference": 7.640653290064137e-07
+    }
+  ],
+  "max_energy_budget_residual_j": 4.041939973831177e-07,
+  "max_moisture_budget_residual_kg": 1.1829406125645251e-14,
+  "ventilation_multipliers": [
+    0.5,
+    0.75,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+  ],
+  "versions": {
+    "numpy": "2.5.4",
+    "matplotlib": "3.11.2",
+    "pythermalcomfort": "4.8.1",
+    "psychrolib": "2.5.0"
+  }
+}

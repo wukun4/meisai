@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "pages_total": 25,
+  "pages_including_references_excluding_ai": 24,
+  "station_check_count": 19,
+  "station_all_passed": true,
+  "bus_check_count": 6,
+  "bus_all_passed": true,
+  "latex_unresolved_references": false,
+  "latex_overfull_boxes": false,
+  "visual_review": "All pages inspected; final changed pages and standalone figures re-rendered after layout changes",
+  "compiler": "Local TeX Live 2026 /Library/TeX/texbin latexmk + pdfLaTeX",
+  "pdf_sha256": "77ce710adb2d2543ae2c7efe6b8dda978fd316551799bed8f2ce038674fd26b1"
+}

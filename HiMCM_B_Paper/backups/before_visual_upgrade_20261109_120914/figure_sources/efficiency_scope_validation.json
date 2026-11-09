@@ -1,0 +1,130 @@
+{
+  "scope": "Task 2: service efficiency eta only; no discomfort/Pareto/selection-threshold axis",
+  "source_hashes": {
+    "deployment_model/candidate_results.csv": "508609d5134994b9539693826a6d843e67b2c5ddaccaa238030c7a3f4eff178c",
+    "deployment_model/delivery_sensitivity.csv": "cf841affe2483a4ab86ff9b7f115853f16c45867ba664c46cc7fc1d05b52e8fa",
+    "model/scenario_results.csv": "431bdd2271af2c2a3f55fb030f5633bf4a095694c5b0bc43bbc3ee904c5123b6",
+    "deployment_model/coverage_sensitivity.csv": "9bc4bea2e7e8414ba2286d2dd63ff0e1f9ba175163bebf115b4df25a610f00c9"
+  },
+  "source_row_counts": {
+    "station": 24,
+    "delivery": 360,
+    "bus": 18,
+    "coverage": 18
+  },
+  "checks": {
+    "station_eta_equals_service_over_energy": true,
+    "delivery_eta_equals_service_over_energy": true,
+    "bus_eta_equals_service_over_energy": true,
+    "coverage_eta_equals_service_over_energy": true,
+    "24_distinct_station_candidates": true,
+    "all_station_counts_match_type_sum": true,
+    "six_benchmarks_share_coverage": true,
+    "sample_highest_eta_is_A3": true,
+    "equal_coverage_highest_eta_is_A36": true,
+    "delivery_has_five_beta_values_per_benchmark_per_chi": true,
+    "bus_uniform_has_six_device_climate_pairs": true,
+    "coverage_nominal_matches_station_efficiency": true,
+    "source_csv_hashes_unchanged": true
+  },
+  "station_highest_sampled_eta": {
+    "plan": "A3",
+    "efficiency": 37.583830013966384
+  },
+  "station_highest_equal_coverage_eta": {
+    "plan": "A36",
+    "efficiency": 35.49376708889544
+  },
+  "bus_uniform_efficiency": [
+    {
+      "device": "A",
+      "rh": 0.3,
+      "efficiency": 84.57610430091023
+    },
+    {
+      "device": "B",
+      "rh": 0.3,
+      "efficiency": 24.510455727690434
+    },
+    {
+      "device": "C",
+      "rh": 0.3,
+      "efficiency": 21.13631255841225
+    },
+    {
+      "device": "A",
+      "rh": 0.7,
+      "efficiency": 90.56866798146632
+    },
+    {
+      "device": "B",
+      "rh": 0.7,
+      "efficiency": 21.1162938476974
+    },
+    {
+      "device": "C",
+      "rh": 0.7,
+      "efficiency": 15.170149457598336
+    }
+  ],
+  "A36_coverage_efficiency": [
+    {
+      "footprint_multiplier": 0.75,
+      "efficiency": 25.366016598095786
+    },
+    {
+      "footprint_multiplier": 1.0,
+      "efficiency": 35.49376708889544
+    },
+    {
+      "footprint_multiplier": 1.25,
+      "efficiency": 45.62151757969511
+    }
+  ],
+  "outputs": [
+    "figures/22_station_efficiency.pdf",
+    "figures/23_delivery_efficiency.pdf",
+    "figures/24_bus_efficiency.pdf",
+    "figures/25_coverage_efficiency.pdf"
+  ],
+  "plot_source": "Frozen CSV values; no calls to ODE, SET or physical-model modules",
+  "notation": "CSV local_heat_fraction_alpha corresponds to manuscript chi",
+  "figure_qa": [
+    {
+      "path": "figures/22_station_efficiency.pdf",
+      "width_in": 10.476666666666667,
+      "height_in": 7.776666666666666,
+      "embedded_raster_images": 0,
+      "sha256": "e1f424e85a55e6b0d96b3fff2bc5e3d21fb79f5ede18738fe308346214b55c70",
+      "preview": "/tmp/himcm-efficiency-scope-qa/22_station_efficiency.png",
+      "visual_review": "Readable labels and units; no clipping, overprinting or overlapping data labels observed."
+    },
+    {
+      "path": "figures/23_delivery_efficiency.pdf",
+      "width_in": 10.476666666666667,
+      "height_in": 4.876666666666667,
+      "embedded_raster_images": 0,
+      "sha256": "ad6428c9d7ed550e166082f005e0b17e19bc399cf609f11e6d2a701570b44a35",
+      "preview": "/tmp/himcm-efficiency-scope-qa/23_delivery_efficiency.png",
+      "visual_review": "Readable labels and units; no clipping, overprinting or overlapping data labels observed."
+    },
+    {
+      "path": "figures/24_bus_efficiency.pdf",
+      "width_in": 8.976666666666667,
+      "height_in": 4.876666666666667,
+      "embedded_raster_images": 0,
+      "sha256": "c6b41891386fce3a0f4a0c598cb6fddc214e9bde263753de44caff30d4243a79",
+      "preview": "/tmp/himcm-efficiency-scope-qa/24_bus_efficiency.png",
+      "visual_review": "Readable labels and units; no clipping, overprinting or overlapping data labels observed."
+    },
+    {
+      "path": "figures/25_coverage_efficiency.pdf",
+      "width_in": 8.976666666666667,
+      "height_in": 4.876666666666667,
+      "embedded_raster_images": 0,
+      "sha256": "445713927b0eb83ecfdd5623a7db7bd8df7458b3a8538a6475cde1750ca1a16e",
+      "preview": "/tmp/himcm-efficiency-scope-qa/25_coverage_efficiency.png",
+      "visual_review": "Readable labels and units; no clipping, overprinting or overlapping data labels observed."
+    }
+  ]
+}
